@@ -31,7 +31,7 @@ export default function RecapsPage() {
 
       <section className="mt-10 rounded-card border border-border bg-surface p-6 sm:p-7">
         <h2 className="text-xl font-semibold tracking-tight text-foreground">
-          Recap guide
+          Fast recap guide
         </h2>
         <p className="mt-2 text-sm leading-relaxed text-muted">
           New to the format? Read the evergreen guide to what makes a fast
@@ -39,9 +39,15 @@ export default function RecapsPage() {
         </p>
         <Link
           href="/recaps/what-is-a-fast-sports-recap"
-          className="mt-5 inline-flex rounded-full border border-border px-4 py-2 text-sm font-semibold text-foreground transition-colors hover:border-accent/40 hover:text-accent"
+          className="group mt-5 block rounded-xl border border-border p-4 transition-colors hover:border-accent/40 sm:max-w-md"
         >
-          What Is a Fast Sports Recap? →
+          <span className="block text-sm font-semibold text-foreground group-hover:text-accent">
+            What Is a Fast Sports Recap?
+          </span>
+          <span className="mt-2 block text-xs leading-relaxed text-muted">
+            Learn how short recaps should cover what happened, the turning
+            point, key players, why it matters, and what to watch next.
+          </span>
         </Link>
       </section>
 

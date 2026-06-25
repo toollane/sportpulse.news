@@ -30,7 +30,7 @@ export default function ExplainedPage() {
 
       <section className="mt-10 rounded-card border border-border bg-surface p-6 sm:p-7">
         <h2 className="text-xl font-semibold tracking-tight text-foreground">
-          Evergreen sports explainers
+          SportPulse Guides
         </h2>
         <p className="mt-2 text-sm leading-relaxed text-muted">
           Start with these foundational guides to understand how SportPulse
@@ -39,21 +39,38 @@ export default function ExplainedPage() {
         <div className="mt-5 grid gap-3 sm:grid-cols-3">
           <Link
             href="/explained/what-is-sportpulse"
-            className="rounded-xl border border-border p-4 text-sm font-semibold text-foreground transition-colors hover:border-accent/40 hover:text-accent"
+            className="group rounded-xl border border-border p-4 transition-colors hover:border-accent/40"
           >
-            What Is SportPulse?
+            <span className="block text-sm font-semibold text-foreground group-hover:text-accent">
+              What Is SportPulse?
+            </span>
+            <span className="mt-2 block text-xs leading-relaxed text-muted">
+              A clear introduction to the independent sports intelligence
+              platform.
+            </span>
           </Link>
           <Link
             href="/explained/why-sports-fans-search-for-scores"
-            className="rounded-xl border border-border p-4 text-sm font-semibold text-foreground transition-colors hover:border-accent/40 hover:text-accent"
+            className="group rounded-xl border border-border p-4 transition-colors hover:border-accent/40"
           >
-            Why Sports Fans Search for Scores
+            <span className="block text-sm font-semibold text-foreground group-hover:text-accent">
+              Why Sports Fans Search for Scores
+            </span>
+            <span className="mt-2 block text-xs leading-relaxed text-muted">
+              Why score searches lead to context, recaps, and what happens next.
+            </span>
           </Link>
           <Link
             href="/explained/what-makes-an-athlete-trending"
-            className="rounded-xl border border-border p-4 text-sm font-semibold text-foreground transition-colors hover:border-accent/40 hover:text-accent"
+            className="group rounded-xl border border-border p-4 transition-colors hover:border-accent/40"
           >
-            What Makes an Athlete Trending?
+            <span className="block text-sm font-semibold text-foreground group-hover:text-accent">
+              What Makes an Athlete Trending?
+            </span>
+            <span className="mt-2 block text-xs leading-relaxed text-muted">
+              The performances, injuries, rumors, and viral moments that move
+              attention.
+            </span>
           </Link>
         </div>
       </section>

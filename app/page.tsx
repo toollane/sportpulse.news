@@ -19,6 +19,32 @@ import {
 export default function Home() {
   const featuredStory = stories.find((s) => s.featured) ?? stories[0];
   const otherStories = stories.filter((s) => s.slug !== featuredStory.slug);
+  const guideLinks = [
+    {
+      href: "/explained/what-is-sportpulse",
+      title: "What Is SportPulse?",
+      description:
+        "Start with the mission: how SportPulse helps fans understand what happened, why it mattered, and what to watch next.",
+    },
+    {
+      href: "/explained/why-sports-fans-search-for-scores",
+      title: "Why Sports Fans Search for Scores",
+      description:
+        "Understand the behavior behind score searches: fast answers, emotional confirmation, recaps, and next steps.",
+    },
+    {
+      href: "/explained/what-makes-an-athlete-trending",
+      title: "What Makes an Athlete Trending?",
+      description:
+        "Learn why athletes gain attention online, from standout performances to injuries, rumors, viral moments, and media cycles.",
+    },
+    {
+      href: "/recaps/what-is-a-fast-sports-recap",
+      title: "What Is a Fast Sports Recap?",
+      description:
+        "See how a short recap should explain what happened, the turning point, key players, and why the result matters.",
+    },
+  ];
 
   return (
     <>
@@ -39,6 +65,40 @@ export default function Home() {
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {features.map((feature) => (
             <FeatureCard key={feature.href} feature={feature} />
+          ))}
+        </div>
+      </section>
+
+      {/* SportPulse Guides */}
+      <section className="mx-auto mt-20 w-full max-w-6xl px-5 sm:px-8">
+        <SectionHeader
+          eyebrow="Start here"
+          title="SportPulse Guides"
+          description="Evergreen explainers for the core ideas behind SportPulse: scores, trends, recaps, and fast sports context."
+        />
+        <div className="mt-8 grid gap-4 sm:grid-cols-2">
+          {guideLinks.map((guide) => (
+            <Link
+              key={guide.href}
+              href={guide.href}
+              className="group rounded-card border border-border bg-surface p-6 transition-all hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-[0_12px_40px_-20px_rgba(79,70,229,0.45)]"
+            >
+              <h3 className="text-lg font-semibold tracking-tight text-foreground">
+                {guide.title}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted">
+                {guide.description}
+              </p>
+              <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-accent">
+                Read the guide
+                <span
+                  aria-hidden
+                  className="transition-transform group-hover:translate-x-0.5"
+                >
+                  →
+                </span>
+              </span>
+            </Link>
           ))}
         </div>
       </section>

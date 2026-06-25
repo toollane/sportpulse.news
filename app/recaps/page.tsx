@@ -29,6 +29,22 @@ export default function RecapsPage() {
         lead="A recap should answer one question fast: what actually happened? Each summary below gives you the result, the shape of the game, and the detail that decided it — clean enough to scan, complete enough to feel caught up."
       />
 
+      <section className="mt-10 rounded-card border border-border bg-surface p-6 sm:p-7">
+        <h2 className="text-xl font-semibold tracking-tight text-foreground">
+          Recap guide
+        </h2>
+        <p className="mt-2 text-sm leading-relaxed text-muted">
+          New to the format? Read the evergreen guide to what makes a fast
+          sports recap useful for busy fans.
+        </p>
+        <Link
+          href="/recaps/what-is-a-fast-sports-recap"
+          className="mt-5 inline-flex rounded-full border border-border px-4 py-2 text-sm font-semibold text-foreground transition-colors hover:border-accent/40 hover:text-accent"
+        >
+          What Is a Fast Sports Recap? →
+        </Link>
+      </section>
+
       <section
         className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
         aria-label="Latest recaps"

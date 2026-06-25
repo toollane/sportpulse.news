@@ -28,6 +28,36 @@ export default function ExplainedPage() {
         lead="Sports make more sense with a little context. Explained answers the questions behind the results — why a quiet outcome matters, what a move really signals, and how a streak holds up — in plain, trustworthy language."
       />
 
+      <section className="mt-10 rounded-card border border-border bg-surface p-6 sm:p-7">
+        <h2 className="text-xl font-semibold tracking-tight text-foreground">
+          Evergreen sports explainers
+        </h2>
+        <p className="mt-2 text-sm leading-relaxed text-muted">
+          Start with these foundational guides to understand how SportPulse
+          thinks about scores, trends, recaps, and sports attention.
+        </p>
+        <div className="mt-5 grid gap-3 sm:grid-cols-3">
+          <Link
+            href="/explained/what-is-sportpulse"
+            className="rounded-xl border border-border p-4 text-sm font-semibold text-foreground transition-colors hover:border-accent/40 hover:text-accent"
+          >
+            What Is SportPulse?
+          </Link>
+          <Link
+            href="/explained/why-sports-fans-search-for-scores"
+            className="rounded-xl border border-border p-4 text-sm font-semibold text-foreground transition-colors hover:border-accent/40 hover:text-accent"
+          >
+            Why Sports Fans Search for Scores
+          </Link>
+          <Link
+            href="/explained/what-makes-an-athlete-trending"
+            className="rounded-xl border border-border p-4 text-sm font-semibold text-foreground transition-colors hover:border-accent/40 hover:text-accent"
+          >
+            What Makes an Athlete Trending?
+          </Link>
+        </div>
+      </section>
+
       <section className="mt-12 space-y-4" aria-label="Explainers">
         {explainers.map((item) => (
           <article

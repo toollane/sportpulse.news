@@ -1,65 +1,186 @@
-import Image from "next/image";
+import Link from "next/link";
+import HeroSection from "@/components/HeroSection";
+import SectionHeader from "@/components/SectionHeader";
+import FeatureCard from "@/components/FeatureCard";
+import StoryCard from "@/components/StoryCard";
+import TrendCard from "@/components/TrendCard";
+import RecapCard from "@/components/RecapCard";
+import NewsletterCard from "@/components/NewsletterCard";
+import {
+  features,
+  stories,
+  trends,
+  recaps,
+  explainers,
+  faqs,
+} from "@/lib/mockData";
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer,
+    },
+  })),
+};
 
 export default function Home() {
+  const featuredStory = stories.find((s) => s.featured) ?? stories[0];
+  const otherStories = stories.filter((s) => s.slug !== featuredStory.slug);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+
+      <HeroSection />
+
+      {/* Product areas */}
+      <section className="mx-auto w-full max-w-6xl px-5 sm:px-8">
+        <SectionHeader
+          eyebrow="What you get"
+          title="Four ways to read the sports day"
+          description="SportPulse is built around how fans actually catch up: the result, the momentum, the recap, and the context behind it."
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {features.map((feature) => (
+            <FeatureCard key={feature.href} feature={feature} />
+          ))}
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* Today's Pulse */}
+      <section className="mx-auto mt-20 w-full max-w-6xl px-5 sm:px-8">
+        <SectionHeader
+          eyebrow="Today's Pulse"
+          title="The stories defining today"
+          description="A handful of results and storylines worth understanding right now — not an endless feed."
+          href="/tonight"
+          linkLabel="See all results"
+        />
+        <div className="mt-8 grid gap-4 lg:grid-cols-3">
+          <div className="lg:col-span-2">
+            <StoryCard story={featuredStory} featured />
+          </div>
+          <div className="grid gap-4">
+            {otherStories.slice(0, 2).map((story) => (
+              <StoryCard key={story.slug} story={story} />
+            ))}
+          </div>
         </div>
-      </main>
-    </div>
+        <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {otherStories.slice(2).map((story) => (
+            <StoryCard key={story.slug} story={story} />
+          ))}
+        </div>
+      </section>
+
+      {/* Trending Now */}
+      <section className="mx-auto mt-20 w-full max-w-6xl px-5 sm:px-8">
+        <SectionHeader
+          eyebrow="Trending Now"
+          title="Who and what is pulling attention"
+          description="The athletes, teams, and topics climbing the conversation — with a quick note on why."
+          href="/trending"
+          linkLabel="See full board"
+        />
+        <div className="mt-8 grid gap-4 md:grid-cols-2">
+          {trends.slice(0, 6).map((trend) => (
+            <TrendCard key={trend.rank} trend={trend} />
+          ))}
+        </div>
+      </section>
+
+      {/* Fast Recaps */}
+      <section className="mx-auto mt-20 w-full max-w-6xl px-5 sm:px-8">
+        <SectionHeader
+          eyebrow="Fast Recaps"
+          title="Last night in under a minute"
+          description="Short, structured summaries that capture the flow of the game, not just the final number."
+          href="/recaps"
+          linkLabel="All recaps"
+        />
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {recaps.map((recap) => (
+            <RecapCard key={recap.slug} recap={recap} />
+          ))}
+        </div>
+      </section>
+
+      {/* Explained */}
+      <section className="mx-auto mt-20 w-full max-w-6xl px-5 sm:px-8">
+        <SectionHeader
+          eyebrow="Explained"
+          title="Why it actually mattered"
+          description="Clear answers to the questions fans are asking — the context that turns a result into a story."
+          href="/explained"
+          linkLabel="More explainers"
+        />
+        <div className="mt-8 grid gap-4 md:grid-cols-2">
+          {explainers.map((item) => (
+            <article
+              key={item.slug}
+              className="flex flex-col rounded-card border border-border bg-surface p-6"
+            >
+              <span className="text-xs font-semibold text-accent">
+                {item.sport} · {item.topic}
+              </span>
+              <h3 className="mt-3 text-lg font-semibold leading-snug tracking-tight text-foreground">
+                {item.question}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted">
+                {item.answer}
+              </p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* Newsletter CTA */}
+      <section className="mx-auto mt-20 w-full max-w-6xl px-5 sm:px-8">
+        <NewsletterCard />
+      </section>
+
+      {/* FAQ */}
+      <section className="mx-auto mt-20 w-full max-w-3xl px-5 sm:px-8">
+        <SectionHeader
+          eyebrow="FAQ"
+          title="Frequently asked questions"
+          description="A quick overview of what SportPulse is, and what it is not."
+        />
+        <div className="mt-8 divide-y divide-border overflow-hidden rounded-card border border-border bg-surface">
+          {faqs.map((faq) => (
+            <details key={faq.question} className="group p-6">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-base font-semibold text-foreground">
+                {faq.question}
+                <span
+                  aria-hidden
+                  className="grid h-6 w-6 shrink-0 place-items-center rounded-full border border-border text-muted transition-transform group-open:rotate-45"
+                >
+                  +
+                </span>
+              </summary>
+              <p className="mt-3 text-sm leading-relaxed text-muted">
+                {faq.answer}
+              </p>
+            </details>
+          ))}
+        </div>
+
+        <p className="mt-8 text-center text-sm text-muted">
+          Want the full picture?{" "}
+          <Link href="/about" className="font-semibold text-accent hover:text-accent-strong">
+            Learn more about SportPulse
+          </Link>
+          .
+        </p>
+      </section>
+    </>
   );
 }

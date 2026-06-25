@@ -1,34 +1,34 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { explainers } from "@/lib/mockData";
+import PageHeader from "@/components/PageHeader";
+import ProseCard from "@/components/ProseCard";
+import FaqList, { buildFaqJsonLd } from "@/components/FaqList";
+import { explainers, sectionFaqs } from "@/lib/mockData";
 
 export const metadata: Metadata = {
   title: "Explained — Why it happened and why it matters",
   description:
-    "Clear, jargon-free answers to the sports questions fans are actually asking. Understand the context behind results, trades, streaks, and trends.",
+    "Clear, jargon-free answers to the sports questions fans are actually asking. Understand why results matter, what moves signal, and how storylines hold up.",
   alternates: { canonical: "/explained" },
 };
+
+const faqs = sectionFaqs.explained;
 
 export default function ExplainedPage() {
   return (
     <div className="mx-auto w-full max-w-4xl px-5 py-14 sm:px-8 sm:py-20">
-      <header className="max-w-3xl">
-        <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-accent">
-          <span className="h-1.5 w-1.5 rounded-full bg-pulse" />
-          Explained
-        </span>
-        <h1 className="mt-4 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-          The context behind the headlines
-        </h1>
-        <p className="mt-4 text-base leading-relaxed text-muted sm:text-lg">
-          Sports make more sense with a little context. Explained answers the
-          questions behind the results — why a quiet outcome matters, what a
-          move really signals, and how a streak holds up — in plain, trustworthy
-          language.
-        </p>
-      </header>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(buildFaqJsonLd(faqs)) }}
+      />
 
-      <section className="mt-12 space-y-4">
+      <PageHeader
+        eyebrow="Explained"
+        title="The context behind the headlines"
+        lead="Sports make more sense with a little context. Explained answers the questions behind the results — why a quiet outcome matters, what a move really signals, and how a streak holds up — in plain, trustworthy language."
+      />
+
+      <section className="mt-12 space-y-4" aria-label="Explainers">
         {explainers.map((item) => (
           <article
             key={item.slug}
@@ -43,24 +43,83 @@ export default function ExplainedPage() {
             <p className="mt-3 text-sm leading-relaxed text-muted sm:text-base">
               {item.answer}
             </p>
+
+            <div className="mt-5 border-t border-border pt-4">
+              <p className="text-xs font-semibold uppercase tracking-[0.12em] text-muted">
+                Why it matters
+              </p>
+              <ul className="mt-3 space-y-2">
+                {item.whyItMatters.map((point, index) => (
+                  <li
+                    key={index}
+                    className="flex gap-2.5 text-sm leading-relaxed text-foreground/90"
+                  >
+                    <span
+                      aria-hidden
+                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-pulse"
+                    />
+                    {point}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </article>
         ))}
       </section>
 
-      <section className="mt-16 rounded-card border border-border bg-surface p-6 sm:p-8">
-        <h2 className="text-xl font-semibold tracking-tight text-foreground">
-          Explanation over hot takes
+      <div className="mt-16 grid gap-4">
+        <ProseCard
+          title="Why we focus on “why it matters”"
+          paragraphs={[
+            "A result is only the surface. The interesting part is usually underneath it: the decision that shaped the game, the ripple effect of a roster move, or the reason a streak is harder than it looks. Explained exists to make that layer accessible to any fan.",
+            "We are not here for hot takes or manufactured controversy. The goal is clarity — to help you understand the strategy, the stakes, and the consequences that headlines often skip, written in language that does not assume you already know the jargon.",
+            "Done well, an explainer changes how you watch the next game. That is the value we aim for every time.",
+          ]}
+        >
+          <div className="flex flex-wrap gap-3 text-sm font-semibold">
+            <Link
+              href="/trending"
+              className="rounded-full border border-border px-4 py-2 text-foreground transition-colors hover:border-accent/40 hover:text-accent"
+            >
+              See what&rsquo;s trending →
+            </Link>
+            <Link
+              href="/tonight"
+              className="rounded-full border border-border px-4 py-2 text-foreground transition-colors hover:border-accent/40 hover:text-accent"
+            >
+              Tonight&rsquo;s results →
+            </Link>
+            <Link
+              href="/recaps"
+              className="rounded-full border border-border px-4 py-2 text-foreground transition-colors hover:border-accent/40 hover:text-accent"
+            >
+              Read the recaps →
+            </Link>
+          </div>
+        </ProseCard>
+      </div>
+
+      <section className="mt-16" aria-label="Frequently asked questions">
+        <h2 className="text-2xl font-semibold tracking-tight text-foreground">
+          Explained, answered
         </h2>
-        <p className="mt-3 text-sm leading-relaxed text-muted">
-          We are not here for clickbait or noise. Explained exists to help you
-          understand the sport more deeply — the strategy, the stakes, and the
-          ripple effects that headlines often skip. It pairs naturally with our{" "}
-          <Link href="/trending" className="font-semibold text-accent hover:text-accent-strong">
-            Trending
+        <div className="mt-6">
+          <FaqList items={faqs} />
+        </div>
+        <p className="mt-6 text-sm leading-relaxed text-muted">
+          Like this kind of context every day?{" "}
+          <Link
+            href="/#newsletter"
+            className="font-semibold text-accent hover:text-accent-strong"
+          >
+            Get the daily briefing
           </Link>{" "}
-          board and tonight&rsquo;s{" "}
-          <Link href="/tonight" className="font-semibold text-accent hover:text-accent-strong">
-            results
+          or{" "}
+          <Link
+            href="/about"
+            className="font-semibold text-accent hover:text-accent-strong"
+          >
+            learn more about SportPulse
           </Link>
           .
         </p>

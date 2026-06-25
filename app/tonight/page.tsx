@@ -1,34 +1,35 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import PageHeader from "@/components/PageHeader";
+import ProseCard from "@/components/ProseCard";
 import StoryCard from "@/components/StoryCard";
-import { stories } from "@/lib/mockData";
+import FaqList, { buildFaqJsonLd } from "@/components/FaqList";
+import { stories, sectionFaqs } from "@/lib/mockData";
 
 export const metadata: Metadata = {
   title: "Tonight — Key results and the stories behind them",
   description:
-    "Tonight on SportPulse: the night's defining results explained clearly. Winners, turning points, and the numbers that actually mattered.",
+    "Your daily sports pulse: the night's defining results explained clearly. Winners, turning points, and the numbers that actually mattered — in a two-minute read.",
   alternates: { canonical: "/tonight" },
 };
+
+const faqs = sectionFaqs.tonight;
 
 export default function TonightPage() {
   return (
     <div className="mx-auto w-full max-w-6xl px-5 py-14 sm:px-8 sm:py-20">
-      <header className="max-w-3xl">
-        <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-accent">
-          <span className="h-1.5 w-1.5 rounded-full bg-pulse" />
-          Tonight
-        </span>
-        <h1 className="mt-4 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-          What happened tonight, explained
-        </h1>
-        <p className="mt-4 text-base leading-relaxed text-muted sm:text-lg">
-          The scoreboard tells you who won. SportPulse tells you how and why.
-          Each entry below pairs a result with the turning point that decided
-          it, so you can catch up on the night in a couple of minutes.
-        </p>
-      </header>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(buildFaqJsonLd(faqs)) }}
+      />
 
-      <section className="mt-12">
+      <PageHeader
+        eyebrow="Tonight"
+        title="What happened tonight, explained"
+        lead="The scoreboard tells you who won. SportPulse tells you how and why. Each entry below pairs a result with the turning point that decided it, so you can catch up on the night in a couple of minutes."
+      />
+
+      <section className="mt-12" aria-label="Tonight's key results">
         <div className="grid gap-4 lg:grid-cols-3">
           {stories.map((story) => (
             <StoryCard key={story.slug} story={story} />
@@ -36,30 +37,70 @@ export default function TonightPage() {
         </div>
       </section>
 
-      <section className="mt-16 rounded-card border border-border bg-surface p-6 sm:p-8">
-        <h2 className="text-xl font-semibold tracking-tight text-foreground">
-          How we cover the night
+      <div className="mt-16 grid gap-4">
+        <ProseCard
+          title="What you get from the daily pulse"
+          paragraphs={[
+            "The daily pulse is designed for the fan who has a few minutes, not an hour. Instead of an endless feed of every final score, we surface the handful of results that genuinely changed something — a standing, a streak, a rivalry, or the direction of a season — and explain the moment that mattered most.",
+            "Each story is written to stand on its own. You get the outcome, the context around it, and a clear sense of why it is worth your attention. The aim is simple: you should be able to read the page once and feel genuinely caught up on the night.",
+            "Think of it as the briefing you would want from a friend who watched everything — quick, clear, and focused on what actually moved.",
+          ]}
+        />
+
+        <ProseCard
+          title="How we choose what to cover"
+          paragraphs={[
+            "We prioritize signal over volume. A result earns a place on the page when it shifts something meaningful, reveals a trend worth tracking, or answers a question fans are already asking.",
+            "That editorial filter is the whole point. It keeps the page fast to read and ensures that every item carries real context rather than just a number.",
+          ]}
+        >
+          <div className="flex flex-wrap gap-3 text-sm font-semibold">
+            <Link
+              href="/recaps"
+              className="rounded-full border border-border px-4 py-2 text-foreground transition-colors hover:border-accent/40 hover:text-accent"
+            >
+              Read the fast recaps →
+            </Link>
+            <Link
+              href="/explained"
+              className="rounded-full border border-border px-4 py-2 text-foreground transition-colors hover:border-accent/40 hover:text-accent"
+            >
+              Understand why it mattered →
+            </Link>
+            <Link
+              href="/trending"
+              className="rounded-full border border-border px-4 py-2 text-foreground transition-colors hover:border-accent/40 hover:text-accent"
+            >
+              See what&rsquo;s trending →
+            </Link>
+          </div>
+        </ProseCard>
+      </div>
+
+      <section className="mt-16 max-w-3xl" aria-label="Frequently asked questions">
+        <h2 className="text-2xl font-semibold tracking-tight text-foreground">
+          Tonight, answered
         </h2>
-        <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted">
-          We do not try to list every game. Instead, we surface the results that
-          change something — a standing, a streak, a season&rsquo;s direction —
-          and explain the moment that mattered most. The goal is signal over
-          noise: a clear read on the night that respects your time.
-        </p>
-        <div className="mt-6 flex flex-wrap gap-3 text-sm font-semibold">
-          <Link
-            href="/recaps"
-            className="rounded-full border border-border px-4 py-2 text-foreground transition-colors hover:border-accent/40 hover:text-accent"
-          >
-            Read the fast recaps →
-          </Link>
-          <Link
-            href="/explained"
-            className="rounded-full border border-border px-4 py-2 text-foreground transition-colors hover:border-accent/40 hover:text-accent"
-          >
-            Understand why it mattered →
-          </Link>
+        <div className="mt-6">
+          <FaqList items={faqs} />
         </div>
+        <p className="mt-6 text-sm leading-relaxed text-muted">
+          Want the night delivered to your inbox?{" "}
+          <Link
+            href="/#newsletter"
+            className="font-semibold text-accent hover:text-accent-strong"
+          >
+            Get the daily briefing
+          </Link>{" "}
+          or{" "}
+          <Link
+            href="/about"
+            className="font-semibold text-accent hover:text-accent-strong"
+          >
+            learn more about SportPulse
+          </Link>
+          .
+        </p>
       </section>
     </div>
   );

@@ -39,7 +39,15 @@ const sections = [
   {
     heading: "Third-party services",
     body: [
-      "The site relies on third-party infrastructure providers (for example, hosting and content delivery) to operate. These providers process information on our behalf and are expected to maintain appropriate safeguards. If advertising is introduced in the future, third-party vendors may use cookies to serve ads based on prior visits, and you will be able to learn more about your choices at that time.",
+      "The site relies on third-party infrastructure providers (for example, hosting and content delivery) to operate. These providers process information on our behalf and are expected to maintain appropriate safeguards.",
+    ],
+  },
+  {
+    heading: "Advertising",
+    body: [
+      "SportPulse does not currently display advertising. We are, however, preparing this policy so it is ready before any advertising is introduced.",
+      "If and when we enable advertising, third-party vendors \u2014 potentially including Google \u2014 may use cookies or similar technologies to serve ads based on your prior visits to this or other websites. Third-party vendors and ad networks use these technologies to measure and improve the relevance of ads.",
+      "When advertising goes live, you will be able to opt out of personalized advertising through your account settings on participating platforms, and through industry tools such as the controls offered by the Digital Advertising Alliance. We will update this section with specific details and links at that time.",
     ],
   },
   {

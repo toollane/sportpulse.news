@@ -6,6 +6,7 @@ import StoryCard from "@/components/StoryCard";
 import TrendCard from "@/components/TrendCard";
 import RecapCard from "@/components/RecapCard";
 import NewsletterCard from "@/components/NewsletterCard";
+import FaqList, { buildFaqJsonLd } from "@/components/FaqList";
 import {
   features,
   stories,
@@ -15,19 +16,6 @@ import {
   faqs,
 } from "@/lib/mockData";
 
-const faqJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: faqs.map((faq) => ({
-    "@type": "Question",
-    name: faq.question,
-    acceptedAnswer: {
-      "@type": "Answer",
-      text: faq.answer,
-    },
-  })),
-};
-
 export default function Home() {
   const featuredStory = stories.find((s) => s.featured) ?? stories[0];
   const otherStories = stories.filter((s) => s.slug !== featuredStory.slug);
@@ -36,7 +24,7 @@ export default function Home() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(buildFaqJsonLd(faqs)) }}
       />
 
       <HeroSection />
@@ -97,17 +85,17 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Fast Recaps */}
+      {/* Latest Recaps */}
       <section className="mx-auto mt-20 w-full max-w-6xl px-5 sm:px-8">
         <SectionHeader
-          eyebrow="Fast Recaps"
+          eyebrow="Latest Recaps"
           title="Last night in under a minute"
           description="Short, structured summaries that capture the flow of the game, not just the final number."
           href="/recaps"
           linkLabel="All recaps"
         />
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {recaps.map((recap) => (
+          {recaps.slice(0, 4).map((recap) => (
             <RecapCard key={recap.slug} recap={recap} />
           ))}
         </div>
@@ -154,23 +142,8 @@ export default function Home() {
           title="Frequently asked questions"
           description="A quick overview of what SportPulse is, and what it is not."
         />
-        <div className="mt-8 divide-y divide-border overflow-hidden rounded-card border border-border bg-surface">
-          {faqs.map((faq) => (
-            <details key={faq.question} className="group p-6">
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-base font-semibold text-foreground">
-                {faq.question}
-                <span
-                  aria-hidden
-                  className="grid h-6 w-6 shrink-0 place-items-center rounded-full border border-border text-muted transition-transform group-open:rotate-45"
-                >
-                  +
-                </span>
-              </summary>
-              <p className="mt-3 text-sm leading-relaxed text-muted">
-                {faq.answer}
-              </p>
-            </details>
-          ))}
+        <div className="mt-8">
+          <FaqList items={faqs} />
         </div>
 
         <p className="mt-8 text-center text-sm text-muted">

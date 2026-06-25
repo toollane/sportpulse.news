@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import PageHeader from "@/components/PageHeader";
+import { editorialPrinciples } from "@/lib/mockData";
 
 export const metadata: Metadata = {
-  title: "About — An independent sports intelligence project",
+  title: "About — An independent sports media and analysis project",
   description:
-    "SportPulse is an independent sports media and analysis project. Learn about our mission to make understanding the sports day fast, clear, and trustworthy.",
+    "SportPulse is an independent sports media and analysis project focused on trends, recaps, explanations, and daily briefings. Learn about our mission and editorial approach.",
   alternates: { canonical: "/about" },
 };
 
@@ -26,20 +28,11 @@ const values = [
 export default function AboutPage() {
   return (
     <div className="mx-auto w-full max-w-3xl px-5 py-14 sm:px-8 sm:py-20">
-      <header>
-        <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-accent">
-          <span className="h-1.5 w-1.5 rounded-full bg-pulse" />
-          About SportPulse
-        </span>
-        <h1 className="mt-4 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-          Sports, understood faster
-        </h1>
-        <p className="mt-4 text-base leading-relaxed text-muted sm:text-lg">
-          SportPulse is an independent sports media and analysis project built
-          on a simple idea: the fastest way to understand what happened in
-          sports today should also be the clearest.
-        </p>
-      </header>
+      <PageHeader
+        eyebrow="About SportPulse"
+        title="Sports, understood faster"
+        lead="SportPulse is an independent sports media and analysis project built on a simple idea: the fastest way to understand what happened in sports today should also be the clearest."
+      />
 
       <div className="mt-10 space-y-6 text-base leading-relaxed text-foreground/90">
         <p>
@@ -70,6 +63,25 @@ export default function AboutPage() {
         </p>
       </div>
 
+      {/* Editorial note */}
+      <section className="mt-12 rounded-card border border-accent/30 bg-accent-soft/50 p-6 sm:p-8">
+        <h2 className="text-xl font-semibold tracking-tight text-foreground">
+          Editorial note
+        </h2>
+        <p className="mt-3 text-sm leading-relaxed text-foreground/90 sm:text-base">
+          SportPulse focuses on four things: sports{" "}
+          <strong className="font-semibold">trends</strong>, fast{" "}
+          <strong className="font-semibold">recaps</strong>, clear{" "}
+          <strong className="font-semibold">explanations</strong>, and a daily{" "}
+          <strong className="font-semibold">briefing</strong>. We are an
+          independent publication — not a league, a team, or an official source
+          — and our role is to help fans make sense of the day, not to report
+          live scores or break news. Everything we publish is written to be
+          read quickly, fact-based in tone, and free of betting or gambling
+          content.
+        </p>
+      </section>
+
       <section className="mt-12">
         <h2 className="text-xl font-semibold tracking-tight text-foreground">
           What we value
@@ -91,6 +103,27 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <section className="mt-12">
+        <h2 className="text-xl font-semibold tracking-tight text-foreground">
+          Our editorial standards
+        </h2>
+        <div className="mt-6 grid gap-4 sm:grid-cols-2">
+          {editorialPrinciples.map((principle) => (
+            <div
+              key={principle.title}
+              className="rounded-card border border-border bg-surface p-5"
+            >
+              <h3 className="text-base font-semibold tracking-tight text-foreground">
+                {principle.title}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted">
+                {principle.body}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <section className="mt-12 rounded-card border border-border bg-surface p-6 sm:p-8">
         <h2 className="text-xl font-semibold tracking-tight text-foreground">
           An honest note about this project
@@ -106,7 +139,15 @@ export default function AboutPage() {
           properly sourced data and clearly labeled analysis.
         </p>
         <p className="mt-5 text-sm leading-relaxed text-muted">
-          Have feedback or a question? We&rsquo;d love to hear from you on our{" "}
+          Questions, corrections, or feedback are always welcome. Reach us any
+          time at{" "}
+          <a
+            href="mailto:hello@sportpulse.news"
+            className="font-semibold text-accent hover:text-accent-strong"
+          >
+            hello@sportpulse.news
+          </a>{" "}
+          or through our{" "}
           <Link href="/contact" className="font-semibold text-accent hover:text-accent-strong">
             contact page
           </Link>

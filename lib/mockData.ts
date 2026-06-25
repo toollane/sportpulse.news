@@ -53,6 +53,7 @@ export type Explainer = {
   answer: string;
   sport: Sport;
   topic: string;
+  whyItMatters: string[];
 };
 
 export type Feature = {
@@ -147,6 +148,26 @@ export const stories: Story[] = [
     category: "Injury",
     readTime: "2 min read",
     timeAgo: "4h ago",
+  },
+  {
+    slug: "overtime-thriller-on-the-road",
+    title: "An overtime road win that says more than the standings do",
+    summary:
+      "A young team went on the road, weathered an early deficit, and closed out a one-possession game in the extra period. Composure in those final minutes is exactly the trait that tends to travel into the postseason.",
+    sport: "Hockey",
+    category: "Result",
+    readTime: "2 min read",
+    timeAgo: "5h ago",
+  },
+  {
+    slug: "tactical-switch-pays-off",
+    title: "A halftime tactical switch quietly decided the match",
+    summary:
+      "The score stayed level for an hour, but a shift in shape after the break opened space that had not been there before. We break down the adjustment and why it unlocked the game.",
+    sport: "Soccer",
+    category: "Analysis",
+    readTime: "3 min read",
+    timeAgo: "6h ago",
   },
 ];
 
@@ -264,6 +285,30 @@ export const recaps: Recap[] = [
     summary:
       "A strong start and an early lead did the work. Ironworks pitching limited hard contact across seven innings, and a two-run double broke the game open in the fifth.",
   },
+  {
+    slug: "granite-vs-bayline",
+    league: "Pro Basketball",
+    sport: "Basketball",
+    home: "Granite",
+    away: "Bayline",
+    homeScore: 99,
+    awayScore: 104,
+    status: "Final / OT",
+    summary:
+      "A defensive battle that needed an extra period. Bayline forced overtime with a late stop, then closed it out at the free-throw line as Granite ran out of clean looks down the stretch.",
+  },
+  {
+    slug: "highland-vs-portside",
+    league: "Pro Soccer",
+    sport: "Soccer",
+    home: "Highland",
+    away: "Portside",
+    homeScore: 1,
+    awayScore: 0,
+    status: "Final",
+    summary:
+      "One moment settled a cagey match. Highland defended the box well, absorbed pressure late, and took its single clear chance — a reminder that tight games often turn on margins, not dominance.",
+  },
 ];
 
 /* -------------------------------------------------------------------------- */
@@ -278,6 +323,11 @@ export const explainers: Explainer[] = [
       "In a tight table, points are leverage. A draw can deny a rival momentum, change goal-difference tiebreakers, and shift the psychological pressure to the teams chasing from above. We explain how one result quietly reorders a race.",
     sport: "Soccer",
     topic: "Standings",
+    whyItMatters: [
+      "Dropped points compound: a draw today can cost a team a tiebreaker months from now.",
+      "It changes the pressure map, moving the burden onto the clubs expected to win.",
+      "Goal difference often decides tight tables, so how a draw happens matters as much as that it happened.",
+    ],
   },
   {
     slug: "what-a-deadline-trade-signals",
@@ -286,6 +336,11 @@ export const explainers: Explainer[] = [
       "Trades are rarely about a single player. They reveal how a front office reads its own window — whether it is buying time, betting on a run, or quietly resetting. Here is how to read the intent behind the move.",
     sport: "Basketball",
     topic: "Roster strategy",
+    whyItMatters: [
+      "The assets given up tell you how confident a team is in its current core.",
+      "One move can shift the market and pressure rivals to respond.",
+      "Reading intent early helps you understand the months of decisions that follow.",
+    ],
   },
   {
     slug: "why-a-shutout-streak-is-hard",
@@ -294,6 +349,11 @@ export const explainers: Explainer[] = [
       "Shutouts depend on both elite goaltending and disciplined team defense in front of it. Sustaining a streak requires limiting high-danger chances night after night, which is why these runs draw so much attention.",
     sport: "Hockey",
     topic: "Performance",
+    whyItMatters: [
+      "A streak is a team achievement as much as an individual one.",
+      "It signals a structure that consistently suppresses quality chances.",
+      "These runs rarely last, which is exactly why they capture attention while they do.",
+    ],
   },
   {
     slug: "how-pitch-workload-shapes-a-season",
@@ -302,6 +362,11 @@ export const explainers: Explainer[] = [
       "Managing innings is a season-long balancing act. Push too hard early and depth thins out late; protect arms too cautiously and a contender can stall. We explain why workload decisions ripple far beyond a single game.",
     sport: "Baseball",
     topic: "Strategy",
+    whyItMatters: [
+      "Early-season usage shapes how much is left in the tank for the stretch run.",
+      "Depth decisions ripple across the whole roster, not just the rotation.",
+      "Smart workload management is often the quiet difference between contenders.",
+    ],
   },
 ];
 
@@ -334,5 +399,128 @@ export const faqs: Faq[] = [
     question: "How often is SportPulse updated?",
     answer:
       "SportPulse is designed around a daily briefing rhythm: a fast read in the morning and a recap of the night's results. As the platform grows, coverage and update frequency will expand.",
+  },
+];
+
+/* -------------------------------------------------------------------------- */
+/* Per-section FAQs (content depth + SEO)                                     */
+/* -------------------------------------------------------------------------- */
+
+export type SectionKey = "tonight" | "trending" | "recaps" | "explained";
+
+export const sectionFaqs: Record<SectionKey, Faq[]> = {
+  tonight: [
+    {
+      question: "What is the daily pulse?",
+      answer:
+        "The daily pulse is a short, curated read on the night's most meaningful results. Rather than listing every final score, we highlight the games that changed something and explain the moment that decided each one.",
+    },
+    {
+      question: "Why don't you cover every single game?",
+      answer:
+        "We prioritize signal over volume. Covering everything tends to bury what matters. By focusing on results that shift a standing, a streak, or a storyline, we keep the page fast to read and genuinely useful.",
+    },
+    {
+      question: "Do you show live scores?",
+      answer:
+        "SportPulse is built around understanding, not live tracking. Scores are the starting point; the value is the context we add around them. Live data integrations may arrive in a later phase.",
+    },
+  ],
+  trending: [
+    {
+      question: "How does SportPulse measure trending?",
+      answer:
+        "We treat attention as a signal. The board reflects the athletes, teams, and topics drawing the most interest, paired with a short, editorial note on the performance or storyline driving that interest.",
+    },
+    {
+      question: "What do the momentum labels mean?",
+      answer:
+        "Each item is tagged surging, rising, steady, or cooling to show direction at a glance. Surging and rising indicate climbing interest; steady is sustained attention; cooling signals a storyline that is fading.",
+    },
+    {
+      question: "Is the trend board automated?",
+      answer:
+        "In this phase the board is editorial and hand-curated to demonstrate the experience. As live trend data is added, the underlying signals will become data-driven while keeping the same clear, explanatory format.",
+    },
+  ],
+  recaps: [
+    {
+      question: "How long does a recap take to read?",
+      answer:
+        "Each recap is written to be read in under a minute. You get the matchup and final at the top, then a few sentences on how the game actually unfolded.",
+    },
+    {
+      question: "What makes a SportPulse recap different?",
+      answer:
+        "We focus on the shape of the game, not just the box score. A good recap should leave you understanding how a result happened, not only what the final number was — with no autoplay video or clutter.",
+    },
+    {
+      question: "Are recaps available for every sport?",
+      answer:
+        "Our samples span several major team sports. As coverage expands, we plan to broaden the leagues and sports included while keeping the same fast, consistent format.",
+    },
+  ],
+  explained: [
+    {
+      question: "What kind of questions does Explained answer?",
+      answer:
+        "Explained tackles the 'why' behind sports — why a quiet result matters, what a roster move signals, or how a streak holds up. It is built for the questions fans actually ask after the final whistle.",
+    },
+    {
+      question: "Is Explained opinion or analysis?",
+      answer:
+        "It is explanatory analysis, not hot takes. We aim to clarify the strategy, stakes, and ripple effects behind a story in plain language, so you finish knowing more than when you started.",
+    },
+    {
+      question: "Does Explained include predictions or betting tips?",
+      answer:
+        "No. SportPulse does not publish betting tips, picks, or predictions. Explained is focused on helping you understand events, not on forecasting outcomes or encouraging wagering.",
+    },
+  ],
+};
+
+/* -------------------------------------------------------------------------- */
+/* Editorial principles (About / trust)                                       */
+/* -------------------------------------------------------------------------- */
+
+export const editorialPrinciples: { title: string; body: string }[] = [
+  {
+    title: "We focus on understanding",
+    body: "Our coverage centers on sports trends, fast recaps, clear explanations, and daily briefings. The goal is always comprehension: what happened, why it mattered, and what to watch next.",
+  },
+  {
+    title: "We label what things are",
+    body: "Analysis is presented as analysis and summaries as summaries. During this early phase, sample content is clearly described as original editorial material rather than live reporting.",
+  },
+  {
+    title: "We correct mistakes",
+    body: "If something is inaccurate, we want to fix it. Readers can reach us directly, and corrections are treated as a priority, not an afterthought.",
+  },
+  {
+    title: "We avoid harmful content",
+    body: "SportPulse does not publish betting tips, gambling recommendations, or misleading clickbait, and it does not use copyrighted logos, team branding, or player photography.",
+  },
+];
+
+/* -------------------------------------------------------------------------- */
+/* Contact topics                                                             */
+/* -------------------------------------------------------------------------- */
+
+export const contactTopics: { title: string; body: string }[] = [
+  {
+    title: "General questions",
+    body: "Curious about the project, our approach, or where SportPulse is headed? We're happy to share more.",
+  },
+  {
+    title: "Corrections",
+    body: "Spotted something that looks off? Let us know and we'll review it quickly. Accuracy matters to us.",
+  },
+  {
+    title: "Feedback & ideas",
+    body: "Tell us what would make SportPulse more useful — a sport to cover, a format to try, or a feature to build.",
+  },
+  {
+    title: "Partnerships",
+    body: "For collaboration or media inquiries, reach out and tell us a little about what you have in mind.",
   },
 ];

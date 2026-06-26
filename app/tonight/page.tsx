@@ -29,6 +29,29 @@ export default function TonightPage() {
         lead="The scoreboard tells you who won. SportPulse tells you how and why. Each entry below pairs a result with the turning point that decided it, so you can catch up on the night in a couple of minutes."
       />
 
+      <section className="mt-10 rounded-card border border-border bg-surface p-6 sm:p-7">
+        <h2 className="text-xl font-semibold tracking-tight text-foreground">
+          Catch-up guide
+        </h2>
+        <p className="mt-2 text-sm leading-relaxed text-muted">
+          Short on time? Start with a practical guide to reading the sports day
+          quickly: winners, turning points, trending players, fast recaps, and
+          what to watch next.
+        </p>
+        <Link
+          href="/tonight/how-to-catch-up-on-sports-fast"
+          className="group mt-5 block rounded-xl border border-border p-4 transition-colors hover:border-accent/40 sm:max-w-md"
+        >
+          <span className="block text-sm font-semibold text-foreground group-hover:text-accent">
+            How to Catch Up on Sports Fast
+          </span>
+          <span className="mt-2 block text-xs leading-relaxed text-muted">
+            A busy fan&rsquo;s guide to understanding what happened without
+            reading an endless feed.
+          </span>
+        </Link>
+      </section>
+
       <section className="mt-12" aria-label="Tonight's key results">
         <div className="grid gap-4 lg:grid-cols-3">
           {stories.map((story) => (

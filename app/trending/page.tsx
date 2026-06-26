@@ -29,6 +29,29 @@ export default function TrendingPage() {
         lead="Attention is a signal. This board tracks the athletes, teams, and topics climbing the conversation, with a short note on the performance or storyline driving the interest — so a trend always comes with its reason."
       />
 
+      <section className="mt-10 rounded-card border border-border bg-surface p-6 sm:p-7">
+        <h2 className="text-xl font-semibold tracking-tight text-foreground">
+          Trending guide
+        </h2>
+        <p className="mt-2 text-sm leading-relaxed text-muted">
+          Understand how sports trends form online through search behavior,
+          live moments, fantasy impact, injuries, trades, controversy, and media
+          attention.
+        </p>
+        <Link
+          href="/trending/how-sports-trends-work"
+          className="group mt-5 block rounded-xl border border-border p-4 transition-colors hover:border-accent/40 sm:max-w-md"
+        >
+          <span className="block text-sm font-semibold text-foreground group-hover:text-accent">
+            How Sports Trends Work
+          </span>
+          <span className="mt-2 block text-xs leading-relaxed text-muted">
+            A practical guide to why athletes, teams, and topics start gaining
+            attention.
+          </span>
+        </Link>
+      </section>
+
       <section className="mt-12 grid gap-4 md:grid-cols-2" aria-label="Trending board">
         {trends.map((trend) => (
           <TrendCard key={trend.rank} trend={trend} />

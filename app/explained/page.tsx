@@ -36,7 +36,7 @@ export default function ExplainedPage() {
           Start with these foundational guides to understand how SportPulse
           thinks about scores, trends, recaps, and sports attention.
         </p>
-        <div className="mt-5 grid gap-3 sm:grid-cols-3">
+        <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           <Link
             href="/explained/what-is-sportpulse"
             className="group rounded-xl border border-border p-4 transition-colors hover:border-accent/40"
@@ -70,6 +70,42 @@ export default function ExplainedPage() {
             <span className="mt-2 block text-xs leading-relaxed text-muted">
               The performances, injuries, rumors, and viral moments that move
               attention.
+            </span>
+          </Link>
+          <Link
+            href="/explained/why-game-context-matters"
+            className="group rounded-xl border border-border p-4 transition-colors hover:border-accent/40"
+          >
+            <span className="block text-sm font-semibold text-foreground group-hover:text-accent">
+              Why Game Context Matters
+            </span>
+            <span className="mt-2 block text-xs leading-relaxed text-muted">
+              Why injuries, fatigue, matchups, pressure, and stakes shape how a
+              result should be read.
+            </span>
+          </Link>
+          <Link
+            href="/explained/how-sports-momentum-shifts"
+            className="group rounded-xl border border-border p-4 transition-colors hover:border-accent/40"
+          >
+            <span className="block text-sm font-semibold text-foreground group-hover:text-accent">
+              How Sports Momentum Shifts
+            </span>
+            <span className="mt-2 block text-xs leading-relaxed text-muted">
+              How runs, stops, crowd energy, tactical changes, and star moments
+              swing a game.
+            </span>
+          </Link>
+          <Link
+            href="/explained/why-one-play-can-change-a-game"
+            className="group rounded-xl border border-border p-4 transition-colors hover:border-accent/40"
+          >
+            <span className="block text-sm font-semibold text-foreground group-hover:text-accent">
+              Why One Play Can Change a Game
+            </span>
+            <span className="mt-2 block text-xs leading-relaxed text-muted">
+              How one key moment can reshape the outcome, fan reaction, and
+              media narrative.
             </span>
           </Link>
         </div>

@@ -31,6 +31,31 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
+      path: "/explained/why-game-context-matters",
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      path: "/explained/how-sports-momentum-shifts",
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      path: "/explained/why-one-play-can-change-a-game",
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      path: "/trending/how-sports-trends-work",
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      path: "/tonight/how-to-catch-up-on-sports-fast",
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
       path: "/recaps/what-is-a-fast-sports-recap",
       changeFrequency: "monthly",
       priority: 0.7,

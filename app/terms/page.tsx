@@ -2,104 +2,240 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Terms of Use",
+  title: "Terms of Use | SportPulse",
   description:
-    "The terms that govern your use of SportPulse, including content ownership, acceptable use, disclaimers, and important notices.",
-  alternates: { canonical: "/terms" },
+    "Read the SportPulse terms of use for this independent sports media and analysis project.",
 };
-
-const sections = [
-  {
-    heading: "Acceptance of terms",
-    body: [
-      "By accessing or using sportpulse.news (the \u201cSite\u201d), you agree to these Terms of Use. If you do not agree with any part of these terms, please do not use the Site.",
-    ],
-  },
-  {
-    heading: "About the Site",
-    body: [
-      "SportPulse is an independent sports media and analysis project. It is not affiliated with, endorsed by, or partnered with any sports league, team, athlete, or governing body. References to teams, players, or events are for informational and editorial purposes only.",
-      "During this early phase, content on the Site consists of original editorial samples created to demonstrate the product. It does not represent live scores, official statistics, or real-time reporting.",
-    ],
-  },
-  {
-    heading: "No betting or wagering advice",
-    body: [
-      "SportPulse does not provide betting tips, picks, odds, predictions, or wagering recommendations of any kind. Nothing on the Site should be interpreted as gambling advice or an inducement to wager. Any decisions you make are your own responsibility.",
-    ],
-  },
-  {
-    heading: "Intellectual property",
-    body: [
-      "The original text, design, and layout of the Site are owned by SportPulse and protected by applicable intellectual property laws. You may not copy, reproduce, or redistribute substantial portions of the content without permission.",
-      "We do not host copyrighted images, team logos, or player photography. Any trademarks referenced remain the property of their respective owners.",
-    ],
-  },
-  {
-    heading: "Acceptable use",
-    body: [
-      "You agree to use the Site lawfully and not to attempt to disrupt, damage, or gain unauthorized access to the Site or its underlying systems. You agree not to use automated means to scrape or overload the Site in a manner that interferes with its normal operation.",
-    ],
-  },
-  {
-    heading: "Accuracy and disclaimers",
-    body: [
-      "The Site is provided on an \u201cas is\u201d and \u201cas available\u201d basis. While we strive for clear and accurate content, we make no warranties regarding completeness, reliability, or fitness for a particular purpose. Sports information can change quickly, and editorial samples may not reflect real events.",
-      "To the fullest extent permitted by law, SportPulse is not liable for any damages arising from your use of, or inability to use, the Site.",
-    ],
-  },
-  {
-    heading: "External links",
-    body: [
-      "The Site may contain links to third-party websites. We are not responsible for the content, policies, or practices of any third-party sites, and links do not imply endorsement.",
-    ],
-  },
-  {
-    heading: "Changes to these terms",
-    body: [
-      "We may update these Terms of Use as the product develops. Continued use of the Site after changes are posted constitutes acceptance of the revised terms. The date below indicates the most recent update.",
-    ],
-  },
-];
 
 export default function TermsPage() {
   return (
-    <div className="mx-auto w-full max-w-3xl px-5 py-14 sm:px-8 sm:py-20">
-      <header>
-        <h1 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-          Terms of Use
-        </h1>
-        <p className="mt-3 text-sm text-muted">Last updated: June 25, 2026</p>
-      </header>
+    <main className="min-h-screen bg-[#f7f5f0] text-[#111111]">
+      <section className="mx-auto w-full max-w-4xl px-5 py-16 sm:px-8 lg:py-24">
+        <div className="mb-10">
+          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-black/45">
+            Terms
+          </p>
+          <h1 className="text-5xl font-semibold tracking-[-0.07em] sm:text-6xl">
+            Terms of Use
+          </h1>
+          <p className="mt-6 max-w-2xl text-lg leading-8 text-black/60">
+            These Terms of Use explain the basic rules for using SportPulse,
+            an independent sports media and analysis project.
+          </p>
+        </div>
 
-      <div className="mt-10 space-y-10">
-        {sections.map((section) => (
-          <section key={section.heading}>
-            <h2 className="text-xl font-semibold tracking-tight text-foreground">
-              {section.heading}
+        <div className="space-y-6">
+          <section className="rounded-[2rem] border border-black/10 bg-white p-6 shadow-sm sm:p-8">
+            <h2 className="text-2xl font-semibold tracking-[-0.04em]">
+              1. About SportPulse
             </h2>
-            <div className="mt-3 space-y-3">
-              {section.body.map((paragraph, index) => (
-                <p key={index} className="text-sm leading-relaxed text-muted sm:text-base">
-                  {paragraph}
-                </p>
-              ))}
+            <p className="mt-4 leading-8 text-black/65">
+              SportPulse is an independent sports media and analysis project
+              operated by Nicklas Wolf, Am Dorfe 3, 37133 Friedland, Germany.
+              The website provides sports-related explanations, recaps, trend
+              coverage, editorial briefings, and informational content.
+            </p>
+            <p className="mt-4 leading-8 text-black/65">
+              SportPulse is not affiliated with, endorsed by, or officially
+              connected to any sports league, team, athlete, sportsbook, media
+              company, or governing body.
+            </p>
+          </section>
+
+          <section className="rounded-[2rem] border border-black/10 bg-white p-6 shadow-sm sm:p-8">
+            <h2 className="text-2xl font-semibold tracking-[-0.04em]">
+              2. Informational Content Only
+            </h2>
+            <p className="mt-4 leading-8 text-black/65">
+              The content on SportPulse is provided for general informational
+              and editorial purposes only. It should not be treated as
+              professional, financial, legal, betting, or gambling advice.
+            </p>
+            <p className="mt-4 leading-8 text-black/65">
+              Sports information can change quickly. Scores, schedules,
+              injuries, public attention, and trends may become outdated or
+              inaccurate. Users should verify important details with official
+              sources when accuracy is essential.
+            </p>
+          </section>
+
+          <section className="rounded-[2rem] border border-black/10 bg-white p-6 shadow-sm sm:p-8">
+            <h2 className="text-2xl font-semibold tracking-[-0.04em]">
+              3. No Betting or Gambling Service
+            </h2>
+            <p className="mt-4 leading-8 text-black/65">
+              SportPulse does not currently provide betting recommendations,
+              gambling services, sportsbook functionality, or guaranteed
+              predictions. Any future market-related content would be intended
+              for informational and editorial analysis only.
+            </p>
+            <p className="mt-4 leading-8 text-black/65">
+              Users are responsible for their own decisions. SportPulse does
+              not encourage irresponsible gambling or financial risk-taking.
+            </p>
+          </section>
+
+          <section className="rounded-[2rem] border border-black/10 bg-white p-6 shadow-sm sm:p-8">
+            <h2 className="text-2xl font-semibold tracking-[-0.04em]">
+              4. Accuracy and Availability
+            </h2>
+            <p className="mt-4 leading-8 text-black/65">
+              SportPulse aims to publish useful, clear, and accurate sports
+              analysis. However, we do not guarantee that all information is
+              complete, current, or error-free.
+            </p>
+            <p className="mt-4 leading-8 text-black/65">
+              The website may be updated, changed, interrupted, or discontinued
+              at any time without notice. We may add, remove, or modify pages,
+              features, categories, and editorial formats as the project
+              develops.
+            </p>
+          </section>
+
+          <section className="rounded-[2rem] border border-black/10 bg-white p-6 shadow-sm sm:p-8">
+            <h2 className="text-2xl font-semibold tracking-[-0.04em]">
+              5. Intellectual Property
+            </h2>
+            <p className="mt-4 leading-8 text-black/65">
+              Unless otherwise stated, the text, layout, branding, editorial
+              structure, and original content on SportPulse are owned by the
+              website operator or used with appropriate permission.
+            </p>
+            <p className="mt-4 leading-8 text-black/65">
+              You may view and share SportPulse pages for personal,
+              non-commercial purposes. You may not copy, republish, scrape,
+              reproduce, or commercially exploit substantial parts of the
+              website without prior permission.
+            </p>
+          </section>
+
+          <section className="rounded-[2rem] border border-black/10 bg-white p-6 shadow-sm sm:p-8">
+            <h2 className="text-2xl font-semibold tracking-[-0.04em]">
+              6. Third-Party Names and References
+            </h2>
+            <p className="mt-4 leading-8 text-black/65">
+              SportPulse may refer to sports leagues, teams, athletes, events,
+              media companies, or other third parties for editorial and
+              informational purposes. These references do not imply sponsorship,
+              partnership, endorsement, or official affiliation.
+            </p>
+            <p className="mt-4 leading-8 text-black/65">
+              All third-party names, trademarks, and brands remain the property
+              of their respective owners.
+            </p>
+          </section>
+
+          <section className="rounded-[2rem] border border-black/10 bg-white p-6 shadow-sm sm:p-8">
+            <h2 className="text-2xl font-semibold tracking-[-0.04em]">
+              7. External Links
+            </h2>
+            <p className="mt-4 leading-8 text-black/65">
+              SportPulse may link to external websites, official sources, media
+              platforms, or third-party services. These links are provided for
+              convenience and context.
+            </p>
+            <p className="mt-4 leading-8 text-black/65">
+              We are not responsible for the content, policies, availability,
+              or practices of external websites. Users access third-party
+              websites at their own discretion.
+            </p>
+          </section>
+
+          <section className="rounded-[2rem] border border-black/10 bg-white p-6 shadow-sm sm:p-8">
+            <h2 className="text-2xl font-semibold tracking-[-0.04em]">
+              8. User Conduct
+            </h2>
+            <p className="mt-4 leading-8 text-black/65">
+              Users agree not to misuse SportPulse, attempt to disrupt the
+              website, scrape content at scale, interfere with security, or use
+              the website in a way that violates applicable laws or the rights
+              of others.
+            </p>
+          </section>
+
+          <section className="rounded-[2rem] border border-black/10 bg-white p-6 shadow-sm sm:p-8">
+            <h2 className="text-2xl font-semibold tracking-[-0.04em]">
+              9. Limitation of Liability
+            </h2>
+            <p className="mt-4 leading-8 text-black/65">
+              SportPulse is provided on an “as is” and “as available” basis.
+              To the extent permitted by applicable law, we are not liable for
+              losses or damages resulting from use of the website, reliance on
+              content, interruptions, errors, or external links.
+            </p>
+          </section>
+
+          <section className="rounded-[2rem] border border-black/10 bg-white p-6 shadow-sm sm:p-8">
+            <h2 className="text-2xl font-semibold tracking-[-0.04em]">
+              10. Changes to These Terms
+            </h2>
+            <p className="mt-4 leading-8 text-black/65">
+              We may update these Terms of Use as SportPulse grows, adds new
+              features, enables advertising, launches newsletters, or expands
+              into additional sports intelligence categories.
+            </p>
+            <p className="mt-4 leading-8 text-black/65">
+              The latest version will always be available on this page.
+            </p>
+          </section>
+
+          <section className="rounded-[2rem] border border-black/10 bg-white p-6 shadow-sm sm:p-8">
+            <h2 className="text-2xl font-semibold tracking-[-0.04em]">
+              11. Contact
+            </h2>
+            <p className="mt-4 leading-8 text-black/65">
+              For questions about these Terms of Use, contact:
+            </p>
+            <p className="mt-4 leading-8 text-black/65">
+              <a
+                href="mailto:toolfixio@gmail.com"
+                className="underline decoration-black/25 underline-offset-4 hover:decoration-black"
+              >
+                toolfixio@gmail.com
+              </a>
+            </p>
+          </section>
+
+          <section className="rounded-[2rem] border border-black/10 bg-white p-6 shadow-sm sm:p-8">
+            <h2 className="text-2xl font-semibold tracking-[-0.04em]">
+              Related pages
+            </h2>
+            <div className="mt-5 grid gap-3 sm:grid-cols-2">
+              <Link
+                href="/privacy"
+                className="rounded-2xl border border-black/10 p-4 text-sm font-medium transition hover:bg-black hover:text-white"
+              >
+                Privacy Policy
+              </Link>
+              <Link
+                href="/impressum"
+                className="rounded-2xl border border-black/10 p-4 text-sm font-medium transition hover:bg-black hover:text-white"
+              >
+                Legal Notice / Impressum
+              </Link>
+              <Link
+                href="/contact"
+                className="rounded-2xl border border-black/10 p-4 text-sm font-medium transition hover:bg-black hover:text-white"
+              >
+                Contact
+              </Link>
+              <Link
+                href="/about"
+                className="rounded-2xl border border-black/10 p-4 text-sm font-medium transition hover:bg-black hover:text-white"
+              >
+                About SportPulse
+              </Link>
             </div>
           </section>
-        ))}
-      </div>
 
-      <p className="mt-12 text-sm leading-relaxed text-muted">
-        See also our{" "}
-        <Link href="/privacy" className="font-semibold text-accent hover:text-accent-strong">
-          Privacy Policy
-        </Link>
-        , or reach us through the{" "}
-        <Link href="/contact" className="font-semibold text-accent hover:text-accent-strong">
-          contact page
-        </Link>
-        .
-      </p>
-    </div>
+          <p className="pt-4 text-sm leading-6 text-black/45">
+            Last updated: June 26, 2026. These Terms of Use are provided as a
+            practical website terms page and should be reviewed if SportPulse
+            becomes commercial, enables advertising, launches paid products, or
+            adds betting-related analysis.
+          </p>
+        </div>
+      </section>
+    </main>
   );
 }

@@ -22,6 +22,7 @@ const sections = [
     links: [
       { href: "/privacy", label: "Privacy Policy" },
       { href: "/terms", label: "Terms of Use" },
+      { href: "/impressum", label: "Impressum" },
     ],
   },
 ];

@@ -90,8 +90,6 @@ Do not overcomplicate the MVP.
 
 Do not add login, payments, database, or API integrations yet.
 
-
-
 ## Cost Control and Monetization Strategy
 
 SportPulse must be built with strict cost control until the site proves real traffic potential.
@@ -236,3 +234,101 @@ Low costs first.
 Live data later.  
 Fantasy later.  
 Market intelligence later.
+
+
+
+## Professional Website Quality Checklist
+
+SportPulse should be treated as a professional sports media website, not as a simple MVP landing page.
+
+Before major milestones such as Google Search Console setup, AdSense application, live data integration, or public promotion, the site should be checked against a professional launch checklist.
+
+### Required professional standards
+
+The website should include:
+
+- clear navigation
+- clear footer links
+- visible breadcrumbs on article pages
+- sitemap.xml
+- robots.txt
+- working internal links
+- clean URL structure
+- unique metadata per important page
+- no placeholder content
+- no lorem ipsum
+- no unfinished legal templates
+- no fake live-data claims
+- no fake partnerships
+- no copyrighted team logos or league logos
+- no betting advice during the early phase
+- mobile-friendly layout
+- readable typography
+- consistent visual design
+- clear trust pages
+- clear provider information
+- contact information
+- privacy policy
+- terms of use
+- legal notice / impressum
+
+### Breadcrumb standard
+
+Article pages should show a clear visible path near the top of the page.
+
+Preferred format:
+
+Home > Category > Article title
+
+Examples:
+
+- Home > Explained > What Makes a Game Worth Watching?
+- Home > Recaps > How to Read a Game Recap
+- Home > Trending > Why Athletes Go Viral
+- Home > Tonight > What to Watch Next in Sports
+
+The last breadcrumb item should be plain text, not a link.
+
+Breadcrumbs should support user orientation and help reinforce the site structure.
+
+### Internal linking standard
+
+Every article should include relevant internal links to related SportPulse pages.
+
+Hub pages should link to all important articles in their category.
+
+Important pages should never be orphaned.
+
+### Pre-Search-Console checklist
+
+Before setting up or submitting the site in Google Search Console, verify:
+
+- homepage works
+- sitemap.xml works
+- robots.txt works
+- all hub pages work
+- all trust pages work
+- article pages are reachable
+- footer links work
+- breadcrumbs are visible on article pages
+- no important page returns 404
+- no page contains placeholders
+- no page claims features that do not exist yet
+
+### Strategic reminder
+
+SportPulse should not move into expensive features before the foundation is professional.
+
+The correct order remains:
+
+1. Trust
+2. Content
+3. Navigation
+4. Technical SEO
+5. Search Console
+6. Indexing
+7. AdSense review
+8. Traffic validation
+9. Live data
+10. Fantasy and market intelligence
+

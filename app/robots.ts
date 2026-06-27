@@ -1,14 +1,14 @@
 import type { MetadataRoute } from "next";
 
-const siteUrl = "https://sportpulse.news";
-
 export default function robots(): MetadataRoute.Robots {
+  const baseUrl = "https://sportpulse.news";
+
   return {
     rules: {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: `${siteUrl}/sitemap.xml`,
-    host: siteUrl,
+    sitemap: `${baseUrl}/sitemap.xml`,
+    host: baseUrl,
   };
 }

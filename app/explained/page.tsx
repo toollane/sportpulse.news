@@ -108,6 +108,18 @@ export default function ExplainedPage() {
               media narrative.
             </span>
           </Link>
+          <Link
+            href="/explained/what-makes-a-game-worth-watching"
+            className="group rounded-xl border border-border p-4 transition-colors hover:border-accent/40"
+          >
+            <span className="block text-sm font-semibold text-foreground group-hover:text-accent">
+              What Makes a Game Worth Watching?
+            </span>
+            <span className="mt-2 block text-xs leading-relaxed text-muted">
+              The stakes, rivalries, player stories, tactics, and cultural
+              attention that turn a matchup into an event.
+            </span>
+          </Link>
         </div>
       </section>
 

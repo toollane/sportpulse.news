@@ -49,6 +49,32 @@ export default function RecapsPage() {
             point, key players, why it matters, and what to watch next.
           </span>
         </Link>
+        <div className="mt-4 grid gap-3 sm:grid-cols-2">
+          <Link
+            href="/recaps/how-to-read-a-game-recap"
+            className="group rounded-xl border border-border p-4 transition-colors hover:border-accent/40"
+          >
+            <span className="block text-sm font-semibold text-foreground group-hover:text-accent">
+              How to Read a Game Recap
+            </span>
+            <span className="mt-2 block text-xs leading-relaxed text-muted">
+              Learn how to spot turning points, key players, momentum shifts,
+              and what changed.
+            </span>
+          </Link>
+          <Link
+            href="/recaps/why-short-sports-recaps-are-useful"
+            className="group rounded-xl border border-border p-4 transition-colors hover:border-accent/40"
+          >
+            <span className="block text-sm font-semibold text-foreground group-hover:text-accent">
+              Why Short Sports Recaps Are Useful
+            </span>
+            <span className="mt-2 block text-xs leading-relaxed text-muted">
+              Why busy fans benefit from concise recaps instead of long
+              highlight or analysis loops.
+            </span>
+          </Link>
+        </div>
       </section>
 
       <section

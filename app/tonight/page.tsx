@@ -50,6 +50,18 @@ export default function TonightPage() {
             reading an endless feed.
           </span>
         </Link>
+        <Link
+          href="/tonight/what-to-watch-next-in-sports"
+          className="group mt-4 block rounded-xl border border-border p-4 transition-colors hover:border-accent/40 sm:max-w-md"
+        >
+          <span className="block text-sm font-semibold text-foreground group-hover:text-accent">
+            What to Watch Next in Sports
+          </span>
+          <span className="mt-2 block text-xs leading-relaxed text-muted">
+            How to choose the next games, rivalries, athletes, injuries, and
+            momentum swings worth following.
+          </span>
+        </Link>
       </section>
 
       <section className="mt-12" aria-label="Tonight's key results">

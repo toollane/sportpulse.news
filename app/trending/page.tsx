@@ -50,6 +50,18 @@ export default function TrendingPage() {
             attention.
           </span>
         </Link>
+        <Link
+          href="/trending/why-athletes-go-viral"
+          className="group mt-4 block rounded-xl border border-border p-4 transition-colors hover:border-accent/40 sm:max-w-md"
+        >
+          <span className="block text-sm font-semibold text-foreground group-hover:text-accent">
+            Why Athletes Go Viral
+          </span>
+          <span className="mt-2 block text-xs leading-relaxed text-muted">
+            How highlights, records, controversy, injuries, interviews, memes,
+            fantasy impact, and media cycles create viral attention.
+          </span>
+        </Link>
       </section>
 
       <section className="mt-12 grid gap-4 md:grid-cols-2" aria-label="Trending board">

@@ -15,12 +15,17 @@ const routes = [
   "/explained/why-game-context-matters",
   "/explained/how-sports-momentum-shifts",
   "/explained/why-one-play-can-change-a-game",
+  "/explained/what-makes-a-game-worth-watching",
 
   "/trending/how-sports-trends-work",
+  "/trending/why-athletes-go-viral",
 
   "/recaps/what-is-a-fast-sports-recap",
+  "/recaps/how-to-read-a-game-recap",
+  "/recaps/why-short-sports-recaps-are-useful",
 
   "/tonight/how-to-catch-up-on-sports-fast",
+  "/tonight/what-to-watch-next-in-sports",
 
   "/about",
   "/contact",

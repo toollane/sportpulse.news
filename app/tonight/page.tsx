@@ -62,6 +62,18 @@ export default function TonightPage() {
             momentum swings worth following.
           </span>
         </Link>
+        <Link
+          href="/tonight/how-to-follow-sports-without-watching-every-game"
+          className="group mt-4 block rounded-xl border border-border p-4 transition-colors hover:border-accent/40 sm:max-w-md"
+        >
+          <span className="block text-sm font-semibold text-foreground group-hover:text-accent">
+            How to Follow Sports Without Watching Every Game
+          </span>
+          <span className="mt-2 block text-xs leading-relaxed text-muted">
+            How to use recaps, score context, trends, key players, and quick
+            briefings to stay informed.
+          </span>
+        </Link>
       </section>
 
       <section className="mt-12" aria-label="Tonight's key results">

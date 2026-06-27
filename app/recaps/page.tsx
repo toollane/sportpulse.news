@@ -74,6 +74,18 @@ export default function RecapsPage() {
               highlight or analysis loops.
             </span>
           </Link>
+          <Link
+            href="/recaps/how-to-catch-up-after-missing-a-game"
+            className="group rounded-xl border border-border p-4 transition-colors hover:border-accent/40"
+          >
+            <span className="block text-sm font-semibold text-foreground group-hover:text-accent">
+              How to Catch Up After Missing a Game
+            </span>
+            <span className="mt-2 block text-xs leading-relaxed text-muted">
+              A practical process for finding the result, turning point, key
+              players, stakes, and next storyline.
+            </span>
+          </Link>
         </div>
       </section>
 

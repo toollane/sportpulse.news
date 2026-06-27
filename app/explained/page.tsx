@@ -120,6 +120,30 @@ export default function ExplainedPage() {
               attention that turn a matchup into an event.
             </span>
           </Link>
+          <Link
+            href="/explained/why-final-scores-do-not-tell-the-full-story"
+            className="group rounded-xl border border-border p-4 transition-colors hover:border-accent/40"
+          >
+            <span className="block text-sm font-semibold text-foreground group-hover:text-accent">
+              Why Final Scores Do Not Tell the Full Story
+            </span>
+            <span className="mt-2 block text-xs leading-relaxed text-muted">
+              How injuries, late runs, pressure moments, and tactics can hide
+              behind the final number.
+            </span>
+          </Link>
+          <Link
+            href="/explained/how-to-understand-a-game-without-watching-it"
+            className="group rounded-xl border border-border p-4 transition-colors hover:border-accent/40"
+          >
+            <span className="block text-sm font-semibold text-foreground group-hover:text-accent">
+              How to Understand a Game Without Watching It
+            </span>
+            <span className="mt-2 block text-xs leading-relaxed text-muted">
+              A quick process for using scores, recaps, player impact, injuries,
+              and what comes next.
+            </span>
+          </Link>
         </div>
       </section>
 

@@ -38,6 +38,7 @@ const routes = [
   "/tonight/what-happened-in-sports-today",
 
   "/about",
+  "/editorial-standards",
   "/contact",
   "/privacy",
   "/terms",
@@ -47,17 +48,25 @@ const routes = [
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
 
-  return routes.map((route) => ({
-    url: `${baseUrl}${route}`,
-    lastModified,
-    changeFrequency: route === "" ? "daily" : "weekly",
-    priority:
-      route === ""
-        ? 1
-        : ["/tonight", "/trending", "/recaps", "/explained"].includes(route)
-          ? 0.9
-          : ["/about", "/contact", "/privacy", "/terms", "/impressum"].includes(route)
-            ? 0.5
-            : 0.7,
-  }));
+  return routes.map((route) => {
+    const isHome = route === "";
+    const isHub = ["/tonight", "/trending", "/recaps", "/explained"].includes(
+      route,
+    );
+    const isTrustPage = [
+      "/about",
+      "/editorial-standards",
+      "/contact",
+      "/privacy",
+      "/terms",
+      "/impressum",
+    ].includes(route);
+
+    return {
+      url: `${baseUrl}${route}`,
+      lastModified,
+      changeFrequency: isHome ? "daily" : "weekly",
+      priority: isHome ? 1 : isHub ? 0.9 : isTrustPage ? 0.5 : 0.7,
+    };
+  });
 }

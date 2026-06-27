@@ -9,6 +9,7 @@ const mainLinks = [
 
 const trustLinks = [
   { href: "/about", label: "About" },
+  { href: "/editorial-standards", label: "Editorial Standards" },
   { href: "/contact", label: "Contact" },
   { href: "/privacy", label: "Privacy Policy" },
   { href: "/terms", label: "Terms of Use" },

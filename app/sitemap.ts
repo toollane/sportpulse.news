@@ -18,19 +18,24 @@ const routes = [
   "/explained/what-makes-a-game-worth-watching",
   "/explained/why-final-scores-do-not-tell-the-full-story",
   "/explained/how-to-understand-a-game-without-watching-it",
+  "/explained/what-is-a-turning-point-in-sports",
+  "/explained/how-injuries-change-the-story-of-a-game",
 
   "/trending/how-sports-trends-work",
   "/trending/why-athletes-go-viral",
   "/trending/why-players-trend-after-one-game",
+  "/trending/why-sports-stories-change-so-fast",
 
   "/recaps/what-is-a-fast-sports-recap",
   "/recaps/how-to-read-a-game-recap",
   "/recaps/why-short-sports-recaps-are-useful",
   "/recaps/how-to-catch-up-after-missing-a-game",
+  "/recaps/what-to-look-for-in-a-box-score",
 
   "/tonight/how-to-catch-up-on-sports-fast",
   "/tonight/what-to-watch-next-in-sports",
   "/tonight/how-to-follow-sports-without-watching-every-game",
+  "/tonight/what-happened-in-sports-today",
 
   "/about",
   "/contact",

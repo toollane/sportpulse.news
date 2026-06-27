@@ -74,6 +74,18 @@ export default function TonightPage() {
             briefings to stay informed.
           </span>
         </Link>
+        <Link
+          href="/tonight/what-happened-in-sports-today"
+          className="group mt-4 block rounded-xl border border-border p-4 transition-colors hover:border-accent/40 sm:max-w-md"
+        >
+          <span className="block text-sm font-semibold text-foreground group-hover:text-accent">
+            What Happened in Sports Today?
+          </span>
+          <span className="mt-2 block text-xs leading-relaxed text-muted">
+            How to catch up on results, key games, trending athletes, injuries,
+            standings impact, and what to watch next.
+          </span>
+        </Link>
       </section>
 
       <section className="mt-12" aria-label="Tonight's key results">

@@ -86,6 +86,18 @@ export default function RecapsPage() {
               players, stakes, and next storyline.
             </span>
           </Link>
+          <Link
+            href="/recaps/what-to-look-for-in-a-box-score"
+            className="group rounded-xl border border-border p-4 transition-colors hover:border-accent/40"
+          >
+            <span className="block text-sm font-semibold text-foreground group-hover:text-accent">
+              What to Look For in a Box Score
+            </span>
+            <span className="mt-2 block text-xs leading-relaxed text-muted">
+              How to scan scoring balance, efficiency, minutes, turnovers,
+              fouls, team stats, and misleading numbers.
+            </span>
+          </Link>
         </div>
       </section>
 

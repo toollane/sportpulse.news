@@ -144,6 +144,30 @@ export default function ExplainedPage() {
               and what comes next.
             </span>
           </Link>
+          <Link
+            href="/explained/what-is-a-turning-point-in-sports"
+            className="group rounded-xl border border-border p-4 transition-colors hover:border-accent/40"
+          >
+            <span className="block text-sm font-semibold text-foreground group-hover:text-accent">
+              What Is a Turning Point in Sports?
+            </span>
+            <span className="mt-2 block text-xs leading-relaxed text-muted">
+              How momentum, mistakes, injuries, tactics, and late execution
+              change a game.
+            </span>
+          </Link>
+          <Link
+            href="/explained/how-injuries-change-the-story-of-a-game"
+            className="group rounded-xl border border-border p-4 transition-colors hover:border-accent/40"
+          >
+            <span className="block text-sm font-semibold text-foreground group-hover:text-accent">
+              How Injuries Change the Story of a Game
+            </span>
+            <span className="mt-2 block text-xs leading-relaxed text-muted">
+              How availability affects roles, tactics, momentum, pressure, and
+              what fans watch next.
+            </span>
+          </Link>
         </div>
       </section>
 

@@ -69,6 +69,10 @@ Core search intent:
 - Editorial Standards page created
 - Homepage upgraded toward dashboard/app feeling
 - API ROI strategy documented
+- NBA focus page created
+- NFL focus page created
+- Fantasy focus page created
+- Shared SportFocusPage template created
 
 ---
 
@@ -77,7 +81,7 @@ Core search intent:
 Build SportPulse from a clean sports media foundation into a useful sports intelligence product.
 
 The site should feel less like a generic blog and more like a fast sports briefing dashboard.  
-  
+
 TODO maintenance rule
 
 This file must be reviewed regularly and kept up to date.
@@ -271,11 +275,11 @@ Do not:
 
 ## Next immediate action
 
-1. Commit this TODO file.
-2. Build /nba page.
-3. Build /nfl page.
-4. Build /fantasy page.
-5. Update sitemap.
-6. Run build.
-7. Commit and push.
+1. Deploy NBA/NFL/Fantasy foundation pages.
+
+2. Verify the live pages on desktop and mobile.
+
+3. Check that sitemap and navigation include the new pages.
+
+4. Start API provider comparison for the first NBA Pulse Today prototype.
 

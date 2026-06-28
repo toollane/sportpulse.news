@@ -2,6 +2,9 @@ import Link from "next/link";
 
 const mainLinks = [
   { href: "/tonight", label: "Tonight" },
+  { href: "/nba", label: "NBA" },
+  { href: "/nfl", label: "NFL" },
+  { href: "/fantasy", label: "Fantasy" },
   { href: "/trending", label: "Trending" },
   { href: "/recaps", label: "Recaps" },
   { href: "/explained", label: "Explained" },

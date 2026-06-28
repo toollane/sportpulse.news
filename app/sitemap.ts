@@ -8,6 +8,9 @@ const routes = [
   "/trending",
   "/recaps",
   "/explained",
+  "/nba",
+  "/nfl",
+  "/fantasy",
 
   "/explained/what-is-sportpulse",
   "/explained/why-sports-fans-search-for-scores",

@@ -1,0 +1,211 @@
+import Link from "next/link";
+import type { ReactNode } from "react";
+import type { SportFocusPageContent } from "@/lib/sportFocusPages";
+
+type SportFocusPageProps = {
+  content: SportFocusPageContent;
+};
+
+function Badge({ children }: { children: ReactNode }) {
+  return (
+    <span className="rounded-full border border-border bg-background px-3 py-1 text-xs font-semibold text-muted">
+      {children}
+    </span>
+  );
+}
+
+export default function SportFocusPage({ content }: SportFocusPageProps) {
+  return (
+    <main className="bg-background text-foreground">
+      <section className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+        <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+          <div>
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.28em] text-accent">
+              {content.eyebrow}
+            </p>
+
+            <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
+              {content.title}
+            </h1>
+
+            <p className="mt-5 max-w-2xl text-lg leading-8 text-muted">
+              {content.description}
+            </p>
+
+            <div className="mt-7 flex flex-wrap gap-3">
+              <Link
+                href={content.primaryCta.href}
+                className="rounded-full bg-foreground px-5 py-3 text-sm font-semibold text-background transition hover:opacity-90"
+              >
+                {content.primaryCta.label}
+              </Link>
+              <Link
+                href={content.secondaryCta.href}
+                className="rounded-full border border-border bg-surface px-5 py-3 text-sm font-semibold transition hover:bg-background"
+              >
+                {content.secondaryCta.label}
+              </Link>
+            </div>
+          </div>
+
+          <aside className="rounded-card border border-border bg-surface p-5 shadow-sm">
+            <div className="flex items-center justify-between gap-4">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-accent">
+                  SportPulse preview
+                </p>
+                <h2 className="mt-2 text-xl font-semibold">
+                  {content.preview.title}
+                </h2>
+              </div>
+              <Badge>{content.preview.badge}</Badge>
+            </div>
+
+            <div className="mt-6 grid gap-3">
+              {content.preview.rows.map((row) => (
+                <div
+                  key={row.label}
+                  className="rounded-2xl border border-border bg-background p-4"
+                >
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">
+                        {row.label}
+                      </p>
+                      <p className="mt-2 text-base font-semibold">
+                        {row.title}
+                      </p>
+                      <p className="mt-2 text-sm leading-6 text-muted">
+                        {row.text}
+                      </p>
+                    </div>
+                    <span className="shrink-0 rounded-full bg-surface px-3 py-1 text-xs font-semibold text-accent">
+                      {row.tag}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </aside>
+        </div>
+
+        <section className="rounded-card border border-border bg-surface p-5 shadow-sm md:p-6">
+          <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-accent">
+                Search intent
+              </p>
+              <h2 className="mt-2 text-2xl font-semibold">
+                {content.intentTitle}
+              </h2>
+            </div>
+            <p className="max-w-xl text-sm leading-6 text-muted">
+              {content.intentText}
+            </p>
+          </div>
+
+          <div className="mt-5 flex flex-wrap gap-2">
+            {content.intentChips.map((chip) => (
+              <Badge key={chip}>{chip}</Badge>
+            ))}
+          </div>
+        </section>
+
+        <section>
+          <div className="max-w-3xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-accent">
+              SportPulse answer layer
+            </p>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight">
+              {content.answerTitle}
+            </h2>
+            <p className="mt-4 leading-7 text-muted">
+              {content.answerText}
+            </p>
+          </div>
+
+          <div className="mt-6 grid gap-4 md:grid-cols-2">
+            {content.answerCards.map((card) => (
+              <article
+                key={card.title}
+                className="rounded-card border border-border bg-surface p-6 shadow-sm"
+              >
+                <p className="text-sm font-semibold text-accent">
+                  {card.kicker}
+                </p>
+                <h3 className="mt-3 text-xl font-semibold">{card.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-muted">
+                  {card.text}
+                </p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="rounded-card border border-border bg-surface p-6 shadow-sm md:p-8">
+          <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-accent">
+                Product modules
+              </p>
+              <h2 className="mt-3 text-2xl font-semibold">
+                {content.modulesTitle}
+              </h2>
+              <p className="mt-4 leading-7 text-muted">
+                {content.modulesText}
+              </p>
+            </div>
+
+            <div className="grid gap-3 sm:grid-cols-2">
+              {content.modules.map((module) => (
+                <div
+                  key={module.title}
+                  className="rounded-2xl border border-border bg-background p-4"
+                >
+                  <p className="text-sm font-semibold">{module.title}</p>
+                  <p className="mt-2 text-sm leading-6 text-muted">
+                    {module.text}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="grid gap-4 md:grid-cols-[1fr_1fr]">
+          <article className="rounded-card border border-border bg-surface p-6 shadow-sm md:p-8">
+            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-accent">
+              Trust note
+            </p>
+            <h2 className="mt-3 text-2xl font-semibold">
+              No fake live-data claims.
+            </h2>
+            <p className="mt-4 leading-7 text-muted">
+              {content.trustText}
+            </p>
+          </article>
+
+          <article className="rounded-card border border-border bg-[#080808] p-6 text-white shadow-sm md:p-8">
+            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-white/60">
+              Brand principle
+            </p>
+            <h2 className="mt-3 text-2xl font-semibold">
+              {content.finalCtaTitle}
+            </h2>
+            <p className="mt-4 leading-7 text-white/70">
+              {content.finalCtaText}
+            </p>
+            <div className="mt-6">
+              <Link
+                href={content.finalCta.href}
+                className="inline-flex rounded-full bg-white px-5 py-3 text-sm font-semibold text-black transition hover:bg-white/90"
+              >
+                {content.finalCta.label}
+              </Link>
+            </div>
+          </article>
+        </section>
+      </section>
+    </main>
+  );
+}

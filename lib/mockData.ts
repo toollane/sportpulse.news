@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Static mock data for the SportPulse MVP.
  *
  * Everything here is original, hand-written editorial content created for
@@ -104,7 +104,7 @@ export const features: Feature[] = [
 ];
 
 /* -------------------------------------------------------------------------- */
-/* Today's Pulse — key stories                                                */
+/* Today's Pulse â€” key stories                                                */
 /* -------------------------------------------------------------------------- */
 
 export const stories: Story[] = [
@@ -121,7 +121,7 @@ export const stories: Story[] = [
   },
   {
     slug: "rookie-class-arrives",
-    title: "The rookie class is no longer arriving — it has arrived",
+    title: "The rookie class is no longer arriving â€” it has arrived",
     summary:
       "Three first-year players posted career nights on the same evening, a reminder that the league's next era is closer than the standings suggest. We break down what each performance signals for the months ahead.",
     sport: "Basketball",
@@ -307,7 +307,7 @@ export const recaps: Recap[] = [
     awayScore: 0,
     status: "Final",
     summary:
-      "One moment settled a cagey match. Highland defended the box well, absorbed pressure late, and took its single clear chance — a reminder that tight games often turn on margins, not dominance.",
+      "One moment settled a cagey match. Highland defended the box well, absorbed pressure late, and took its single clear chance â€” a reminder that tight games often turn on margins, not dominance.",
   },
 ];
 
@@ -333,7 +333,7 @@ export const explainers: Explainer[] = [
     slug: "what-a-deadline-trade-signals",
     question: "What does a deadline trade really signal?",
     answer:
-      "Trades are rarely about a single player. They reveal how a front office reads its own window — whether it is buying time, betting on a run, or quietly resetting. Here is how to read the intent behind the move.",
+      "Trades are rarely about a single player. They reveal how a front office reads its own window â€” whether it is buying time, betting on a run, or quietly resetting. Here is how to read the intent behind the move.",
     sport: "Basketball",
     topic: "Roster strategy",
     whyItMatters: [
@@ -383,12 +383,12 @@ export const faqs: Faq[] = [
   {
     question: "Is SportPulse a live scores website?",
     answer:
-      "Scores are only the entry point. Our goal is to explain the story behind the result — who is trending, what shifted, and what to watch next — in a format designed to be read quickly on a phone.",
+      "Scores are only the entry point. Our goal is to explain the story behind the result â€” who is trending, what shifted, and what to watch next â€” in a format designed to be read quickly on a phone.",
   },
   {
     question: "Where does the content come from?",
     answer:
-      "During this early MVP phase, SportPulse uses original, hand-written editorial samples to demonstrate the product experience. We do not publish copyrighted images, team logos, or player photography.",
+      "SportPulse currently uses original, hand-written editorial briefings to demonstrate the product experience. We do not publish copyrighted images, team logos, or player photography.",
   },
   {
     question: "Does SportPulse offer betting advice?",
@@ -452,7 +452,7 @@ export const sectionFaqs: Record<SectionKey, Faq[]> = {
     {
       question: "What makes a SportPulse recap different?",
       answer:
-        "We focus on the shape of the game, not just the box score. A good recap should leave you understanding how a result happened, not only what the final number was — with no autoplay video or clutter.",
+        "We focus on the shape of the game, not just the box score. A good recap should leave you understanding how a result happened, not only what the final number was â€” with no autoplay video or clutter.",
     },
     {
       question: "Are recaps available for every sport?",
@@ -464,7 +464,7 @@ export const sectionFaqs: Record<SectionKey, Faq[]> = {
     {
       question: "What kind of questions does Explained answer?",
       answer:
-        "Explained tackles the 'why' behind sports — why a quiet result matters, what a roster move signals, or how a streak holds up. It is built for the questions fans actually ask after the final whistle.",
+        "Explained tackles the 'why' behind sports â€” why a quiet result matters, what a roster move signals, or how a streak holds up. It is built for the questions fans actually ask after the final whistle.",
     },
     {
       question: "Is Explained opinion or analysis?",
@@ -490,7 +490,7 @@ export const editorialPrinciples: { title: string; body: string }[] = [
   },
   {
     title: "We label what things are",
-    body: "Analysis is presented as analysis and summaries as summaries. During this early phase, sample content is clearly described as original editorial material rather than live reporting.",
+    body: "Analysis is presented as analysis and summaries as summaries. SportPulse clearly describes editorial briefing content as original material rather than live reporting.",
   },
   {
     title: "We correct mistakes",
@@ -517,7 +517,7 @@ export const contactTopics: { title: string; body: string }[] = [
   },
   {
     title: "Feedback & ideas",
-    body: "Tell us what would make SportPulse more useful — a sport to cover, a format to try, or a feature to build.",
+    body: "Tell us what would make SportPulse more useful â€” a sport to cover, a format to try, or a feature to build.",
   },
   {
     title: "Partnerships",

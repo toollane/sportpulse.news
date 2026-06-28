@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import type { Recap, Story, Trend } from "@/lib/mockData";
 
 type PulseSnapshotProps = {
@@ -54,7 +54,7 @@ export default function PulseSnapshot({
               A quick read on the result, the attention, and the next question.
             </h2>
             <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
-              SportPulse uses editorial sample data in this MVP. The format
+              SportPulse currently uses editorial briefings. The format
               shows how a daily briefing can turn scores into context without
               pretending to be a live scores feed.
             </p>
@@ -88,13 +88,13 @@ export default function PulseSnapshot({
                 </h3>
               </div>
               <span className="rounded-full bg-accent-soft px-3 py-1 text-xs font-semibold text-accent-strong">
-                MVP sample
+                Editorial briefing
               </span>
             </div>
 
             <ol className="mt-6 space-y-4">
               {[
-                "The night’s lead story came from a late swing, not just the final score.",
+                "The nightâ€™s lead story came from a late swing, not just the final score.",
                 "Attention is moving toward player form, roster decisions, and what comes next.",
                 "The best next read is the recap, then the why-it-matters explainer.",
               ].map((item, index) => (

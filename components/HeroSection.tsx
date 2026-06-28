@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { recaps, stories, trends } from "@/lib/mockData";
 
 export default function HeroSection() {
@@ -30,7 +30,7 @@ export default function HeroSection() {
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
             SportPulse turns scores into a fast, mobile-first briefing: what
             happened, why it mattered, who is trending, and what to watch next.
-            This MVP uses original editorial sample data, not live scores.
+            SportPulse currently uses original editorial briefings, not automated live scores.
           </p>
 
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
@@ -78,7 +78,7 @@ export default function HeroSection() {
                 </h2>
               </div>
               <span className="rounded-full bg-accent-soft px-2.5 py-1 text-xs font-semibold text-accent-strong">
-                Sample
+                Editorial
               </span>
             </div>
 
@@ -162,7 +162,7 @@ export default function HeroSection() {
                 className="flex items-center justify-between rounded-2xl bg-foreground px-4 py-3 text-sm font-semibold text-background transition-opacity hover:opacity-90"
               >
                 Read the full briefing
-                <span aria-hidden>→</span>
+                <span aria-hidden>â†’</span>
               </Link>
             </div>
           </div>

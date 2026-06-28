@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import HeroSection from "@/components/HeroSection";
 import SectionHeader from "@/components/SectionHeader";
 import FeatureCard from "@/components/FeatureCard";
@@ -79,7 +79,7 @@ export default function Home() {
       <section className="mx-auto mt-20 w-full max-w-6xl px-5 sm:px-8">
         <SectionHeader
           eyebrow="Today's Pulse"
-          title="The stories defining the sample briefing"
+          title="The stories defining the editorial briefing"
           description="A compact editorial pulse: the late swing, the context, and the storylines worth following next."
           href="/tonight"
           linkLabel="Open Tonight"
@@ -112,7 +112,7 @@ export default function Home() {
         <SectionHeader
           eyebrow="Trending Now"
           title="Momentum board"
-          description="A ranked view of the athletes, teams, and topics pulling attention in this editorial sample."
+          description="A ranked view of the athletes, teams, and topics pulling attention in this editorial briefing."
           href="/trending"
           linkLabel="See full board"
         />
@@ -169,7 +169,7 @@ export default function Home() {
                   aria-hidden
                   className="transition-transform group-hover:translate-x-0.5"
                 >
-                  →
+                  â†’
                 </span>
               </span>
             </Link>
@@ -181,7 +181,7 @@ export default function Home() {
         <SectionHeader
           eyebrow="Explained"
           title="Why it actually mattered"
-          description="Clear answers to the questions fans are asking — the context that turns a result into a story."
+          description="Clear answers to the questions fans are asking â€” the context that turns a result into a story."
           href="/explained"
           linkLabel="More explainers"
         />
@@ -193,7 +193,7 @@ export default function Home() {
               className="flex flex-col rounded-card border border-border bg-surface p-6"
             >
               <span className="text-xs font-semibold text-accent">
-                {item.sport} · {item.topic}
+                {item.sport} Â· {item.topic}
               </span>
 
               <h3 className="mt-3 text-lg font-semibold leading-snug tracking-tight text-foreground">

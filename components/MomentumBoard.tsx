@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import type { Trend } from "@/lib/mockData";
 
 const momentumStyles: Record<Trend["momentum"], string> = {
@@ -38,7 +38,7 @@ export default function MomentumBoard({ trends }: { trends: Trend[] }) {
             aria-hidden
             className="transition-transform group-hover:translate-x-0.5"
           >
-            →
+            â†’
           </span>
         </span>
       </Link>
@@ -59,7 +59,7 @@ export default function MomentumBoard({ trends }: { trends: Trend[] }) {
                     {trend.name}
                   </span>
                   <span className="mt-1 block text-xs text-muted">
-                    {trend.type} · {trend.sport}
+                    {trend.type} Â· {trend.sport}
                   </span>
                 </span>
                 <span

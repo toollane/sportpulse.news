@@ -1,4 +1,4 @@
-import type { Recap } from "@/lib/mockData";
+﻿import type { Recap } from "@/lib/mockData";
 
 function TeamRow({
   name,

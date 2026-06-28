@@ -73,6 +73,14 @@ Core search intent:
 - NFL focus page created
 - Fantasy focus page created
 - Shared SportFocusPage template created
+- NBA focus page upgraded
+- NFL focus page upgraded
+- MLB focus page created
+- NHL focus page created
+- Golf focus page created
+- Fantasy focus page upgraded
+- Shared SportFocusPage hub template improved
+- Sport focus pages added to navigation and sitemap
 
 ---
 
@@ -115,34 +123,27 @@ This file is the project control document. It should prevent repeated work, uncl
 
 ## Next website tasks
 
-### 1. Add sport focus pages
+### 1. Verify sport focus pages
 
-Create foundational pages for:
+Check:
 
 - /nba
 - /nfl
+- /mlb
+- /nhl
+- /golf
 - /fantasy
-
-Purpose:
-
-- make the site direction clearer
-- prepare future API/data modules
-- support NBA/NFL/fantasy positioning
-- avoid fake live-data claims
-
-Important:
-
-These pages should not claim live scores, live injuries, or fantasy projections until those features actually exist.
+- desktop layout
+- mobile layout
+- navigation links
+- footer links
+- sitemap inclusion
+- no broken characters
+- no fake live-data claims
 
 ---
 
-### 2. Update sitemap
-
-After adding /nba, /nfl, and /fantasy, update the sitemap so the new pages are discoverable.
-
----
-
-### 3. Review homepage after deployment
+### 2. Review homepage after deployment
 
 Check:
 
@@ -155,7 +156,7 @@ Check:
 
 ---
 
-### 4. Monitor Search Console
+### 3. Monitor Search Console
 
 Check:
 
@@ -275,11 +276,8 @@ Do not:
 
 ## Next immediate action
 
-1. Deploy NBA/NFL/Fantasy foundation pages.
-
-2. Verify the live pages on desktop and mobile.
-
-3. Check that sitemap and navigation include the new pages.
-
-4. Start API provider comparison for the first NBA Pulse Today prototype.
-
+1. Run build.
+2. Verify /nba, /nfl, /mlb, /nhl, /golf, /fantasy on desktop and mobile.
+3. Check for broken characters.
+4. Commit and push sport focus foundation pages.
+5. Start API provider comparison for NBA Pulse Today.

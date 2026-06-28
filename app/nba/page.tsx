@@ -3,9 +3,9 @@ import SportFocusPage from "@/components/SportFocusPage";
 import { sportFocusPages } from "@/lib/sportFocusPages";
 
 export const metadata: Metadata = {
-  title: "NBA Pulse | SportPulse",
+  title: "NBA Pulse Today | SportPulse",
   description:
-    "NBA Pulse is SportPulse's fast context layer for NBA games, recaps, momentum, fantasy signals, and what to watch next.",
+    "Catch up on the NBA night with fast context for scores, rotation watch, player signals, fantasy basketball usage, and what to watch next.",
 };
 
 export default function NbaPage() {

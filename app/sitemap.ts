@@ -10,6 +10,9 @@ const routes = [
   "/explained",
   "/nba",
   "/nfl",
+  "/mlb",
+  "/nhl",
+  "/golf",
   "/fantasy",
 
   "/explained/what-is-sportpulse",
@@ -53,9 +56,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return routes.map((route) => {
     const isHome = route === "";
-    const isHub = ["/tonight", "/trending", "/recaps", "/explained"].includes(
-      route,
-    );
+    const isHub = [
+      "/tonight",
+      "/trending",
+      "/recaps",
+      "/explained",
+      "/nba",
+      "/nfl",
+      "/mlb",
+      "/nhl",
+      "/golf",
+      "/fantasy",
+    ].includes(route);
     const isTrustPage = [
       "/about",
       "/editorial-standards",

@@ -3,9 +3,9 @@ import SportFocusPage from "@/components/SportFocusPage";
 import { sportFocusPages } from "@/lib/sportFocusPages";
 
 export const metadata: Metadata = {
-  title: "Fantasy Sports | SportPulse",
+  title: "Fantasy Impact Center | SportPulse",
   description:
-    "SportPulse is building fantasy football and fantasy basketball context for usage changes, injuries, player trends, and matchup signals.",
+    "Understand fantasy sports signals with context for injury impact, usage change, waiver signals, player trends, opportunity watch, and start/sit factors.",
 };
 
 export default function FantasyPage() {

@@ -3,9 +3,9 @@ import SportFocusPage from "@/components/SportFocusPage";
 import { sportFocusPages } from "@/lib/sportFocusPages";
 
 export const metadata: Metadata = {
-  title: "NFL Pulse | SportPulse",
+  title: "NFL Week Pulse | SportPulse",
   description:
-    "NFL Pulse is SportPulse's fast context layer for NFL matchups, weekly recaps, fantasy football relevance, and what changed.",
+    "Reset the NFL week with fast context for matchups, Sunday results, teams under pressure, injury impact, fantasy football signals, and Monday storylines.",
 };
 
 export default function NflPage() {

@@ -55,7 +55,7 @@ export default function WatchNextPanel({
             aria-hidden
             className="ml-1 transition-transform group-hover:translate-x-0.5"
           >
-            â†’
+            →
           </span>
         </Link>
       </div>

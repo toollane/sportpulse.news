@@ -169,7 +169,7 @@ export default function Home() {
                   aria-hidden
                   className="transition-transform group-hover:translate-x-0.5"
                 >
-                  â†’
+                  →
                 </span>
               </span>
             </Link>
@@ -181,7 +181,7 @@ export default function Home() {
         <SectionHeader
           eyebrow="Explained"
           title="Why it actually mattered"
-          description="Clear answers to the questions fans are asking â€” the context that turns a result into a story."
+          description="Clear answers to the questions fans are asking — the context that turns a result into a story."
           href="/explained"
           linkLabel="More explainers"
         />
@@ -193,7 +193,7 @@ export default function Home() {
               className="flex flex-col rounded-card border border-border bg-surface p-6"
             >
               <span className="text-xs font-semibold text-accent">
-                {item.sport} Â· {item.topic}
+                {item.sport} · {item.topic}
               </span>
 
               <h3 className="mt-3 text-lg font-semibold leading-snug tracking-tight text-foreground">

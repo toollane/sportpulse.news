@@ -94,7 +94,7 @@ export default function PulseSnapshot({
 
             <ol className="mt-6 space-y-4">
               {[
-                "The nightâ€™s lead story came from a late swing, not just the final score.",
+                "The night’s lead story came from a late swing, not just the final score.",
                 "Attention is moving toward player form, roster decisions, and what comes next.",
                 "The best next read is the recap, then the why-it-matters explainer.",
               ].map((item, index) => (

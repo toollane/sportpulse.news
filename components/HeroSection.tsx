@@ -162,7 +162,7 @@ export default function HeroSection() {
                 className="flex items-center justify-between rounded-2xl bg-foreground px-4 py-3 text-sm font-semibold text-background transition-opacity hover:opacity-90"
               >
                 Read the full briefing
-                <span aria-hidden>â†’</span>
+                <span aria-hidden>→</span>
               </Link>
             </div>
           </div>

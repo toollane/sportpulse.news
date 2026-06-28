@@ -6,6 +6,127 @@ Domain:
 
 [sportpulse.news](http://sportpulse.news)
 
+## SportPulse Value Proposition
+
+SportPulse exists to help sports fans understand the sports day faster.
+
+Most sports websites show scores, schedules, headlines, or long articles. SportPulse is designed to do something more specific:
+
+> Turn raw sports results into fast, clear sports context.
+
+The site is built for fans who want to quickly understand:
+
+- what happened
+- why it mattered
+- who changed the game
+- who is trending
+- what changed after the result
+- what matters for fantasy users
+- what to watch next
+
+SportPulse is not intended to be a generic scoreboard, a betting site, or a copy of ESPN, Google Scores, CBS Sports, or official league websites.
+
+The long-term goal is to become a mobile-first sports intelligence platform focused on NBA, NFL, fantasy sports, and North American sports search intent.
+
+---
+
+## Why SportPulse is different
+
+SportPulse should win by making sports easier to understand, not by having more raw data than major sports platforms.
+
+A normal sports page answers:
+
+- what was the score?
+- who played?
+- when is the next game?
+
+A SportPulse page should answer:
+
+- what actually mattered?
+- why did the result change the story?
+- which player or team is gaining momentum?
+- what does this mean for the next matchup?
+- what should fantasy users notice?
+- what is the fastest way to catch up?
+
+This creates a different product position:
+
+> SportPulse is a sports intelligence layer, not just a sports news site.
+
+---
+
+## Core audience
+
+SportPulse is written in English for a global audience, but the primary commercial and product focus is North America.
+
+Primary target markets:
+
+- United States
+- Canada
+- English-speaking global sports fans
+
+Primary sports focus:
+
+1. NBA
+2. NFL
+3. Fantasy football
+4. Fantasy basketball
+5. MLB
+6. NHL
+
+The site should especially serve users searching for high-intent sports queries such as:
+
+- Team A vs Team B
+- Lakers vs Celtics
+- Chiefs vs Bills
+- Cowboys vs Eagles
+- Warriors vs Lakers score
+- NBA games tonight
+- NFL schedule today
+- who won Team A vs Team B
+- Team A vs Team B fantasy impact
+
+These searches show that users want fast answers. SportPulse should use that intent to provide fast context, not thin auto-generated pages.
+
+---
+
+## Product principle
+
+Raw data is not the product.
+
+The product is the interpretation layer around the data:
+
+> score → context → momentum → fantasy relevance → what to watch next
+
+Every future feature should support this principle.
+
+If a feature only displays information users can already get from Google, ESPN, or an official league website, it is not enough.
+
+If a feature helps users understand the sports day faster, it fits SportPulse.
+
+---
+
+## Long-term product direction
+
+SportPulse should evolve from a content site into an app-like sports briefing platform.
+
+Possible future product areas:
+
+- NBA Pulse Today
+- NFL Week Pulse
+- matchup pages
+- fantasy impact summaries
+- player trend signals
+- injury impact explainers
+- team momentum boards
+- daily sports briefing
+- newsletter or alert product
+- data-powered sport hubs
+
+The immediate goal is not to build everything at once.
+
+The immediate goal is to create a strong foundation, validate search demand, and then add data/API-powered features where they clearly improve user value and ROI.
+
 Mission:
 
 The fastest way to understand what happened in sports today.
@@ -234,8 +355,6 @@ Low costs first.
 Live data later.  
 Fantasy later.  
 Market intelligence later.
-
-
 
 ## Professional Website Quality Checklist
 

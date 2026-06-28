@@ -3,10 +3,12 @@ import HeroSection from "@/components/HeroSection";
 import SectionHeader from "@/components/SectionHeader";
 import FeatureCard from "@/components/FeatureCard";
 import StoryCard from "@/components/StoryCard";
-import TrendCard from "@/components/TrendCard";
 import RecapCard from "@/components/RecapCard";
 import NewsletterCard from "@/components/NewsletterCard";
 import FaqList, { buildFaqJsonLd } from "@/components/FaqList";
+import MomentumBoard from "@/components/MomentumBoard";
+import PulseSnapshot from "@/components/PulseSnapshot";
+import WatchNextPanel from "@/components/WatchNextPanel";
 import {
   features,
   stories,
@@ -58,11 +60,13 @@ export default function Home() {
 
       <HeroSection />
 
-      <section className="mx-auto w-full max-w-6xl px-5 sm:px-8">
+      <PulseSnapshot stories={stories} trends={trends} recaps={recaps} />
+
+      <section className="mx-auto mt-20 w-full max-w-6xl px-5 sm:px-8">
         <SectionHeader
-          eyebrow="What you get"
-          title="Four ways to read the sports day"
-          description="SportPulse is built around how fans actually catch up: the result, the momentum, the recap, and the context behind it."
+          eyebrow="Briefing lanes"
+          title="Four paths through the sports day"
+          description="Start with the result, scan the momentum, read the recap, then understand why it mattered."
         />
 
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -74,47 +78,11 @@ export default function Home() {
 
       <section className="mx-auto mt-20 w-full max-w-6xl px-5 sm:px-8">
         <SectionHeader
-          eyebrow="Start here"
-          title="SportPulse Guides"
-          description="Evergreen explainers for the core ideas behind SportPulse: scores, trends, recaps, and fast sports context."
-        />
-
-        <div className="mt-8 grid gap-4 sm:grid-cols-2">
-          {guideLinks.map((guide) => (
-            <Link
-              key={guide.href}
-              href={guide.href}
-              className="group rounded-card border border-border bg-surface p-6 transition-all hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-[0_12px_40px_-20px_rgba(79,70,229,0.45)]"
-            >
-              <h3 className="text-lg font-semibold tracking-tight text-foreground">
-                {guide.title}
-              </h3>
-
-              <p className="mt-2 text-sm leading-relaxed text-muted">
-                {guide.description}
-              </p>
-
-              <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-accent">
-                Read the guide
-                <span
-                  aria-hidden
-                  className="transition-transform group-hover:translate-x-0.5"
-                >
-                  →
-                </span>
-              </span>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      <section className="mx-auto mt-20 w-full max-w-6xl px-5 sm:px-8">
-        <SectionHeader
           eyebrow="Today's Pulse"
-          title="The stories defining today"
-          description="A handful of results and storylines worth understanding right now — not an endless feed."
+          title="The stories defining the sample briefing"
+          description="A compact editorial pulse: the late swing, the context, and the storylines worth following next."
           href="/tonight"
-          linkLabel="See all results"
+          linkLabel="Open Tonight"
         />
 
         <div className="mt-8 grid gap-4 lg:grid-cols-3">
@@ -137,33 +105,74 @@ export default function Home() {
       </section>
 
       <section className="mx-auto mt-20 w-full max-w-6xl px-5 sm:px-8">
+        <WatchNextPanel stories={stories} explainers={explainers} />
+      </section>
+
+      <section className="mx-auto mt-20 w-full max-w-6xl px-5 sm:px-8">
         <SectionHeader
           eyebrow="Trending Now"
-          title="Who and what is pulling attention"
-          description="The athletes, teams, and topics climbing the conversation — with a quick note on why."
+          title="Momentum board"
+          description="A ranked view of the athletes, teams, and topics pulling attention in this editorial sample."
           href="/trending"
           linkLabel="See full board"
         />
 
-        <div className="mt-8 grid gap-4 md:grid-cols-2">
-          {trends.slice(0, 6).map((trend) => (
-            <TrendCard key={trend.rank} trend={trend} />
-          ))}
+        <div className="mt-8">
+          <MomentumBoard trends={trends} />
         </div>
       </section>
 
       <section className="mx-auto mt-20 w-full max-w-6xl px-5 sm:px-8">
         <SectionHeader
           eyebrow="Latest Recaps"
-          title="Last night in under a minute"
-          description="Short, structured summaries that capture the flow of the game, not just the final number."
+          title="Scoreboards with the story attached"
+          description="Short recap cards built for quick scanning: final, winner, and the reason the game turned."
           href="/recaps"
           linkLabel="All recaps"
         />
 
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {recaps.slice(0, 4).map((recap) => (
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {recaps.slice(0, 6).map((recap) => (
             <RecapCard key={recap.slug} recap={recap} />
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto mt-20 w-full max-w-6xl px-5 sm:px-8">
+        <SectionHeader
+          eyebrow="Start here"
+          title="SportPulse Guides"
+          description="Evergreen explainers for the core ideas behind SportPulse: scores, trends, recaps, and fast sports context."
+        />
+
+        <div className="mt-8 grid gap-4 sm:grid-cols-2">
+          {guideLinks.map((guide, index) => (
+            <Link
+              key={guide.href}
+              href={guide.href}
+              className={`group rounded-card border border-border bg-surface p-6 transition-all hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-[0_12px_40px_-20px_rgba(79,70,229,0.45)] ${
+                index === 0 ? "sm:col-span-2" : ""
+              }`}
+            >
+              <span className="inline-flex rounded-full bg-accent-soft px-2.5 py-1 text-xs font-semibold text-accent-strong">
+                Guide
+              </span>
+              <h3 className="mt-4 text-lg font-semibold tracking-tight text-foreground">
+                {guide.title}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted">
+                {guide.description}
+              </p>
+              <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-accent">
+                Read the guide
+                <span
+                  aria-hidden
+                  className="transition-transform group-hover:translate-x-0.5"
+                >
+                  →
+                </span>
+              </span>
+            </Link>
           ))}
         </div>
       </section>
@@ -178,7 +187,7 @@ export default function Home() {
         />
 
         <div className="mt-8 grid gap-4 md:grid-cols-2">
-          {explainers.map((item) => (
+          {explainers.slice(0, 4).map((item) => (
             <article
               key={item.slug}
               className="flex flex-col rounded-card border border-border bg-surface p-6"

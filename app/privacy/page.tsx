@@ -1,243 +1,236 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import SectionHeader from "@/components/SectionHeader";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | SportPulse",
   description:
-    "Read the SportPulse privacy policy, including information about analytics, cookies, advertising, contact data, and user privacy rights.",
+    "Read the SportPulse Privacy Policy, including information about contact requests, server logs, cookies, advertising, analytics, and privacy rights.",
 };
+
+const privacySections = [
+  {
+    title: "Who operates SportPulse",
+    body: [
+      "SportPulse is operated by Nicklas Wolf, Am Dorfe 3, 37133 Friedland, Germany.",
+      "For privacy-related questions, correction requests, or general contact, you can currently reach SportPulse by email at toolfixio@gmail.com.",
+    ],
+  },
+  {
+    title: "What this website does",
+    body: [
+      "SportPulse is an independent sports media and analysis website. The current version primarily provides editorial content, sports explanations, recaps, trend context, and informational pages.",
+      "SportPulse does not currently provide user accounts, paid memberships, betting services, sportsbook functionality, or official live sports data feeds.",
+    ],
+  },
+  {
+    title: "Server logs and technical data",
+    body: [
+      "When you visit this website, technical information may be processed automatically by the hosting provider and related infrastructure services. This can include information such as IP address, browser type, device information, requested pages, date and time of access, referrer information, and technical error logs.",
+      "This information is used to keep the website secure, available, and technically reliable. It may also help identify errors, abuse, or performance problems.",
+    ],
+  },
+  {
+    title: "Contact by email",
+    body: [
+      "If you contact SportPulse by email, the information you provide may be used to respond to your request. This can include your email address, message content, name if provided, and any additional information you choose to include.",
+      "Please do not send sensitive personal information unless it is necessary for your request.",
+    ],
+  },
+  {
+    title: "Cookies and similar technologies",
+    body: [
+      "SportPulse may use cookies or similar technologies for basic website functionality, security, performance, analytics, or future advertising features.",
+      "If additional cookie-based tools are added in the future, SportPulse may update this Privacy Policy and, where required, provide additional consent options.",
+    ],
+  },
+  {
+    title: "Analytics and performance tools",
+    body: [
+      "SportPulse may use privacy-conscious analytics or performance tools in the future to understand which pages are useful, how visitors find the website, and how the user experience can be improved.",
+      "If analytics tools are added, they should be used to improve the website rather than to create unnecessary user tracking.",
+    ],
+  },
+  {
+    title: "Advertising and monetization",
+    body: [
+      "SportPulse may apply for or use advertising services in the future, including Google AdSense or similar advertising partners.",
+      "Advertising partners may use cookies or similar technologies to deliver, measure, and improve ads. If advertising is added, SportPulse will review the required privacy, consent, and disclosure steps before ads are active.",
+    ],
+  },
+  {
+    title: "External links",
+    body: [
+      "SportPulse may link to external websites, services, or sources. SportPulse is not responsible for the privacy practices, content, or availability of external websites.",
+      "Visitors should review the privacy policies of external websites before providing personal information there.",
+    ],
+  },
+  {
+    title: "Children's privacy",
+    body: [
+      "SportPulse is intended for a general sports audience and is not designed to knowingly collect personal information from children.",
+      "If you believe that a child has provided personal information through SportPulse, please contact us so the issue can be reviewed.",
+    ],
+  },
+  {
+    title: "Changes to this Privacy Policy",
+    body: [
+      "SportPulse may update this Privacy Policy as the website develops, adds new features, introduces analytics, uses advertising, or changes its technical setup.",
+      "The latest version will be available on this page.",
+    ],
+  },
+];
+
+const rights = [
+  "request information about personal data that may be processed",
+  "request correction of inaccurate information",
+  "request deletion where applicable",
+  "object to certain processing where applicable",
+  "contact SportPulse about privacy-related questions",
+];
+
+const relatedLinks = [
+  { href: "/about", label: "About SportPulse" },
+  { href: "/editorial-standards", label: "Editorial Standards" },
+  { href: "/contact", label: "Contact" },
+  { href: "/terms", label: "Terms of Use" },
+  { href: "/impressum", label: "Legal Notice / Impressum" },
+];
 
 export default function PrivacyPage() {
   return (
-    <main className="min-h-screen bg-[#f7f5f0] text-[#111111]">
-      <section className="mx-auto w-full max-w-4xl px-5 py-16 sm:px-8 lg:py-24">
-        <div className="mb-10">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-black/45">
-            Privacy
-          </p>
-          <h1 className="text-5xl font-semibold tracking-[-0.07em] sm:text-6xl">
-            Privacy Policy
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-black/60">
-            This Privacy Policy explains how SportPulse handles information
-            when you visit sportpulse.news, contact us, or use our sports
-            briefing and analysis pages.
-          </p>
+    <main className="text-foreground">
+      <section className="mx-auto w-full max-w-6xl px-5 py-16 sm:px-8 lg:py-24">
+        <Breadcrumbs
+          items={[{ label: "Home", href: "/" }, { label: "Privacy Policy" }]}
+        />
+
+        <div className="pt-6">
+          <SectionHeader
+            eyebrow="Privacy"
+            title="Privacy Policy"
+            description="This Privacy Policy explains how SportPulse handles contact requests, technical website data, cookies, analytics, advertising, and privacy-related inquiries."
+          />
         </div>
 
-        <div className="space-y-6">
-          <section className="rounded-[2rem] border border-black/10 bg-white p-6 shadow-sm sm:p-8">
-            <h2 className="text-2xl font-semibold tracking-[-0.04em]">
-              Who operates SportPulse?
+        <div className="mt-8 grid gap-4 lg:grid-cols-[1.1fr_0.9fr]">
+          <section className="rounded-card border border-border bg-surface p-6 sm:p-8">
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-accent">
+              Current status
+            </p>
+
+            <h2 className="mt-4 text-2xl font-semibold tracking-tight text-foreground">
+              Simple website. Clear privacy baseline.
             </h2>
-            <p className="mt-4 leading-8 text-black/65">
-              SportPulse is an independent sports media and analysis project
-              operated by Nicklas Wolf, Am Dorfe 3, 37133 Friedland, Germany.
-              You can contact the operator by email at{" "}
+
+            <p className="mt-4 leading-8 text-muted">
+              SportPulse is currently a content-focused sports media website.
+              It does not offer user accounts, subscriptions, payments, betting
+              features, or official live-data products.
+            </p>
+
+            <p className="mt-4 leading-8 text-muted">
+              As the project grows, this Privacy Policy may be updated to cover
+              new tools, analytics, newsletters, advertising, or product
+              features.
+            </p>
+          </section>
+
+          <section className="rounded-card border border-border bg-surface p-6 sm:p-8">
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-accent">
+              Contact
+            </p>
+
+            <h2 className="mt-4 text-2xl font-semibold tracking-tight text-foreground">
+              Privacy questions
+            </h2>
+
+            <p className="mt-4 leading-8 text-muted">
+              For privacy-related questions or requests, contact SportPulse by
+              email.
+            </p>
+
+            <div className="mt-6">
               <a
                 href="mailto:toolfixio@gmail.com"
-                className="underline decoration-black/25 underline-offset-4 hover:decoration-black"
+                className="inline-flex rounded-full bg-foreground px-6 py-3 text-sm font-semibold text-surface transition hover:opacity-85"
               >
                 toolfixio@gmail.com
               </a>
-              .
-            </p>
-          </section>
-
-          <section className="rounded-[2rem] border border-black/10 bg-white p-6 shadow-sm sm:p-8">
-            <h2 className="text-2xl font-semibold tracking-[-0.04em]">
-              What information do we collect?
-            </h2>
-            <p className="mt-4 leading-8 text-black/65">
-              At this stage, SportPulse is primarily an informational website.
-              We do not require users to create an account, log in, or submit
-              personal profile information to read our content.
-            </p>
-            <p className="mt-4 leading-8 text-black/65">
-              We may process limited technical information that is automatically
-              generated when you visit a website, such as browser type, device
-              information, pages visited, approximate time of access, referring
-              pages, and basic server log information. This information helps us
-              operate, secure, and improve the website.
-            </p>
-          </section>
-
-          <section className="rounded-[2rem] border border-black/10 bg-white p-6 shadow-sm sm:p-8">
-            <h2 className="text-2xl font-semibold tracking-[-0.04em]">
-              Contact by email
-            </h2>
-            <p className="mt-4 leading-8 text-black/65">
-              If you contact SportPulse by email, we may process the information
-              you provide, such as your email address, name, message content,
-              and any details needed to respond. We use this information only to
-              handle your request and maintain appropriate records.
-            </p>
-          </section>
-
-          <section className="rounded-[2rem] border border-black/10 bg-white p-6 shadow-sm sm:p-8">
-            <h2 className="text-2xl font-semibold tracking-[-0.04em]">
-              Cookies and similar technologies
-            </h2>
-            <p className="mt-4 leading-8 text-black/65">
-              SportPulse may use cookies or similar technologies to operate the
-              website, understand basic usage, improve user experience, and, in
-              the future, support advertising or analytics services.
-            </p>
-            <p className="mt-4 leading-8 text-black/65">
-              You can usually control or delete cookies through your browser
-              settings. Blocking cookies may affect how some websites function,
-              although the core SportPulse reading experience should remain
-              accessible.
-            </p>
-          </section>
-
-          <section className="rounded-[2rem] border border-black/10 bg-white p-6 shadow-sm sm:p-8">
-            <h2 className="text-2xl font-semibold tracking-[-0.04em]">
-              Advertising and Google AdSense
-            </h2>
-            <p className="mt-4 leading-8 text-black/65">
-              SportPulse may apply for and use Google AdSense or similar
-              advertising services in the future. If advertising is enabled,
-              third-party vendors, including Google, may use cookies to serve
-              ads based on a user&apos;s prior visits to this website or other
-              websites.
-            </p>
-            <p className="mt-4 leading-8 text-black/65">
-              Google&apos;s use of advertising cookies enables Google and its
-              partners to serve ads based on visits to SportPulse and/or other
-              websites on the Internet. Users may be able to opt out of
-              personalized advertising through Google&apos;s ad settings or other
-              available industry opt-out tools.
-            </p>
-            <p className="mt-4 leading-8 text-black/65">
-              If SportPulse serves personalized ads to users in the European
-              Economic Area, the United Kingdom, or Switzerland, SportPulse will
-              need to use an appropriate consent management solution that meets
-              Google&apos;s applicable consent requirements before such ads are
-              served.
-            </p>
-          </section>
-
-          <section className="rounded-[2rem] border border-black/10 bg-white p-6 shadow-sm sm:p-8">
-            <h2 className="text-2xl font-semibold tracking-[-0.04em]">
-              Analytics
-            </h2>
-            <p className="mt-4 leading-8 text-black/65">
-              SportPulse may use privacy-conscious analytics or standard web
-              analytics tools in the future to understand which pages are useful,
-              how visitors navigate the website, and where improvements are
-              needed. If additional analytics tools are added, this Privacy
-              Policy should be updated accordingly.
-            </p>
-          </section>
-
-          <section className="rounded-[2rem] border border-black/10 bg-white p-6 shadow-sm sm:p-8">
-            <h2 className="text-2xl font-semibold tracking-[-0.04em]">
-              Embedded content and external links
-            </h2>
-            <p className="mt-4 leading-8 text-black/65">
-              SportPulse may link to external websites, official sports sources,
-              media platforms, or third-party services. We are not responsible
-              for the privacy practices, content, or security of external
-              websites. Users should review the privacy policies of any external
-              sites they visit.
-            </p>
-          </section>
-
-          <section className="rounded-[2rem] border border-black/10 bg-white p-6 shadow-sm sm:p-8">
-            <h2 className="text-2xl font-semibold tracking-[-0.04em]">
-              Data retention
-            </h2>
-            <p className="mt-4 leading-8 text-black/65">
-              We keep personal information only for as long as reasonably
-              necessary for the purpose for which it was collected, such as
-              responding to a contact request, maintaining website security, or
-              complying with applicable obligations.
-            </p>
-          </section>
-
-          <section className="rounded-[2rem] border border-black/10 bg-white p-6 shadow-sm sm:p-8">
-            <h2 className="text-2xl font-semibold tracking-[-0.04em]">
-              Your rights
-            </h2>
-            <p className="mt-4 leading-8 text-black/65">
-              Depending on your location and applicable law, you may have rights
-              to request access, correction, deletion, restriction, or
-              portability of your personal information. You may also have the
-              right to object to certain processing.
-            </p>
-            <p className="mt-4 leading-8 text-black/65">
-              To make a privacy-related request, contact us at{" "}
-              <a
-                href="mailto:toolfixio@gmail.com"
-                className="underline decoration-black/25 underline-offset-4 hover:decoration-black"
-              >
-                toolfixio@gmail.com
-              </a>
-              .
-            </p>
-          </section>
-
-          <section className="rounded-[2rem] border border-black/10 bg-white p-6 shadow-sm sm:p-8">
-            <h2 className="text-2xl font-semibold tracking-[-0.04em]">
-              Children&apos;s privacy
-            </h2>
-            <p className="mt-4 leading-8 text-black/65">
-              SportPulse is intended for a general audience and is not designed
-              for children. We do not knowingly collect personal information
-              from children.
-            </p>
-          </section>
-
-          <section className="rounded-[2rem] border border-black/10 bg-white p-6 shadow-sm sm:p-8">
-            <h2 className="text-2xl font-semibold tracking-[-0.04em]">
-              Changes to this Privacy Policy
-            </h2>
-            <p className="mt-4 leading-8 text-black/65">
-              We may update this Privacy Policy as SportPulse develops, adds new
-              features, introduces analytics, or enables advertising. The latest
-              version will be published on this page.
-            </p>
-          </section>
-
-          <section className="rounded-[2rem] border border-black/10 bg-white p-6 shadow-sm sm:p-8">
-            <h2 className="text-2xl font-semibold tracking-[-0.04em]">
-              Related pages
-            </h2>
-            <div className="mt-5 grid gap-3 sm:grid-cols-2">
-              <Link
-                href="/terms"
-                className="rounded-2xl border border-black/10 p-4 text-sm font-medium transition hover:bg-black hover:text-white"
-              >
-                Terms of Use
-              </Link>
-              <Link
-                href="/impressum"
-                className="rounded-2xl border border-black/10 p-4 text-sm font-medium transition hover:bg-black hover:text-white"
-              >
-                Legal Notice / Impressum
-              </Link>
-              <Link
-                href="/contact"
-                className="rounded-2xl border border-black/10 p-4 text-sm font-medium transition hover:bg-black hover:text-white"
-              >
-                Contact
-              </Link>
-              <Link
-                href="/about"
-                className="rounded-2xl border border-black/10 p-4 text-sm font-medium transition hover:bg-black hover:text-white"
-              >
-                About SportPulse
-              </Link>
             </div>
           </section>
-
-          <p className="pt-4 text-sm leading-6 text-black/45">
-            Last updated: June 26, 2026. This Privacy Policy should be reviewed
-            before enabling advertising, analytics, newsletter tools, or other
-            third-party services.
-          </p>
         </div>
+
+        <div className="mt-4 grid gap-4 lg:grid-cols-2">
+          {privacySections.map((section) => (
+            <section
+              key={section.title}
+              className="rounded-card border border-border bg-surface p-6 sm:p-8"
+            >
+              <h2 className="text-2xl font-semibold tracking-tight text-foreground">
+                {section.title}
+              </h2>
+
+              {section.body.map((paragraph) => (
+                <p key={paragraph} className="mt-4 leading-8 text-muted">
+                  {paragraph}
+                </p>
+              ))}
+            </section>
+          ))}
+        </div>
+
+        <section className="mt-4 rounded-card border border-border bg-surface p-6 sm:p-8">
+          <h2 className="text-2xl font-semibold tracking-tight text-foreground">
+            Your privacy rights
+          </h2>
+
+          <p className="mt-4 leading-8 text-muted">
+            Depending on your location and applicable law, you may have certain
+            rights related to personal information. These may include the ability
+            to:
+          </p>
+
+          <div className="mt-6 grid gap-3 sm:grid-cols-2">
+            {rights.map((right) => (
+              <div
+                key={right}
+                className="rounded-card border border-border bg-surface p-4 text-sm font-semibold text-foreground"
+              >
+                {right}
+              </div>
+            ))}
+          </div>
+
+          <p className="mt-6 leading-8 text-muted">
+            To make a privacy-related request, contact SportPulse by email and
+            describe your request clearly.
+          </p>
+        </section>
+
+        <section className="mt-4 rounded-card border border-border bg-surface p-6 sm:p-8">
+          <h2 className="text-2xl font-semibold tracking-tight text-foreground">
+            Related pages
+          </h2>
+
+          <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {relatedLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="rounded-card border border-border bg-surface p-4 text-sm font-semibold text-foreground transition hover:border-accent/40 hover:text-accent"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        <p className="mt-8 text-sm text-muted">
+          Last updated: June 26, 2026. This Privacy Policy is provided for
+          transparency and does not replace individual legal advice.
+        </p>
       </section>
     </main>
   );

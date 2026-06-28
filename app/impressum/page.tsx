@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import SectionHeader from "@/components/SectionHeader";
@@ -43,7 +43,7 @@ export default function ImpressumPage() {
             </p>
 
             <h2 className="mt-4 text-2xl font-semibold tracking-tight text-foreground">
-              Angaben gemäß gesetzlicher Anbieterkennzeichnung
+              Angaben gemÃ¤ÃŸ gesetzlicher Anbieterkennzeichnung
             </h2>
 
             <div className="mt-6 space-y-5 text-muted">
@@ -69,10 +69,10 @@ export default function ImpressumPage() {
                 <p className="mt-2 leading-7">
                   Email:{" "}
                   <a
-                    href="mailto:toolfixio@gmail.com"
+                    href="mailto:hello@sportpulse.news"
                     className="font-semibold text-accent hover:text-accent-strong"
                   >
-                    toolfixio@gmail.com
+                    hello@sportpulse.news
                   </a>
                 </p>
               </div>
@@ -93,9 +93,7 @@ export default function ImpressumPage() {
             </div>
 
             <p className="mt-6 rounded-card border border-border bg-background/40 p-4 text-sm leading-6 text-muted">
-              A dedicated SportPulse domain email address is planned. Until it
-              is active and tested, the email address listed above is the
-              official contact address for this website.
+              This is the official contact address for SportPulse. Messages sent to this address are forwarded to the operator's mailbox.
             </p>
           </section>
 
@@ -185,7 +183,7 @@ export default function ImpressumPage() {
 
           <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
             <a
-              href="mailto:toolfixio@gmail.com"
+              href="mailto:hello@sportpulse.news"
               className="inline-flex rounded-full bg-foreground px-6 py-3 text-sm font-semibold text-surface transition hover:opacity-85"
             >
               Contact SportPulse

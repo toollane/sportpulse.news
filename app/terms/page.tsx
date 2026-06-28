@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import SectionHeader from "@/components/SectionHeader";
@@ -190,10 +190,10 @@ export default function TermsPage() {
 
           <div className="mt-6">
             <a
-              href="mailto:toolfixio@gmail.com"
+              href="mailto:hello@sportpulse.news"
               className="inline-flex rounded-full bg-foreground px-6 py-3 text-sm font-semibold text-surface transition hover:opacity-85"
             >
-              toolfixio@gmail.com
+              hello@sportpulse.news
             </a>
           </div>
         </section>

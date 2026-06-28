@@ -76,7 +76,36 @@ Core search intent:
 
 Build SportPulse from a clean sports media foundation into a useful sports intelligence product.
 
-The site should feel less like a generic blog and more like a fast sports briefing dashboard.
+The site should feel less like a generic blog and more like a fast sports briefing dashboard.  
+  
+TODO maintenance rule
+
+This file must be reviewed regularly and kept up to date.
+
+Before starting a new major task:
+
+1. Read PROJECT_[TODO.md](http://TODO.md)
+2. Check what is already completed
+3. Check the current priority
+4. Confirm the next immediate action
+5. Avoid repeating completed work
+
+After finishing a meaningful task:
+
+1. Move completed items into "Completed foundation" or a completed section
+2. Update "Current priority" if needed
+3. Update "Next immediate action"
+4. Add new follow-up tasks if they became necessary
+5. Remove or rewrite tasks that are no longer relevant
+
+Review rhythm:
+
+- quick review before each work session
+- update after every completed build/push
+- deeper review once per week
+- strategy review after Search Console shows meaningful data
+
+This file is the project control document. It should prevent repeated work, unclear priorities, and unnecessary tool/API/Cursor usage.
 
 ---
 

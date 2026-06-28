@@ -2,6 +2,7 @@ export type SportFocusPageContent = {
   eyebrow: string;
   title: string;
   description: string;
+  benefit: string;
   primaryCta: {
     label: string;
     href: string;
@@ -20,16 +21,22 @@ export type SportFocusPageContent = {
       tag: string;
     }[];
   };
-  intentTitle: string;
-  intentText: string;
-  intentChips: string[];
-  answerTitle: string;
-  answerText: string;
-  answerCards: {
-    kicker: string;
-    title: string;
+  searchTitle: string;
+  searchText: string;
+  searchExamples: {
+    query: string;
+    answer: string;
+  }[];
+  readTitle: string;
+  readText: string;
+  readSteps: {
+    label: string;
     text: string;
   }[];
+  comparisonTitle: string;
+  comparisonText: string;
+  scoreboardItems: string[];
+  sportPulseItems: string[];
   modulesTitle: string;
   modulesText: string;
   modules: {
@@ -50,7 +57,9 @@ export const sportFocusPages = {
     eyebrow: "NBA Pulse Today",
     title: "Catch up on the NBA night without opening five tabs.",
     description:
-      "See the result, the swing, the player signal, the rotation watch, and what changes next. NBA Pulse Today turns matchup searches into context for fans who want the story fast.",
+      "Turn Lakers vs Celtics into the result, the late swing, the player signal, the fantasy usage note, and what matters tonight.",
+    benefit:
+      "Best for fans who missed the games, saw one score, and want the real NBA story in under a minute.",
     primaryCta: {
       label: "Read fast recaps",
       href: "/recaps",
@@ -64,88 +73,112 @@ export const sportFocusPages = {
       badge: "Editorial preview",
       rows: [
         {
-          label: "Tonight's board",
-          title: "Lakers vs Celtics context before the noise",
-          text: "A matchup search should answer the game, the stakes, and the player story in one scan.",
-          tag: "Board",
+          label: "Quick answer",
+          title: "Who won and what was the headline?",
+          text: "Start with the result and the one sentence a fan needs first.",
+          tag: "Result",
         },
         {
-          label: "Last night's swing",
-          title: "Warriors vs Lakers score becomes the start",
-          text: "SportPulse explains the late run, rotation change, or matchup problem behind the final.",
+          label: "What changed",
+          title: "Which run or matchup flipped the night?",
+          text: "Late runs, rotation tweaks, and momentum swings explain more than the final.",
           tag: "Swing",
         },
         {
-          label: "Fantasy usage note",
-          title: "Minutes, role, and opportunity before hype",
-          text: "Understand the fantasy basketball signal before chasing the player trend.",
+          label: "Signal",
+          title: "Who gained minutes, usage, or attention?",
+          text: "Player and rotation signals help separate real opportunity from one-game noise.",
           tag: "Usage",
+        },
+        {
+          label: "Watch next",
+          title: "Which game or player matters tonight?",
+          text: "Connect last night's result to the next matchup worth tracking.",
+          tag: "Next",
         },
       ],
     },
-    intentTitle: "What NBA fans usually search.",
-    intentText:
-      "NBA search is fast and player-driven. Fans want tonight's games, last night's winner, why a player is trending after one game, and whether a usage change matters.",
-    intentChips: [
-      "Lakers vs Celtics",
-      "Warriors vs Lakers score",
-      "NBA games tonight",
-      "who won last night",
-      "player trending after one game",
-      "fantasy basketball usage",
-    ],
-    answerTitle: "The SportPulse NBA answer layer.",
-    answerText:
-      "A raw NBA scoreboard gives the final. SportPulse adds the swing, the rotation watch, the player signal, the fantasy angle, and the next matchup to follow.",
-    answerCards: [
+    searchTitle: "You searched. SportPulse answers.",
+    searchText:
+      "NBA searches usually start with a score or schedule. SportPulse adds the context a fan actually came to understand.",
+    searchExamples: [
       {
-        kicker: "Result",
-        title: "What happened first?",
-        text: "Start with the matchup, outcome, and the headline so the fan gets oriented immediately.",
+        query: "Lakers vs Celtics",
+        answer:
+          "Get the result, the late swing, the matchup problem, and the player story that explains the game.",
       },
       {
-        kicker: "Swing",
-        title: "Where did the game turn?",
-        text: "Identify the run, lineup decision, shot-quality change, or late-game sequence that mattered.",
+        query: "Warriors vs Lakers score",
+        answer:
+          "See the score, then understand the run, rotation shift, and fantasy-relevant usage change.",
       },
       {
-        kicker: "Player signal",
-        title: "Who moved the conversation?",
-        text: "Explain the player gaining attention because of usage, scoring role, defense, or a clutch moment.",
-      },
-      {
-        kicker: "Fantasy",
-        title: "What should fantasy users notice?",
-        text: "Focus on minutes, role, touches, and opportunity without unsupported projections.",
+        query: "NBA games tonight",
+        answer:
+          "Scan the games that matter and know which matchup, player, or storyline deserves attention.",
       },
     ],
-    modulesTitle: "NBA modules that answer the next question.",
+    readTitle: "The 30-second NBA read.",
+    readText:
+      "A fast NBA catch-up should move from result to meaning without forcing fans through a full recap.",
+    readSteps: [
+      {
+        label: "Result",
+        text: "Who won, what was close, and which game shaped the night.",
+      },
+      {
+        label: "Swing",
+        text: "The late run, lineup decision, or momentum shift behind the final.",
+      },
+      {
+        label: "Signal",
+        text: "The player, rotation, or fantasy basketball usage change worth noticing.",
+      },
+      {
+        label: "Next",
+        text: "What to watch tonight and which storyline carries forward.",
+      },
+    ],
+    comparisonTitle: "Why not just check the score?",
+    comparisonText:
+      "The score tells you the outcome. NBA Pulse Today tells you why the outcome matters.",
+    scoreboardItems: [
+      "Final score and basic game status",
+      "Team names and scheduled games",
+      "Limited context around player usage",
+    ],
+    sportPulseItems: [
+      "Late runs, rotation watch, and momentum swings",
+      "Player signal and fantasy basketball usage context",
+      "What changed and what to watch tonight",
+    ],
+    modulesTitle: "NBA tools for fast catch-up.",
     modulesText:
-      "Each module is designed to move a fan from score to understanding without becoming a raw stats dump.",
+      "Each module answers the next question after a fan checks the score.",
     modules: [
       {
-        title: "Tonight's board",
-        text: "The games that deserve attention and why they matter.",
+        title: "Find tonight's best watch",
+        text: "See which NBA games matter most and why they deserve attention.",
       },
       {
-        title: "Last night's swing",
-        text: "The sequence or decision that changed the final.",
+        title: "Understand last night's swing",
+        text: "Turn a final score into the run, matchup, or decision that changed the game.",
       },
       {
-        title: "Player signal",
-        text: "The athlete whose role or momentum deserves a second look.",
+        title: "Spot the player signal",
+        text: "Know whether a trending performance points to role, usage, or one-game noise.",
       },
       {
-        title: "Rotation watch",
-        text: "Minutes, bench roles, and lineup shifts that change the story.",
+        title: "Read the rotation watch",
+        text: "Track minutes, bench roles, and lineup shifts that change the story.",
       },
       {
-        title: "Fantasy usage note",
-        text: "What changed for fantasy basketball managers to monitor.",
+        title: "Catch the fantasy usage note",
+        text: "Find the usage change without reading a full recap.",
       },
       {
-        title: "What to watch next",
-        text: "The next matchup, player, or pressure point worth following.",
+        title: "Know what to watch next",
+        text: "Carry the result into tonight's matchup, player, or pressure point.",
       },
     ],
     trustText:
@@ -163,7 +196,9 @@ export const sportFocusPages = {
     eyebrow: "NFL Week Pulse",
     title: "Reset the NFL week without chasing every box score.",
     description:
-      "NFL Week Pulse turns matchup searches into clear context: pressure teams, injury impact, fantasy football signals, Sunday reset, and Monday context.",
+      "Turn Chiefs vs Bills, Cowboys vs Eagles, or NFL schedule today into matchup stakes, Sunday reset, injury impact, fantasy signal, and Monday context.",
+    benefit:
+      "Best for fans who want to understand the week before kickoff and reset fast after Sunday.",
     primaryCta: {
       label: "Read recap guides",
       href: "/recaps",
@@ -177,88 +212,112 @@ export const sportFocusPages = {
       badge: "Weekly view",
       rows: [
         {
-          label: "This week's matchups",
-          title: "Chiefs vs Bills before kickoff",
-          text: "See the stakes, the pressure point, and the fantasy-relevant question.",
+          label: "Quick answer",
+          title: "Which matchup matters most?",
+          text: "Start with the schedule, the stakes, and the pressure point.",
           tag: "Matchup",
         },
         {
-          label: "Sunday reset",
-          title: "Who won Sunday night and what moved?",
-          text: "Turn the final into team pressure, injury impact, and Monday context.",
+          label: "What changed",
+          title: "Who moved after Sunday?",
+          text: "Reset the week through teams under pressure, injuries, and storylines.",
           tag: "Reset",
         },
         {
-          label: "Fantasy football signal",
-          title: "Waiver watch without the hype",
-          text: "Focus on touches, snaps, targets, injuries, and opportunity.",
+          label: "Signal",
+          title: "What changed for fantasy football?",
+          text: "Touches, snaps, targets, injuries, and role changes matter more than hype.",
           tag: "Fantasy",
+        },
+        {
+          label: "Watch next",
+          title: "What does Monday change?",
+          text: "Connect Sunday to the final game of the week and the next pressure point.",
+          tag: "Monday",
         },
       ],
     },
-    intentTitle: "What NFL fans usually search.",
-    intentText:
-      "NFL search is matchup-heavy and weekly. Fans want schedules, Sunday winners, injury impact, fantasy football context, and the pressure around the next game.",
-    intentChips: [
-      "Chiefs vs Bills",
-      "Cowboys vs Eagles",
-      "NFL schedule today",
-      "NFL injury impact",
-      "fantasy football waiver watch",
-      "who won Sunday night",
-    ],
-    answerTitle: "The SportPulse NFL answer layer.",
-    answerText:
-      "A raw schedule tells fans who plays. SportPulse explains why the game matters, what changed after Sunday, which teams are under pressure, and what fantasy users should notice.",
-    answerCards: [
+    searchTitle: "You searched. SportPulse answers.",
+    searchText:
+      "NFL searches are matchup-driven. SportPulse turns them into stakes, pressure, injury context, fantasy impact, and the next story to follow.",
+    searchExamples: [
       {
-        kicker: "Matchup",
-        title: "Why does this game matter?",
-        text: "Connect the matchup to pressure, rivalry, playoff context, or fantasy relevance.",
+        query: "Chiefs vs Bills",
+        answer:
+          "Understand the matchup stakes, the pressure point, and the fantasy football signal before kickoff.",
       },
       {
-        kicker: "Sunday reset",
-        title: "What changed after the slate?",
-        text: "Explain the teams rising, concerns growing, and stories moving into Monday.",
+        query: "Cowboys vs Eagles",
+        answer:
+          "See why the game matters, which team is under pressure, and what changes after the result.",
       },
       {
-        kicker: "Injury impact",
-        title: "Which roles changed?",
-        text: "Translate availability into usage, opportunity, and matchup context.",
-      },
-      {
-        kicker: "Fantasy signal",
-        title: "What should managers notice?",
-        text: "Track role changes, touches, snaps, targets, and opportunity without unsupported predictions.",
+        query: "NFL schedule today",
+        answer:
+          "Scan the slate by relevance, not just kickoff time, and know what to watch next.",
       },
     ],
-    modulesTitle: "NFL modules for a weekly command center.",
+    readTitle: "The 30-second NFL read.",
+    readText:
+      "NFL Week Pulse gives fans the matchup, the Sunday reset, and the fantasy-relevant signal fast.",
+    readSteps: [
+      {
+        label: "Result",
+        text: "Who won, which matchup mattered, and what the Sunday slate changed.",
+      },
+      {
+        label: "Swing",
+        text: "The drive, turnover, injury, or matchup edge that shifted the week.",
+      },
+      {
+        label: "Signal",
+        text: "The team pressure, injury impact, or fantasy football usage note to monitor.",
+      },
+      {
+        label: "Next",
+        text: "The Monday context and the next matchup question.",
+      },
+    ],
+    comparisonTitle: "Why not just check the score?",
+    comparisonText:
+      "The score tells you who won. NFL Week Pulse explains what the win changes.",
+    scoreboardItems: [
+      "Final score, schedule, and basic status",
+      "Minimal explanation of matchup stakes",
+      "Injury notes without role context",
+    ],
+    sportPulseItems: [
+      "Matchup stakes before kickoff",
+      "Sunday reset with teams under pressure",
+      "Injury and fantasy football signal in plain English",
+    ],
+    modulesTitle: "NFL tools for weekly clarity.",
     modulesText:
-      "NFL fans need context before kickoff and a clear reset after Sunday.",
+      "Each module helps fans understand the week before and after it happens.",
     modules: [
       {
-        title: "This week's matchups",
-        text: "A clean scan of the games that matter most.",
+        title: "Know why the matchup matters",
+        text: "See the stakes, pressure, and fantasy angle before kickoff.",
       },
       {
-        title: "Sunday reset",
-        text: "What changed after the main slate.",
+        title: "Reset after Sunday",
+        text: "Understand which teams rose, slipped, or created new questions.",
       },
       {
-        title: "Teams under pressure",
-        text: "Which teams need a response and why.",
+        title: "Track teams under pressure",
+        text: "Know who needs a response and why the next game matters.",
       },
       {
-        title: "Injury watch",
-        text: "Availability translated into role and matchup impact.",
+        title: "Read injury impact",
+        text: "Translate availability into role, usage, and matchup context.",
       },
       {
-        title: "Fantasy football signal",
-        text: "Usage and opportunity notes for fantasy managers.",
+        title: "Find the fantasy signal",
+        text: "Focus on snaps, touches, targets, and opportunity.",
       },
       {
-        title: "Monday context",
-        text: "What the final game of the week can change.",
+        title: "Follow Monday context",
+        text: "See what the final game can change for the week.",
       },
     ],
     trustText:
@@ -274,9 +333,11 @@ export const sportFocusPages = {
 
   mlb: {
     eyebrow: "MLB Daily Pulse",
-    title: "Read the baseball day through series, starters, and races.",
+    title: "Turn the daily baseball slate into context fast.",
     description:
-      "MLB Daily Pulse helps fans move from a score search to the series context, starting pitcher lens, bullpen watch, wild card movement, and fantasy baseball signal.",
+      "Turn Yankees vs Red Sox, Dodgers vs Giants, or MLB games today into series context, probable pitchers, bullpen impact, wild card movement, and fantasy baseball signal.",
+    benefit:
+      "Best for fans who want the daily rhythm of baseball without losing the thread across series and standings races.",
     primaryCta: {
       label: "Read fast recaps",
       href: "/recaps",
@@ -290,88 +351,112 @@ export const sportFocusPages = {
       badge: "Daily rhythm",
       rows: [
         {
-          label: "Today's slate",
-          title: "Yankees vs Red Sox as more than a score",
-          text: "Series context, division pressure, and the matchup behind the matchup.",
+          label: "Quick answer",
+          title: "Which games matter today?",
+          text: "Start with the slate, rivalry, series spot, and standings pressure.",
           tag: "Slate",
         },
         {
-          label: "Pitcher lens",
-          title: "Probable pitchers shape the read",
-          text: "Starting pitching changes how to interpret lineups, bullpen pressure, and fantasy interest.",
+          label: "What changed",
+          title: "How did the series move?",
+          text: "One result can change bullpen stress, wild card pressure, and the next game.",
           tag: "Starter",
         },
         {
-          label: "Race movement",
-          title: "Wild card context after the final",
-          text: "A single result can change pressure across the next series.",
+          label: "Signal",
+          title: "Which pitcher, bullpen, or role matters?",
+          text: "Probable pitchers and late-inning usage shape the baseball read.",
           tag: "Race",
+        },
+        {
+          label: "Watch next",
+          title: "What changes in the next game?",
+          text: "Follow the series, wild card race, and fantasy baseball angle.",
+          tag: "Next",
         },
       ],
     },
-    intentTitle: "What MLB fans usually search.",
-    intentText:
-      "Baseball search follows a daily rhythm: rivalry matchups, games today, probable pitchers, standings movement, series context, and fantasy baseball opportunity.",
-    intentChips: [
-      "Yankees vs Red Sox",
-      "Dodgers vs Giants",
-      "MLB games today",
-      "probable pitchers",
-      "wild card race",
-      "fantasy baseball waiver signal",
-    ],
-    answerTitle: "The SportPulse MLB answer layer.",
-    answerText:
-      "A baseball score is one part of the day. SportPulse adds the series lens, starter context, bullpen stress, standings pressure, and what the next game can change.",
-    answerCards: [
+    searchTitle: "You searched. SportPulse answers.",
+    searchText:
+      "MLB searches often start with today's game. SportPulse adds the series, starter, bullpen, standings, and fantasy baseball context.",
+    searchExamples: [
       {
-        kicker: "Slate",
-        title: "Which games deserve attention?",
-        text: "Sort the daily board by rivalry, standings impact, pitching matchup, and series pressure.",
+        query: "Yankees vs Red Sox",
+        answer:
+          "Get the series context, starter lens, division pressure, and what changes after the final.",
       },
       {
-        kicker: "Starter",
-        title: "What does the pitching matchup change?",
-        text: "Explain how probable pitchers shape the lineup, bullpen, and fantasy angle.",
+        query: "Dodgers vs Giants",
+        answer:
+          "Understand the rivalry game through pitching, bullpen usage, and the next series question.",
       },
       {
-        kicker: "Bullpen",
-        title: "Who is under stress?",
-        text: "Track late-inning usage and the ripple effect across the next game.",
-      },
-      {
-        kicker: "Race",
-        title: "What moved in the standings?",
-        text: "Connect the final to wild card pressure, division movement, and the next series.",
+        query: "MLB games today",
+        answer:
+          "Scan the slate by relevance: probable pitchers, wild card movement, and fantasy baseball signals.",
       },
     ],
-    modulesTitle: "MLB modules built for daily rhythm.",
+    readTitle: "The 30-second MLB read.",
+    readText:
+      "Baseball needs daily context: series, starters, bullpens, races, and the next game.",
+    readSteps: [
+      {
+        label: "Result",
+        text: "Which game or series changed the baseball day.",
+      },
+      {
+        label: "Swing",
+        text: "The inning, pitching decision, or bullpen moment that moved the game.",
+      },
+      {
+        label: "Signal",
+        text: "The starter, bullpen, wild card, or fantasy baseball note worth tracking.",
+      },
+      {
+        label: "Next",
+        text: "How the next game, series, or standings race changes.",
+      },
+    ],
+    comparisonTitle: "Why not just check the score?",
+    comparisonText:
+      "A baseball score can hide the series story. MLB Daily Pulse keeps the rhythm clear.",
+    scoreboardItems: [
+      "Final score and basic schedule",
+      "Probable pitchers without context",
+      "Standings separated from the game story",
+    ],
+    sportPulseItems: [
+      "Series context and daily slate priority",
+      "Starting pitcher lens and bullpen impact",
+      "Wild card movement and fantasy baseball signal",
+    ],
+    modulesTitle: "MLB tools for daily context.",
     modulesText:
-      "Baseball needs a different hub: daily slate, series context, pitchers, bullpens, races, and fantasy signals.",
+      "Each module helps fans understand the daily slate and what carries into tomorrow.",
     modules: [
       {
-        title: "Today's slate",
-        text: "The games that matter most on a crowded baseball day.",
+        title: "Prioritize today's slate",
+        text: "See which games matter most on a crowded baseball day.",
       },
       {
-        title: "Series context",
-        text: "Why the current matchup matters beyond one final.",
+        title: "Understand the series",
+        text: "Know why the current matchup matters beyond one final.",
       },
       {
-        title: "Starting pitcher lens",
-        text: "How the probable starter changes the story.",
+        title: "Read the starter lens",
+        text: "Use probable pitchers to understand lineups, risk, and fantasy interest.",
       },
       {
-        title: "Bullpen watch",
-        text: "Late-game usage and fatigue signals to monitor.",
+        title: "Watch bullpen impact",
+        text: "Track late-game usage and fatigue that affects the next game.",
       },
       {
-        title: "Wild card movement",
-        text: "How one result changes the race.",
+        title: "Follow wild card movement",
+        text: "Connect one result to the race and the next series.",
       },
       {
-        title: "Fantasy baseball signal",
-        text: "Role, playing time, and waiver-relevant context.",
+        title: "Find fantasy baseball signals",
+        text: "Spot role, playing time, and waiver-relevant context.",
       },
     ],
     trustText:
@@ -389,7 +474,9 @@ export const sportFocusPages = {
     eyebrow: "NHL Ice Pulse",
     title: "Understand the night on ice beyond the final score.",
     description:
-      "NHL Ice Pulse gives fans a fast way to read matchups, goalie context, line movement, power-play signals, playoff race pressure, and fantasy hockey impact.",
+      "Turn Maple Leafs vs Canadiens, Rangers vs Bruins, or NHL games tonight into goalie context, line changes, power-play signal, playoff pressure, and fantasy hockey notes.",
+    benefit:
+      "Best for fans who want the result, the crease story, the special-teams edge, and the playoff race in one scan.",
     primaryCta: {
       label: "Read game recaps",
       href: "/recaps",
@@ -403,88 +490,112 @@ export const sportFocusPages = {
       badge: "Ice view",
       rows: [
         {
-          label: "Tonight on ice",
-          title: "Maple Leafs vs Canadiens context",
-          text: "Rivalry, pace, goalie question, and standings pressure in one scan.",
+          label: "Quick answer",
+          title: "Which game matters tonight?",
+          text: "Start with the matchup, rivalry, goalie question, and standings pressure.",
           tag: "Tonight",
         },
         {
-          label: "Goalie lens",
-          title: "Confirmed starter changes the read",
-          text: "The goalie decision affects matchup quality, confidence, and fantasy attention.",
+          label: "What changed",
+          title: "What shifted on the ice?",
+          text: "Line movement, special teams, and goalie performance can explain the final.",
           tag: "Goalie",
         },
         {
-          label: "Power-play signal",
-          title: "Special teams can swing the story",
-          text: "Understand the advantage before the final score flattens the game.",
+          label: "Signal",
+          title: "Which role or power play matters?",
+          text: "Spot the deployment, opportunity, or fantasy hockey note behind the game.",
           tag: "Signal",
+        },
+        {
+          label: "Watch next",
+          title: "What changes in the race?",
+          text: "Connect tonight's result to the playoff picture and next matchup.",
+          tag: "Race",
         },
       ],
     },
-    intentTitle: "What NHL fans usually search.",
-    intentText:
-      "NHL fans search tonight's games, rivalry matchups, goalie context, playoff races, and fantasy hockey impact. SportPulse turns those searches into a fast read.",
-    intentChips: [
-      "Maple Leafs vs Canadiens",
-      "Rangers vs Bruins",
-      "NHL games tonight",
-      "goalie confirmed",
-      "playoff race",
-      "fantasy hockey impact",
-    ],
-    answerTitle: "The SportPulse NHL answer layer.",
-    answerText:
-      "A hockey final needs context: goalie performance, line changes, special teams, playoff pressure, and whether the result changes what fans should watch next.",
-    answerCards: [
+    searchTitle: "You searched. SportPulse answers.",
+    searchText:
+      "NHL searches start with games tonight or a rivalry. SportPulse adds the goalie, lines, power play, playoff race, and fantasy hockey context.",
+    searchExamples: [
       {
-        kicker: "Goalie",
-        title: "Who controls the crease?",
-        text: "Translate goalie context into confidence, matchup pressure, and fantasy relevance.",
+        query: "Maple Leafs vs Canadiens",
+        answer:
+          "See the result, rivalry context, goalie lens, and playoff race signal in one read.",
       },
       {
-        kicker: "Lines",
-        title: "What changed in the combinations?",
-        text: "Explain line movement, chemistry, and opportunity before it becomes noise.",
+        query: "Rangers vs Bruins",
+        answer:
+          "Understand the matchup through line movement, special teams, and the pressure around the next game.",
       },
       {
-        kicker: "Special teams",
-        title: "Where did the edge appear?",
-        text: "Power-play and penalty-kill context can explain the game better than the final alone.",
-      },
-      {
-        kicker: "Race",
-        title: "What did the result change?",
-        text: "Connect the final to playoff pressure, standings movement, and the next matchup.",
+        query: "NHL games tonight",
+        answer:
+          "Scan the slate by goalie context, playoff race stakes, and fantasy hockey notes.",
       },
     ],
-    modulesTitle: "NHL modules for fast ice context.",
+    readTitle: "The 30-second NHL read.",
+    readText:
+      "NHL Ice Pulse turns a fast score check into the context behind the game.",
+    readSteps: [
+      {
+        label: "Result",
+        text: "Who won and which game shaped the night.",
+      },
+      {
+        label: "Swing",
+        text: "The goalie stretch, line change, or special-teams moment that moved the result.",
+      },
+      {
+        label: "Signal",
+        text: "The power-play, line, playoff, or fantasy hockey note that matters next.",
+      },
+      {
+        label: "Next",
+        text: "The next game, race movement, or player role to watch.",
+      },
+    ],
+    comparisonTitle: "Why not just check the score?",
+    comparisonText:
+      "A hockey final can miss the reason the game tilted. NHL Ice Pulse shows the signal behind the score.",
+    scoreboardItems: [
+      "Final score and game list",
+      "Goalie or lineup notes without explanation",
+      "Standings away from the game context",
+    ],
+    sportPulseItems: [
+      "Goalie lens and line movement",
+      "Power-play signal and playoff race context",
+      "Fantasy hockey note and what to watch next",
+    ],
+    modulesTitle: "NHL tools for fast ice context.",
     modulesText:
-      "NHL fans need the game, the goalie, the lines, special teams, and the playoff picture in a clean scan.",
+      "Each module explains the detail that can make a hockey result matter.",
     modules: [
       {
-        title: "Tonight on ice",
-        text: "The games and rivalries worth tracking.",
+        title: "Find tonight's key games",
+        text: "See the matchups and rivalries worth tracking.",
       },
       {
-        title: "Goalie lens",
-        text: "Starting goalie context and performance signal.",
+        title: "Read the goalie lens",
+        text: "Understand how the crease changes the matchup.",
       },
       {
-        title: "Line movement",
-        text: "Role, chemistry, and deployment changes.",
+        title: "Track line changes",
+        text: "Spot role, chemistry, and deployment shifts.",
       },
       {
-        title: "Power-play signal",
-        text: "Special-teams edge and pressure moments.",
+        title: "Spot power-play signals",
+        text: "Know where special teams created the edge.",
       },
       {
-        title: "Playoff race context",
-        text: "How the result changes the standings story.",
+        title: "Follow playoff race context",
+        text: "Connect the result to standings pressure.",
       },
       {
-        title: "Fantasy hockey note",
-        text: "Usage, role, and opportunity without unsupported advice.",
+        title: "Find fantasy hockey notes",
+        text: "See usage, role, and opportunity without unsupported advice.",
       },
     ],
     trustText:
@@ -502,7 +613,9 @@ export const sportFocusPages = {
     eyebrow: "Golf Tournament Pulse",
     title: "Follow the tournament without staring at the leaderboard all day.",
     description:
-      "Golf Tournament Pulse turns leaderboard searches into movement, round swings, player form, major storylines, and Sunday pressure.",
+      "Turn Masters leaderboard, who is leading today, or Scottie Scheffler score into leaderboard movement, round swings, player form, major storylines, and Sunday pressure.",
+    benefit:
+      "Best for fans who want to know who moved, why the round changed, and what pressure looks like next.",
     primaryCta: {
       label: "Read explainers",
       href: "/explained",
@@ -516,88 +629,112 @@ export const sportFocusPages = {
       badge: "Tournament view",
       rows: [
         {
-          label: "Tournament board",
-          title: "Masters leaderboard context",
-          text: "Who leads is only the first question. The better question is how the lead is moving.",
+          label: "Quick answer",
+          title: "Who is leading and who is moving?",
+          text: "Start with the tournament board and the leaderboard change.",
           tag: "Board",
         },
         {
-          label: "Round swing",
-          title: "One stretch can change the tournament",
-          text: "A run of birdies, a mistake, or a difficult closing stretch can reset the story.",
+          label: "What changed",
+          title: "Which stretch flipped the round?",
+          text: "A run of birdies, a mistake, or a closing stretch can reset the story.",
           tag: "Swing",
         },
         {
-          label: "Sunday pressure",
-          title: "The leaderboard becomes a stress test",
-          text: "Understand who is chasing, who is protecting, and which player form matters.",
+          label: "Signal",
+          title: "Whose form is real?",
+          text: "Separate a hot round from a player trend worth tracking.",
           tag: "Pressure",
+        },
+        {
+          label: "Watch next",
+          title: "Where is Sunday pressure building?",
+          text: "Know who is chasing, who is protecting, and which major storyline matters.",
+          tag: "Next",
         },
       ],
     },
-    intentTitle: "What golf fans usually search.",
-    intentText:
-      "Golf search follows tournaments, leaders, player scores, major championships, and season-long standings. SportPulse turns leaderboard checks into context.",
-    intentChips: [
-      "Masters leaderboard",
-      "PGA Championship leaderboard",
-      "who is leading today",
-      "Scottie Scheffler score",
-      "Rory McIlroy today",
-      "FedEx Cup standings",
-    ],
-    answerTitle: "The SportPulse golf answer layer.",
-    answerText:
-      "Golf is not Team A vs Team B. The context is leaderboard movement, course pressure, player form, major storylines, and what the next round can change.",
-    answerCards: [
+    searchTitle: "You searched. SportPulse answers.",
+    searchText:
+      "Golf search is different. Fans search leaders, scores, and tournaments; SportPulse explains movement, pressure, and player form.",
+    searchExamples: [
       {
-        kicker: "Leaderboard",
-        title: "Who moved and why?",
-        text: "Explain the climb, the drop, and the pressure behind the leaderboard.",
+        query: "Masters leaderboard",
+        answer:
+          "See who leads, who moved, which stretch changed the round, and what Sunday pressure looks like.",
       },
       {
-        kicker: "Round swing",
-        title: "Where did the round turn?",
-        text: "Identify the stretch that changed a player's position or the tournament story.",
+        query: "who is leading today",
+        answer:
+          "Get the quick answer plus the chase group, round swing, and major storyline.",
       },
       {
-        kicker: "Player form",
-        title: "Which golfer is trending?",
-        text: "Separate one hot round from a form signal worth following.",
-      },
-      {
-        kicker: "Pressure",
-        title: "What changes on Sunday?",
-        text: "Translate chase position, major stakes, and closing pressure into a clear watchlist.",
+        query: "Scottie Scheffler score",
+        answer:
+          "Understand the score through player form, course pressure, and what it changes on the board.",
       },
     ],
-    modulesTitle: "Golf modules for tournament intelligence.",
+    readTitle: "The 30-second golf read.",
+    readText:
+      "Golf Tournament Pulse is built around movement, pressure, and form rather than team-versus-team context.",
+    readSteps: [
+      {
+        label: "Result",
+        text: "Who leads, who moved, and where the leaderboard sits.",
+      },
+      {
+        label: "Swing",
+        text: "The stretch, mistake, or surge that changed the round.",
+      },
+      {
+        label: "Signal",
+        text: "The player form, major storyline, or pressure signal to track.",
+      },
+      {
+        label: "Next",
+        text: "The chase, Sunday pressure, and next round watchlist.",
+      },
+    ],
+    comparisonTitle: "Why not just check the leaderboard?",
+    comparisonText:
+      "The leaderboard tells you position. Golf Tournament Pulse explains movement and pressure.",
+    scoreboardItems: [
+      "Leaderboard position and player score",
+      "Round totals without the story",
+      "Limited explanation of pressure or form",
+    ],
+    sportPulseItems: [
+      "Leaderboard movement and round swing",
+      "Player form and major storyline",
+      "Sunday pressure and what to watch next",
+    ],
+    modulesTitle: "Golf tools for tournament context.",
     modulesText:
-      "Golf coverage needs movement, pressure, and player form more than a generic scoreboard.",
+      "Each module explains why a leaderboard changed and what could change next.",
     modules: [
       {
-        title: "Tournament board",
-        text: "The leaderboard with context around movement.",
+        title: "Read the tournament board",
+        text: "See the leaderboard through movement, not only position.",
       },
       {
-        title: "Leaderboard movement",
-        text: "Who climbed, who slipped, and why it matters.",
+        title: "Track leaderboard movement",
+        text: "Know who climbed, who slipped, and why it matters.",
       },
       {
-        title: "Round swing",
-        text: "The stretch that changed the tournament story.",
+        title: "Understand the round swing",
+        text: "Find the stretch that changed the tournament story.",
       },
       {
-        title: "Player form",
-        text: "Signals behind a score or sudden surge.",
+        title: "Read player form",
+        text: "See the signal behind a score or sudden surge.",
       },
       {
-        title: "Major storyline",
-        text: "The narrative that frames the tournament.",
+        title: "Follow the major storyline",
+        text: "Understand the narrative framing the tournament.",
       },
       {
-        title: "Sunday pressure",
-        text: "What to watch when the leaderboard tightens.",
+        title: "Prepare for Sunday pressure",
+        text: "Know what to watch when the leaderboard tightens.",
       },
     ],
     trustText:
@@ -615,7 +752,9 @@ export const sportFocusPages = {
     eyebrow: "Fantasy Impact Center",
     title: "Understand the fantasy signal before chasing the hype.",
     description:
-      "Fantasy Impact Center explains injury impact, usage changes, waiver signals, start/sit context, player trends, and recap takeaways without unsupported predictions.",
+      "Turn fantasy football injury impact, waiver wire signal, or fantasy basketball usage into injury context, role change, opportunity watch, and start/sit factors.",
+    benefit:
+      "Best for fantasy users who need to know whether a player trend is signal or noise.",
     primaryCta: {
       label: "View player trends",
       href: "/trending",
@@ -629,88 +768,112 @@ export const sportFocusPages = {
       badge: "Signal view",
       rows: [
         {
-          label: "Waiver signal",
-          title: "Opportunity before hype",
-          text: "Identify why a player is gaining relevance: role, usage, injury, or matchup.",
+          label: "Quick answer",
+          title: "What changed for the player?",
+          text: "Start with injury, role, usage, or matchup context.",
           tag: "Waiver",
         },
         {
-          label: "Injury impact",
-          title: "Who gains the role?",
-          text: "Translate availability into opportunity without making unsupported projections.",
+          label: "What changed",
+          title: "Who gained opportunity?",
+          text: "Translate availability and usage into role context.",
           tag: "Impact",
         },
         {
-          label: "Usage change",
-          title: "Minutes, snaps, touches, targets",
-          text: "The signal is the role change, not the loudest post-game reaction.",
+          label: "Signal",
+          title: "Is this trend signal or noise?",
+          text: "Minutes, snaps, touches, and targets explain the move.",
           tag: "Usage",
+        },
+        {
+          label: "Watch next",
+          title: "What should managers monitor?",
+          text: "Know the next injury note, role trend, matchup, or recap signal.",
+          tag: "Next",
         },
       ],
     },
-    intentTitle: "What fantasy users usually search.",
-    intentText:
-      "Fantasy search starts when something changes: injury, usage, opportunity, matchup difficulty, waiver interest, or a player trend after one game.",
-    intentChips: [
-      "injury impact",
-      "usage change",
-      "waiver signal",
-      "start sit context",
-      "player trend",
-      "matchup difficulty",
-    ],
-    answerTitle: "The SportPulse fantasy answer layer.",
-    answerText:
-      "Fantasy users need calm signal detection. SportPulse explains what changed, who may benefit, what is noise, and what to monitor next.",
-    answerCards: [
+    searchTitle: "You searched. SportPulse answers.",
+    searchText:
+      "Fantasy searches start when something changes. SportPulse explains the signal before the hype takes over.",
+    searchExamples: [
       {
-        kicker: "Signal",
-        title: "What changed?",
-        text: "Identify the usage, injury, matchup, or role shift behind the fantasy question.",
+        query: "fantasy football injury impact",
+        answer:
+          "See who may gain role, touches, or targets and what to monitor next.",
       },
       {
-        kicker: "Opportunity",
-        title: "Who gained a path?",
-        text: "Explain the role that opened without pretending certainty.",
+        query: "waiver wire signal",
+        answer:
+          "Understand why a player is gaining attention before chasing the trend.",
       },
       {
-        kicker: "Context",
-        title: "Is it noise or meaningful?",
-        text: "Separate one-game hype from a real change in opportunity.",
-      },
-      {
-        kicker: "Next",
-        title: "What should users monitor?",
-        text: "Point to the next injury note, role trend, matchup factor, or recap signal.",
+        query: "fantasy basketball usage",
+        answer:
+          "Track minutes, role, and opportunity changes after a game.",
       },
     ],
-    modulesTitle: "Fantasy modules built around signal clarity.",
+    readTitle: "The 30-second fantasy read.",
+    readText:
+      "Fantasy Impact Center moves from news to signal without pretending certainty.",
+    readSteps: [
+      {
+        label: "Result",
+        text: "What happened in the game, injury note, or player role.",
+      },
+      {
+        label: "Swing",
+        text: "The usage, availability, or matchup change that moved the fantasy question.",
+      },
+      {
+        label: "Signal",
+        text: "Whether the trend points to opportunity, role, waiver value, or noise.",
+      },
+      {
+        label: "Next",
+        text: "The next report, game, matchup, or usage trend to monitor.",
+      },
+    ],
+    comparisonTitle: "Why not just check the box score?",
+    comparisonText:
+      "The box score shows production. Fantasy Impact Center explains whether the role changed.",
+    scoreboardItems: [
+      "Points, touches, minutes, or targets",
+      "Player status without role context",
+      "Trend noise after one game",
+    ],
+    sportPulseItems: [
+      "Injury impact and opportunity watch",
+      "Usage changes and waiver signals",
+      "Start/sit context without unsupported predictions",
+    ],
+    modulesTitle: "Fantasy tools for signal clarity.",
     modulesText:
-      "Fantasy pages should feel useful and calm: fewer hot takes, more context around what changed.",
+      "Each module helps fantasy users understand what changed before reacting.",
     modules: [
       {
-        title: "Waiver signal",
-        text: "The reason a player is becoming relevant.",
+        title: "Understand the waiver signal",
+        text: "Know why a player is becoming relevant before chasing the add.",
       },
       {
-        title: "Injury impact",
-        text: "Who may gain role, touches, minutes, or targets.",
+        title: "Read injury impact",
+        text: "See who may gain role, touches, minutes, or targets.",
       },
       {
-        title: "Usage change",
-        text: "Opportunity movement across games.",
+        title: "Track usage changes",
+        text: "Watch opportunity move across games, not just one box score.",
       },
       {
-        title: "Opportunity watch",
-        text: "Players whose roles deserve another look.",
+        title: "Monitor opportunity watch",
+        text: "Find players whose roles deserve another look.",
       },
       {
-        title: "Start/sit context",
-        text: "Matchup and role context without unsupported calls.",
+        title: "Frame start/sit context",
+        text: "Use matchup and role context without unsupported calls.",
       },
       {
-        title: "Fantasy recap",
-        text: "What fantasy users should notice after the final.",
+        title: "Scan the fantasy recap",
+        text: "Catch what fantasy users should notice after the final.",
       },
     ],
     trustText:

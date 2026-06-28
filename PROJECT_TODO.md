@@ -81,6 +81,7 @@ Core search intent:
 - Fantasy focus page upgraded
 - Shared SportFocusPage hub template improved
 - Sport focus pages added to navigation and sitemap
+- Sport focus pages upgraded to make user value clearer within the first 5 seconds
 
 ---
 

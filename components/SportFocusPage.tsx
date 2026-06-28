@@ -34,6 +34,10 @@ export default function SportFocusPage({ content }: SportFocusPageProps) {
               {content.description}
             </p>
 
+            <p className="mt-4 max-w-2xl rounded-card border border-border bg-surface/80 p-4 text-sm font-semibold leading-6 text-foreground shadow-sm">
+              {content.benefit}
+            </p>
+
             <div className="mt-7 flex flex-wrap gap-3">
               <Link
                 href={content.primaryCta.href}
@@ -52,43 +56,43 @@ export default function SportFocusPage({ content }: SportFocusPageProps) {
 
           <aside className="rounded-[1.5rem] border border-border bg-surface/90 p-3 shadow-[0_30px_90px_-48px_rgba(15,23,42,0.55)] backdrop-blur">
             <div className="rounded-[1.25rem] border border-border bg-background/80 p-4">
-            <div className="flex items-center justify-between gap-4">
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-muted">
-                  SportPulse hub
-                </p>
-                <h2 className="mt-2 text-xl font-semibold">
-                  {content.preview.title}
-                </h2>
-              </div>
-              <Badge>{content.preview.badge}</Badge>
-            </div>
-
-            <div className="mt-6 grid gap-3">
-              {content.preview.rows.map((row) => (
-                <div
-                  key={row.label}
-                  className="rounded-2xl border border-border bg-surface p-4"
-                >
-                  <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">
-                        {row.label}
-                      </p>
-                      <p className="mt-2 text-base font-semibold">
-                        {row.title}
-                      </p>
-                      <p className="mt-2 text-sm leading-6 text-muted">
-                        {row.text}
-                      </p>
-                    </div>
-                    <span className="shrink-0 rounded-full bg-surface px-3 py-1 text-xs font-semibold text-accent">
-                      {row.tag}
-                    </span>
-                  </div>
+              <div className="flex items-center justify-between gap-4">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.14em] text-muted">
+                    Briefing preview
+                  </p>
+                  <h2 className="mt-2 text-xl font-semibold">
+                    {content.preview.title}
+                  </h2>
                 </div>
-              ))}
-            </div>
+                <Badge>{content.preview.badge}</Badge>
+              </div>
+
+              <div className="mt-6 grid gap-3">
+                {content.preview.rows.map((row) => (
+                  <div
+                    key={row.label}
+                    className="rounded-2xl border border-border bg-surface p-4"
+                  >
+                    <div className="flex items-start justify-between gap-4">
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted">
+                          {row.label}
+                        </p>
+                        <p className="mt-2 text-base font-semibold">
+                          {row.title}
+                        </p>
+                        <p className="mt-2 text-sm leading-6 text-muted">
+                          {row.text}
+                        </p>
+                      </div>
+                      <span className="shrink-0 rounded-full border border-border bg-background px-3 py-1 text-xs font-semibold text-accent">
+                        {row.tag}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </aside>
         </div>
@@ -100,52 +104,113 @@ export default function SportFocusPage({ content }: SportFocusPageProps) {
           <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.24em] text-accent">
-                Search intent
+                You searched. SportPulse answers.
               </p>
               <h2 className="mt-2 text-2xl font-semibold">
-                {content.intentTitle}
+                {content.searchTitle}
               </h2>
             </div>
             <p className="max-w-xl text-sm leading-6 text-muted">
-              {content.intentText}
+              {content.searchText}
             </p>
           </div>
 
-          <div className="mt-5 flex flex-wrap gap-2">
-            {content.intentChips.map((chip) => (
-              <Badge key={chip}>{chip}</Badge>
+          <div className="mt-6 grid gap-3 lg:grid-cols-3">
+            {content.searchExamples.map((example) => (
+              <article
+                key={example.query}
+                className="rounded-2xl border border-border bg-background p-4"
+              >
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted">
+                  Search
+                </p>
+                <h3 className="mt-2 text-base font-semibold">
+                  {example.query}
+                </h3>
+                <p className="mt-3 text-sm leading-6 text-muted">
+                  {example.answer}
+                </p>
+              </article>
             ))}
+          </div>
+        </section>
+
+        <section className="rounded-card border border-border bg-surface p-6 shadow-sm md:p-8">
+          <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-accent">
+                The 30-second read
+              </p>
+              <h2 className="mt-3 text-3xl font-semibold tracking-tight">
+                {content.readTitle}
+              </h2>
+              <p className="mt-4 leading-7 text-muted">
+                {content.readText}
+              </p>
+            </div>
+
+            <div className="grid gap-3 sm:grid-cols-2">
+              {content.readSteps.map((step, index) => (
+                <article
+                  key={step.label}
+                  className="rounded-2xl border border-border bg-background p-5"
+                >
+                  <div className="flex items-center gap-3">
+                    <span className="grid h-8 w-8 place-items-center rounded-full bg-foreground text-xs font-semibold text-background">
+                      {index + 1}
+                    </span>
+                    <h3 className="text-base font-semibold">{step.label}</h3>
+                  </div>
+                  <p className="mt-4 text-sm leading-6 text-muted">
+                    {step.text}
+                  </p>
+                </article>
+              ))}
+            </div>
           </div>
         </section>
 
         <section className="rounded-card border border-border bg-surface p-6 shadow-sm md:p-8">
           <div className="max-w-3xl">
             <p className="text-sm font-semibold uppercase tracking-[0.24em] text-accent">
-              SportPulse answer layer
+              Why not just check the score?
             </p>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight">
-              {content.answerTitle}
+              {content.comparisonTitle}
             </h2>
             <p className="mt-4 leading-7 text-muted">
-              {content.answerText}
+              {content.comparisonText}
             </p>
           </div>
 
           <div className="mt-6 grid gap-4 md:grid-cols-2">
-            {content.answerCards.map((card) => (
-              <article
-                key={card.title}
-                className="rounded-2xl border border-border bg-background p-5"
-              >
-                <p className="text-sm font-semibold text-accent">
-                  {card.kicker}
-                </p>
-                <h3 className="mt-3 text-xl font-semibold">{card.title}</h3>
-                <p className="mt-3 text-sm leading-6 text-muted">
-                  {card.text}
-                </p>
-              </article>
-            ))}
+            <article className="rounded-2xl border border-border bg-background p-5">
+              <p className="text-sm font-semibold text-muted">
+                Raw scoreboard
+              </p>
+              <ul className="mt-4 space-y-3 text-sm leading-6 text-muted">
+                {content.scoreboardItems.map((item) => (
+                  <li key={item} className="flex gap-3">
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-muted" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
+
+            <article className="rounded-2xl border border-accent/25 bg-background p-5">
+              <p className="text-sm font-semibold text-accent">
+                SportPulse context
+              </p>
+              <ul className="mt-4 space-y-3 text-sm leading-6 text-muted">
+                {content.sportPulseItems.map((item) => (
+                  <li key={item} className="flex gap-3">
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-pulse" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
           </div>
         </section>
 

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 const primaryLinks = [
   { href: "/tonight", label: "Today" },
@@ -28,12 +28,44 @@ export default function MobileBottomNav() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
+  const menuHasActivePage = useMemo(
+    () => menuLinks.some((link) => isActive(pathname, link.href)),
+    [pathname]
+  );
+
   useEffect(() => {
     setOpen(false);
   }, [pathname]);
 
+  useEffect(() => {
+    if (!open) {
+      return;
+    }
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setOpen(false);
+      }
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [open]);
+
   return (
     <div className="fixed inset-x-0 bottom-0 z-50 md:hidden">
+      {open ? (
+        <button
+          type="button"
+          aria-label="Close mobile menu"
+          className="fixed inset-0 -z-10 bg-black/10 backdrop-blur-[1px]"
+          onClick={() => setOpen(false)}
+        />
+      ) : null}
+
       {open ? (
         <div className="mx-3 mb-2 rounded-card border border-border bg-surface/95 p-3 shadow-xl backdrop-blur-md">
           <div className="grid grid-cols-2 gap-2">
@@ -87,7 +119,7 @@ export default function MobileBottomNav() {
             aria-expanded={open}
             aria-label="Open more navigation links"
             className={`rounded-xl px-2 py-2.5 text-center text-xs font-semibold transition ${
-              open
+              open || menuHasActivePage
                 ? "bg-accent-soft text-accent-strong"
                 : "text-muted hover:bg-accent-soft/60 hover:text-foreground"
             }`}

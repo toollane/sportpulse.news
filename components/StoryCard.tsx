@@ -27,7 +27,7 @@ export default function StoryCard({
         className="absolute inset-0 z-10 rounded-card focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/30"
         aria-label={`Read story: ${story.title}`}
       >
-        <span className="sr-only">Read story</span>
+        <span className="sr-only">Read story: {story.title}</span>
       </Link>
 
       <div className="relative flex h-full flex-col">

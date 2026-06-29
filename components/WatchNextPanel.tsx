@@ -20,6 +20,7 @@ export default function WatchNextPanel({
       body: "Start with the explanation behind the score instead of reading the same headline twice.",
       href: `/explained/${leadExplainer.slug}`,
       ariaLabel: `Read explainer: ${leadExplainer.question}`,
+      srText: `Read explainer: ${leadExplainer.question}`,
     },
     {
       label: "Next storyline",
@@ -27,6 +28,7 @@ export default function WatchNextPanel({
       body: "Follow whether the same momentum swing appears again in the next matchup.",
       href: `/tonight/${latestStory.slug}`,
       ariaLabel: `Read story: ${latestStory.title}`,
+      srText: `Read story: ${latestStory.title}`,
     },
     {
       label: "Fast follow-up",
@@ -34,6 +36,7 @@ export default function WatchNextPanel({
       body: "Use a simple sequence for the sports day: final, turning point, trend, and next question.",
       href: "/recaps",
       ariaLabel: "Open fast sports recaps",
+      srText: "Open fast sports recaps",
     },
   ];
 
@@ -76,7 +79,7 @@ export default function WatchNextPanel({
               className="absolute inset-0 z-10 rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/30"
               aria-label={item.ariaLabel}
             >
-              <span className="sr-only">Open item</span>
+              <span className="sr-only">{item.srText}</span>
             </Link>
 
             <span className="text-xs font-semibold uppercase tracking-[0.12em] text-muted">

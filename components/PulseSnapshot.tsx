@@ -30,18 +30,21 @@ export default function PulseSnapshot({
       value: topStory.title,
       href: `/tonight/${topStory.slug}`,
       ariaLabel: `Read top story: ${topStory.title}`,
+      srText: `Read top story: ${topStory.title}`,
     },
     {
       label: "Trending now",
       value: topTrend.name,
       href: "/trending",
       ariaLabel: `Open trending board for ${topTrend.name}`,
+      srText: `Open trending board for ${topTrend.name}`,
     },
     {
       label: "Latest final",
       value: `${winner} ${winningScore}-${losingScore}`,
       href: `/recaps/${latestFinal.slug}`,
       ariaLabel: `Read recap for ${latestFinal.away} vs ${latestFinal.home}`,
+      srText: `Read recap for ${latestFinal.away} vs ${latestFinal.home}`,
     },
   ];
 
@@ -77,7 +80,7 @@ export default function PulseSnapshot({
                     className="absolute inset-0 z-10 rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/30"
                     aria-label={signal.ariaLabel}
                   >
-                    <span className="sr-only">Open signal</span>
+                    <span className="sr-only">{signal.srText}</span>
                   </Link>
 
                   <span className="text-xs font-semibold uppercase tracking-[0.12em] text-muted">

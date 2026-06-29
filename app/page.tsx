@@ -160,7 +160,7 @@ export default function Home() {
                 className="absolute inset-0 z-10 rounded-card focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/30"
                 aria-label={`Read guide: ${guide.title}`}
               >
-                <span className="sr-only">Read guide</span>
+                <span className="sr-only">Read guide: {guide.title}</span>
               </Link>
 
               <div className="relative">
@@ -211,7 +211,9 @@ export default function Home() {
                 className="absolute inset-0 z-10 rounded-card focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/30"
                 aria-label={`Read explainer: ${item.question}`}
               >
-                <span className="sr-only">Read explainer</span>
+                <span className="sr-only">
+                  Read explainer: {item.question}
+                </span>
               </Link>
 
               <span className="text-xs font-semibold text-accent">

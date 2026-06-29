@@ -15,6 +15,16 @@ function isArticlePath(pathname: string) {
   return articleSections.includes(parts[0]);
 }
 
+function getFooterOffsetTop() {
+  const footer = document.querySelector("footer");
+
+  if (!footer) {
+    return document.documentElement.scrollHeight;
+  }
+
+  return footer.getBoundingClientRect().top + window.scrollY;
+}
+
 export default function ReadingProgressBar() {
   const pathname = usePathname();
   const [progress, setProgress] = useState(0);
@@ -29,15 +39,16 @@ export default function ReadingProgressBar() {
 
     const updateProgress = () => {
       const scrollTop = window.scrollY;
-      const documentHeight =
-        document.documentElement.scrollHeight - window.innerHeight;
+      const footerTop = getFooterOffsetTop();
+      const readableHeight = footerTop - window.innerHeight;
 
-      if (documentHeight <= 0) {
-        setProgress(0);
+      if (readableHeight <= 0) {
+        setProgress(1);
         return;
       }
 
-      setProgress(Math.min(scrollTop / documentHeight, 1));
+      const nextProgress = scrollTop / readableHeight;
+      setProgress(Math.min(Math.max(nextProgress, 0), 1));
     };
 
     updateProgress();

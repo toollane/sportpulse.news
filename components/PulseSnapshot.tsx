@@ -15,29 +15,33 @@ export default function PulseSnapshot({
   const topStory = stories.find((story) => story.featured) ?? stories[0];
   const topTrend = trends[0];
   const latestFinal = recaps[0];
+
   const winner =
     latestFinal.awayScore > latestFinal.homeScore
       ? latestFinal.away
       : latestFinal.home;
 
+  const winningScore = Math.max(latestFinal.awayScore, latestFinal.homeScore);
+  const losingScore = Math.min(latestFinal.awayScore, latestFinal.homeScore);
+
   const signals = [
     {
       label: "Top story",
       value: topStory.title,
-      href: "/tonight",
+      href: `/tonight/${topStory.slug}`,
+      ariaLabel: `Read top story: ${topStory.title}`,
     },
     {
       label: "Trending now",
       value: topTrend.name,
       href: "/trending",
+      ariaLabel: `Open trending board for ${topTrend.name}`,
     },
     {
       label: "Latest final",
-      value: `${winner} ${Math.max(latestFinal.awayScore, latestFinal.homeScore)}-${Math.min(
-        latestFinal.awayScore,
-        latestFinal.homeScore,
-      )}`,
-      href: "/recaps",
+      value: `${winner} ${winningScore}-${losingScore}`,
+      href: `/recaps/${latestFinal.slug}`,
+      ariaLabel: `Read recap for ${latestFinal.away} vs ${latestFinal.home}`,
     },
   ];
 
@@ -50,29 +54,40 @@ export default function PulseSnapshot({
               <span className="h-1.5 w-1.5 rounded-full bg-pulse" />
               Today in 30 seconds
             </span>
+
             <h2 className="mt-4 max-w-2xl text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
               A quick read on the result, the attention, and the next question.
             </h2>
+
             <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
-              SportPulse currently uses editorial briefings. The format
-              shows how a daily briefing can turn scores into context without
-              pretending to be a live scores feed.
+              SportPulse helps fans understand the sports day before the feed
+              gets noisy. The current editorial briefing format turns scores,
+              trends, and recaps into fast context without pretending to be a
+              live scores feed.
             </p>
 
             <div className="mt-6 grid gap-3 sm:grid-cols-3">
               {signals.map((signal) => (
-                <Link
+                <article
                   key={signal.label}
-                  href={signal.href}
-                  className="group rounded-2xl border border-border bg-background/70 p-4 transition-colors hover:border-accent/40"
+                  className="group relative rounded-2xl border border-border bg-background/70 p-4 transition-colors hover:border-accent/40"
                 >
+                  <Link
+                    href={signal.href}
+                    className="absolute inset-0 z-10 rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/30"
+                    aria-label={signal.ariaLabel}
+                  >
+                    <span className="sr-only">Open signal</span>
+                  </Link>
+
                   <span className="text-xs font-semibold uppercase tracking-[0.12em] text-muted">
                     {signal.label}
                   </span>
+
                   <span className="mt-2 block text-sm font-semibold leading-snug text-foreground group-hover:text-accent">
                     {signal.value}
                   </span>
-                </Link>
+                </article>
               ))}
             </div>
           </div>
@@ -83,10 +98,12 @@ export default function PulseSnapshot({
                 <p className="text-xs font-semibold uppercase tracking-[0.14em] text-muted">
                   Briefing mode
                 </p>
-                <h3 className="mt-2 text-xl font-semibold tracking-tight text-foreground">
+
+                <p className="mt-2 text-xl font-semibold tracking-tight text-foreground">
                   What changed today?
-                </h3>
+                </p>
               </div>
+
               <span className="rounded-full bg-accent-soft px-3 py-1 text-xs font-semibold text-accent-strong">
                 Editorial briefing
               </span>
@@ -102,6 +119,7 @@ export default function PulseSnapshot({
                   <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-foreground text-xs font-semibold text-background">
                     {index + 1}
                   </span>
+
                   <span className="pt-1 text-sm leading-relaxed text-muted">
                     {item}
                   </span>

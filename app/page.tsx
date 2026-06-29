@@ -18,36 +18,38 @@ import {
   faqs,
 } from "@/lib/mockData";
 
-export default function Home() {
-  const featuredStory = stories.find((s) => s.featured) ?? stories[0];
-  const otherStories = stories.filter((s) => s.slug !== featuredStory.slug);
+const guideLinks = [
+  {
+    href: "/explained/what-is-sportpulse",
+    title: "What Is SportPulse?",
+    description:
+      "Start with the mission: how SportPulse helps fans understand what happened, why it mattered, and what to watch next.",
+  },
+  {
+    href: "/explained/why-sports-fans-search-for-scores",
+    title: "Why Sports Fans Search for Scores",
+    description:
+      "Understand the behavior behind score searches: fast answers, emotional confirmation, recaps, and next steps.",
+  },
+  {
+    href: "/explained/what-makes-an-athlete-trending",
+    title: "What Makes an Athlete Trending?",
+    description:
+      "Learn why athletes gain attention online, from standout performances to injuries, rumors, viral moments, and media cycles.",
+  },
+  {
+    href: "/recaps/what-is-a-fast-sports-recap",
+    title: "What Is a Fast Sports Recap?",
+    description:
+      "See how a short recap should explain what happened, the turning point, key players, and why the result matters.",
+  },
+];
 
-  const guideLinks = [
-    {
-      href: "/explained/what-is-sportpulse",
-      title: "What Is SportPulse?",
-      description:
-        "Start with the mission: how SportPulse helps fans understand what happened, why it mattered, and what to watch next.",
-    },
-    {
-      href: "/explained/why-sports-fans-search-for-scores",
-      title: "Why Sports Fans Search for Scores",
-      description:
-        "Understand the behavior behind score searches: fast answers, emotional confirmation, recaps, and next steps.",
-    },
-    {
-      href: "/explained/what-makes-an-athlete-trending",
-      title: "What Makes an Athlete Trending?",
-      description:
-        "Learn why athletes gain attention online, from standout performances to injuries, rumors, viral moments, and media cycles.",
-    },
-    {
-      href: "/recaps/what-is-a-fast-sports-recap",
-      title: "What Is a Fast Sports Recap?",
-      description:
-        "See how a short recap should explain what happened, the turning point, key players, and why the result matters.",
-    },
-  ];
+export default function Home() {
+  const featuredStory = stories.find((story) => story.featured) ?? stories[0];
+  const otherStories = stories.filter(
+    (story) => story.slug !== featuredStory.slug,
+  );
 
   return (
     <>
@@ -66,7 +68,7 @@ export default function Home() {
         <SectionHeader
           eyebrow="Briefing lanes"
           title="Four paths through the sports day"
-          description="Start with the result, scan the momentum, read the recap, then understand why it mattered."
+          description="Start with the result, scan the momentum, read the recap, then understand why it mattered before the feed gets noisy."
         />
 
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -80,7 +82,7 @@ export default function Home() {
         <SectionHeader
           eyebrow="Today's Pulse"
           title="The stories defining the editorial briefing"
-          description="A compact editorial pulse: the late swing, the context, and the storylines worth following next."
+          description="A compact editorial pulse for fans who want to understand the sports day faster: the late swing, the context, and the storylines worth following next."
           href="/tonight"
           linkLabel="Open Tonight"
         />
@@ -147,32 +149,44 @@ export default function Home() {
 
         <div className="mt-8 grid gap-4 sm:grid-cols-2">
           {guideLinks.map((guide, index) => (
-            <Link
+            <article
               key={guide.href}
-              href={guide.href}
-              className={`group rounded-card border border-border bg-surface p-6 transition-all hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-[0_12px_40px_-20px_rgba(79,70,229,0.45)] ${
+              className={`group relative rounded-card border border-border bg-surface p-6 transition-all hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-[0_12px_40px_-20px_rgba(79,70,229,0.45)] ${
                 index === 0 ? "sm:col-span-2" : ""
               }`}
             >
-              <span className="inline-flex rounded-full bg-accent-soft px-2.5 py-1 text-xs font-semibold text-accent-strong">
-                Guide
-              </span>
-              <h3 className="mt-4 text-lg font-semibold tracking-tight text-foreground">
-                {guide.title}
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted">
-                {guide.description}
-              </p>
-              <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-accent">
-                Read the guide
-                <span
-                  aria-hidden
-                  className="transition-transform group-hover:translate-x-0.5"
-                >
-                  →
+              <Link
+                href={guide.href}
+                className="absolute inset-0 z-10 rounded-card focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/30"
+                aria-label={`Read guide: ${guide.title}`}
+              >
+                <span className="sr-only">Read guide</span>
+              </Link>
+
+              <div className="relative">
+                <span className="inline-flex rounded-full bg-accent-soft px-2.5 py-1 text-xs font-semibold text-accent-strong">
+                  Guide
                 </span>
-              </span>
-            </Link>
+
+                <p className="mt-4 text-lg font-semibold tracking-tight text-foreground group-hover:text-accent">
+                  {guide.title}
+                </p>
+
+                <p className="mt-2 text-sm leading-relaxed text-muted">
+                  {guide.description}
+                </p>
+
+                <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-accent">
+                  Read the guide
+                  <span
+                    aria-hidden
+                    className="transition-transform group-hover:translate-x-0.5"
+                  >
+                    →
+                  </span>
+                </span>
+              </div>
+            </article>
           ))}
         </div>
       </section>
@@ -186,35 +200,44 @@ export default function Home() {
           linkLabel="More explainers"
         />
 
-<div className="mt-8 grid gap-4 md:grid-cols-2">
-  {explainers.slice(0, 4).map((item) => (
-    <Link
-      key={item.slug}
-      href={`/explained/${item.slug}`}
-      className="group flex flex-col rounded-card border border-border bg-surface p-6 transition-all hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-[0_12px_40px_-20px_rgba(79,70,229,0.45)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/30"
-      aria-label={`Read explainer: ${item.question}`}
-    >
-      <span className="text-xs font-semibold text-accent">
-        {item.sport} · {item.topic}
-      </span>
+        <div className="mt-8 grid gap-4 md:grid-cols-2">
+          {explainers.slice(0, 4).map((item) => (
+            <article
+              key={item.slug}
+              className="group relative flex flex-col rounded-card border border-border bg-surface p-6 transition-all hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-[0_12px_40px_-20px_rgba(79,70,229,0.45)]"
+            >
+              <Link
+                href={`/explained/${item.slug}`}
+                className="absolute inset-0 z-10 rounded-card focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/30"
+                aria-label={`Read explainer: ${item.question}`}
+              >
+                <span className="sr-only">Read explainer</span>
+              </Link>
 
-      <h3 className="mt-3 text-lg font-semibold leading-snug tracking-tight text-foreground group-hover:text-accent">
-        {item.question}
-      </h3>
+              <span className="text-xs font-semibold text-accent">
+                {item.sport} · {item.topic}
+              </span>
 
-      <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">
-        {item.answer}
-      </p>
+              <p className="mt-3 text-lg font-semibold leading-snug tracking-tight text-foreground group-hover:text-accent">
+                {item.question}
+              </p>
 
-      <p className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-accent">
-        Open explainer
-        <span aria-hidden className="transition group-hover:translate-x-0.5">
-          {"\u2192"}
-        </span>
-      </p>
-    </Link>
-  ))}
-</div>
+              <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">
+                {item.answer}
+              </p>
+
+              <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-accent">
+                Open explainer
+                <span
+                  aria-hidden
+                  className="transition group-hover:translate-x-0.5"
+                >
+                  →
+                </span>
+              </span>
+            </article>
+          ))}
+        </div>
       </section>
 
       <section className="mx-auto mt-20 w-full max-w-6xl px-5 sm:px-8">

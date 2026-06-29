@@ -493,3 +493,346 @@ git grep -n -E "demo signup|Subscribe|No backend|preference has been noted|does 
 - API provider comparison document for NBA Pulse Today
 - no API implementation yet
 
+
+
+# SportPulse 4-Week Roadmap
+
+## Strategic goal for the next 4 weeks
+
+SportPulse should become a clean, trustworthy, mobile-first sports briefing product before any sports-data API is integrated.
+
+The goal is not to add more random features. The goal is to make the current product feel premium, useful, consistent, and ready for real data.
+
+Core principle:
+
+**No APIs until the website itself feels valuable without APIs.**
+
+---
+
+# Week 1 — Stabilize Premium UX
+
+## Goal
+
+Make the current website feel stable, intentional, and trustworthy across desktop and mobile.
+
+## Main tasks
+
+### 1. Full UX QA pass
+
+Check:
+
+- homepage
+- `/tonight`
+- `/trending`
+- `/recaps`
+- `/explained`
+- `/nba`
+- `/nfl`
+- `/mlb`
+- `/nhl`
+- `/golf`
+- `/fantasy`
+- `/contact`
+- `/#newsletter`
+- one article page from each article section
+
+Verify:
+
+- header hides/shows correctly
+- mobile bottom navigation works
+- mobile menu works
+- cards that look clickable are clickable
+- article reading progress works
+- back-to-top button works
+- article next links appear only where they should
+- contact page has no fake form
+- newsletter section has no fake signup
+- no broken anchors
+- no broken characters
+- no demo/prototype wording
+
+### 2. Fix only real UX issues found during QA
+
+No broad redesigns.
+
+Allowed fixes:
+
+- broken links
+- broken spacing
+- unclear CTA text
+- cards that look clickable but are not
+- mobile layout issues
+- contrast/readability problems
+
+Avoid:
+
+- new features
+- new providers
+- new APIs
+- large homepage rewrites
+
+### 3. Lock current UX decisions
+
+Document in `PROJECT_TODO.md`:
+
+- contact remains direct email only
+- newsletter remains “coming soon” until real signup is connected
+- no fake forms
+- no fake newsletter submissions
+- no API integration before UX is stable
+
+## Definition of done
+
+Week 1 is done when:
+
+- `npm run build` passes
+- homepage looks good on mobile and desktop
+- `/#newsletter` works and looks intentional
+- `/contact` is simple and trustworthy
+- no fake form language remains
+- no broken characters remain
+- current UX changes are committed and pushed
+
+---
+
+# Week 2 — Strengthen Content Structure and SEO Intent
+
+## Goal
+
+Make SportPulse clearer for users and Google by improving internal structure, page purpose, and search-intent alignment.
+
+## Main tasks
+
+### 1. Review homepage hierarchy
+
+Check whether the homepage clearly answers within 5 seconds:
+
+- What is SportPulse?
+- Why should I use it?
+- What can I click next?
+- Is this scores, news, analysis, or briefing?
+
+Improve only if needed.
+
+### 2. Improve internal linking
+
+Add or improve links between:
+
+- homepage → sport hubs
+- sport hubs → `/tonight`, `/recaps`, `/fantasy`, `/trending`
+- articles → related articles
+- articles → relevant sport hubs
+- footer → major sports and trust pages
+
+### 3. Review article endings
+
+Each article should give the user a next action:
+
+- read related explainer
+- open recap guide
+- check trending stories
+- go to tonight’s pulse
+- explore a sport hub
+
+### 4. Search Console review
+
+Check:
+
+- indexed pages
+- discovered but not indexed pages
+- sitemap status
+- early queries
+- page experience issues
+- crawl/indexing errors
+
+Do not chase random SEO tricks. Use Search Console only to detect technical or structural issues.
+
+## Definition of done
+
+Week 2 is done when:
+
+- homepage purpose is clear
+- key pages have strong internal links
+- no orphan-like pages remain
+- Search Console has been reviewed
+- any obvious indexing issues are documented
+- no thin/fake pages were added
+
+---
+
+# Week 3 — Prepare API Decision Without Implementing API Yet
+
+## Goal
+
+Choose the first API experiment based on product value, cost, and technical simplicity — without buying or integrating multiple APIs.
+
+## Main tasks
+
+### 1. Create `API_PROVIDER_COMPARISON.md`
+
+Compare:
+
+- Balldontlie
+- TheSportsDB
+- SportsDataIO
+- Sleeper API
+
+Evaluate:
+
+- sports covered
+- NBA usefulness
+- NFL usefulness
+- fantasy usefulness
+- pricing
+- rate limits
+- data quality
+- ease of use with Next.js
+- risk of overpaying
+- fit for SportPulse’s context-first product
+
+### 2. Define the first experiment
+
+Preferred experiment:
+
+**NBA Pulse Today**
+
+The feature should answer:
+
+- What NBA games matter today?
+- What happened recently?
+- What changed?
+- Who is trending?
+- What should fans watch next?
+- What might fantasy users notice?
+
+### 3. Define strict API rules
+
+The first API experiment must have:
+
+- one sport
+- one feature
+- one API
+- one budget
+- one success metric
+- one exit rule
+
+Budget target:
+
+- preferred: $0–$20/month
+- acceptable early max: $30/month
+- avoid: $50+/month before traffic or strong product evidence
+
+### 4. Design the API-ready page before coding
+
+Define the future page structure for:
+
+- `/nba/today` or `/nba/pulse`
+
+Possible modules:
+
+- today’s games
+- recent finals
+- biggest swing
+- closest game
+- player/team signal
+- fantasy note
+- what to watch next
+
+No fake data should be shipped as live data.
+
+## Definition of done
+
+Week 3 is done when:
+
+- API comparison document exists
+- first API experiment is selected
+- budget and exit rule are clear
+- future NBA Pulse page structure is defined
+- no API has been bought impulsively
+- no fake live-data page has been shipped
+
+---
+
+# Week 4 — Build API-Ready Product Shell or Final UX Polish
+
+## Goal
+
+Use the Week 3 decision to either prepare the first API-ready shell or complete remaining UX/product polish before implementation.
+
+## Option A — If UX is stable and API decision is clear
+
+Build an API-ready NBA Pulse shell without fake live claims.
+
+Tasks:
+
+- create route structure for NBA Pulse
+- define data types
+- define UI modules
+- add empty/loading/error states
+- add honest “data not connected yet” internal-only handling if needed
+- prepare environment variable structure
+- do not expose API keys client-side
+- do not ship misleading live data
+
+Possible route:
+
+- `/nba/today`
+- or `/nba/pulse`
+
+Goal:
+
+A clean page structure ready for a real API connection.
+
+## Option B — If UX still needs work
+
+Do not touch APIs yet.
+
+Instead finish:
+
+- homepage mobile polish
+- sport hub copy polish
+- article layout polish
+- CTA consistency
+- footer/link consistency
+- Search Console issue fixes
+
+## Definition of done
+
+Week 4 is done when one of these is true:
+
+### API-ready path
+
+- NBA Pulse shell exists
+- no fake live-data claims
+- API integration plan is clear
+- API key handling is planned safely
+- first implementation task is small and bounded
+
+### UX-first path
+
+- remaining UX issues are fixed
+- homepage and sport hubs feel premium
+- site is ready for API work in the next cycle
+
+---
+
+# Four-week success criteria
+
+At the end of 4 weeks, SportPulse should have:
+
+- stable premium mobile UX
+- clear homepage value proposition
+- trustworthy contact and newsletter handling
+- no fake forms
+- no fake live data
+- consistent card interactions
+- stronger internal linking
+- reviewed Search Console basics
+- documented API comparison
+- clear first API experiment
+- no unnecessary provider subscriptions
+- no large uncontrolled rewrites
+
+The ideal result:
+
+**SportPulse feels like a real sports briefing product before real data is connected.**

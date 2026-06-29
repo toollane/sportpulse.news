@@ -5,6 +5,7 @@ import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import MobileBottomNav from "@/components/MobileBottomNav";
 import ReadingProgressBar from "@/components/ReadingProgressBar";
+import ArticleNextLinks from "@/components/ArticleNextLinks";
 
 
 const geistSans = Geist({
@@ -102,8 +103,9 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
         <SiteHeader />
-        <ReadingProgressBar />
+<ReadingProgressBar />
 <main className="flex-1 pb-20 md:pb-0">{children}</main>
+<ArticleNextLinks />
 <MobileBottomNav />
 <SiteFooter />
       </body>

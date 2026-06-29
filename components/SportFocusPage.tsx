@@ -14,6 +14,38 @@ function Badge({ children }: { children: ReactNode }) {
   );
 }
 
+function getSearchExampleHref(query: string, fallbackHref: string) {
+  const normalizedQuery = query.toLowerCase();
+
+  if (
+    normalizedQuery.includes("games tonight") ||
+    normalizedQuery.includes("schedule today") ||
+    normalizedQuery.includes("who is leading today")
+  ) {
+    return "/tonight";
+  }
+
+  if (
+    normalizedQuery.includes("fantasy") ||
+    normalizedQuery.includes("waiver") ||
+    normalizedQuery.includes("start sit") ||
+    normalizedQuery.includes("injury impact") ||
+    normalizedQuery.includes("usage")
+  ) {
+    return "/fantasy";
+  }
+
+  if (
+    normalizedQuery.includes("vs") ||
+    normalizedQuery.includes("leaderboard") ||
+    normalizedQuery.includes("score")
+  ) {
+    return "/recaps";
+  }
+
+  return fallbackHref;
+}
+
 export default function SportFocusPage({ content }: SportFocusPageProps) {
   return (
     <main className="bg-background text-foreground">
@@ -116,23 +148,41 @@ export default function SportFocusPage({ content }: SportFocusPageProps) {
           </div>
 
           <div className="mt-6 grid gap-3 lg:grid-cols-3">
-            {content.searchExamples.map((example) => (
-              <article
-                key={example.query}
-                className="rounded-2xl border border-border bg-background p-4"
-              >
-                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted">
-                  Search
-                </p>
-                <h3 className="mt-2 text-base font-semibold">
-                  {example.query}
-                </h3>
-                <p className="mt-3 text-sm leading-6 text-muted">
-                  {example.answer}
-                </p>
-              </article>
-            ))}
-          </div>
+  {content.searchExamples.map((example) => {
+    const href = getSearchExampleHref(
+      example.query,
+      content.primaryCta.href
+    );
+
+    return (
+      <Link
+        key={example.query}
+        href={href}
+        aria-label={`Open SportPulse context for ${example.query}`}
+        className="group block rounded-2xl border border-border bg-background p-4 transition hover:-translate-y-0.5 hover:border-accent/50 hover:bg-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/30"
+      >
+        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted">
+          Search
+        </p>
+        <h3 className="mt-2 text-base font-semibold">
+          {example.query}
+        </h3>
+        <p className="mt-3 text-sm leading-6 text-muted">
+          {example.answer}
+        </p>
+        <p className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-accent">
+          Open context
+          <span
+            aria-hidden
+            className="transition group-hover:translate-x-0.5"
+          >
+            {"\u2192"}
+          </span>
+        </p>
+      </Link>
+    );
+  })}
+</div>
         </section>
 
         <section className="rounded-card border border-border bg-surface p-6 shadow-sm md:p-8">

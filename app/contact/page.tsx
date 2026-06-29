@@ -2,7 +2,6 @@
 import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import SectionHeader from "@/components/SectionHeader";
-import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
   title: "Contact | SportPulse",
@@ -112,10 +111,6 @@ export default function ContactPage() {
             </div>
           </section>
         </div>
-
-        <section className="mt-4">
-          <ContactForm />
-        </section>
 
         <section className="mt-4 rounded-card border border-border bg-surface p-6 sm:p-8">
           <h2 className="text-2xl font-semibold tracking-tight text-foreground">

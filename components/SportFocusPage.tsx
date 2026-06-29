@@ -46,6 +46,53 @@ function getSearchExampleHref(query: string, fallbackHref: string) {
   return fallbackHref;
 }
 
+function getModuleHref(title: string, text: string, fallbackHref: string) {
+  const value = `${title} ${text}`.toLowerCase();
+
+  if (
+    value.includes("tonight") ||
+    value.includes("today") ||
+    value.includes("slate") ||
+    value.includes("schedule") ||
+    value.includes("leaderboard")
+  ) {
+    return "/tonight";
+  }
+
+  if (
+    value.includes("fantasy") ||
+    value.includes("waiver") ||
+    value.includes("injury") ||
+    value.includes("usage") ||
+    value.includes("start/sit") ||
+    value.includes("opportunity")
+  ) {
+    return "/fantasy";
+  }
+
+  if (
+    value.includes("recap") ||
+    value.includes("swing") ||
+    value.includes("result") ||
+    value.includes("final") ||
+    value.includes("game")
+  ) {
+    return "/recaps";
+  }
+
+  if (
+    value.includes("trending") ||
+    value.includes("signal") ||
+    value.includes("player") ||
+    value.includes("momentum") ||
+    value.includes("pressure")
+  ) {
+    return "/trending";
+  }
+
+  return fallbackHref;
+}
+
 export default function SportFocusPage({ content }: SportFocusPageProps) {
   return (
     <main className="bg-background text-foreground">
@@ -200,23 +247,37 @@ export default function SportFocusPage({ content }: SportFocusPageProps) {
             </div>
 
             <div className="grid gap-3 sm:grid-cols-2">
-              {content.readSteps.map((step, index) => (
-                <article
-                  key={step.label}
-                  className="rounded-2xl border border-border bg-background p-5"
-                >
-                  <div className="flex items-center gap-3">
-                    <span className="grid h-8 w-8 place-items-center rounded-full bg-foreground text-xs font-semibold text-background">
-                      {index + 1}
-                    </span>
-                    <h3 className="text-base font-semibold">{step.label}</h3>
-                  </div>
-                  <p className="mt-4 text-sm leading-6 text-muted">
-                    {step.text}
-                  </p>
-                </article>
-              ))}
-            </div>
+  {content.modules.map((module) => {
+    const href = getModuleHref(
+      module.title,
+      module.text,
+      content.secondaryCta.href
+    );
+
+    return (
+      <Link
+        key={module.title}
+        href={href}
+        aria-label={`Explore ${module.title}`}
+        className="group block rounded-2xl border border-border bg-background p-4 transition hover:-translate-y-0.5 hover:border-accent/50 hover:bg-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/30"
+      >
+        <p className="text-sm font-semibold">{module.title}</p>
+        <p className="mt-2 text-sm leading-6 text-muted">
+          {module.text}
+        </p>
+        <p className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-accent">
+          Explore angle
+          <span
+            aria-hidden
+            className="transition group-hover:translate-x-0.5"
+          >
+            {"\u2192"}
+          </span>
+        </p>
+      </Link>
+    );
+  })}
+</div>
           </div>
         </section>
 

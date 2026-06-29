@@ -188,8 +188,8 @@ export default function WhyGameContextMattersPage() {
             SportPulse is an independent sports media and analysis project. It
             is not affiliated with, endorsed by, or partnered with any league,
             team, sportsbook, or media company. SportPulse does not provide
-            betting picks or gambling recommendations, and the current MVP uses
-            static mock content rather than live data.
+            betting picks or gambling recommendations, and the current version uses
+            original editorial content rather than live data.
           </p>
         </section>
 

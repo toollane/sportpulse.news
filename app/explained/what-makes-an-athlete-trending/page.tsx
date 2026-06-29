@@ -109,8 +109,7 @@ export default function WhatMakesAnAthleteTrendingPage() {
               how serious is it, who replaces them, and what changes next?
             </p>
             <p>
-              SportPulse avoids medical speculation. In an MVP environment that
-              uses static mock content, the right approach is to explain the
+              SportPulse avoids medical speculation. In the current editorial format, the right approach is to explain the
               sports impact in general terms without pretending to have live
               medical information or official team reporting.
             </p>

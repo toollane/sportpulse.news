@@ -157,8 +157,7 @@ export default function HowToFollowSportsWithoutWatchingEveryGamePage() {
               you understand what happened fastest.
             </p>
             <p>
-              SportPulse is built around that idea. The current MVP uses static
-              mock content rather than live data, but the editorial structure is
+              SportPulse is built around that idea. The current version uses original editorial content rather than live data, but the editorial structure is
               clear: scores lead to context, recaps lead to understanding, and
               trends lead to what fans are asking next.
             </p>

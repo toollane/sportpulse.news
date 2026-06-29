@@ -127,7 +127,7 @@ export default function WhyPlayersTrendAfterOneGamePage() {
               only highlights.
             </p>
             <p>
-              SportPulse does not provide fantasy advice in the current MVP,
+              SportPulse does not provide fantasy advice in the current version,
               but it can explain why fantasy-related attention forms. Usage,
               opportunity, availability, and role changes are all part of the
               context behind trends.

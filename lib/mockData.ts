@@ -1,5 +1,5 @@
 ﻿/**
- * Static mock data for the SportPulse MVP.
+ * Editorial data for SportPulse.
  *
  * Everything here is original, hand-written editorial content created for
  * demonstration purposes. There are no real-time scores, no copyrighted

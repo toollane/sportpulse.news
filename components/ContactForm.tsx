@@ -7,7 +7,7 @@ export default function ContactForm() {
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    // No backend in the MVP. This acknowledges the message locally only.
+    // No backend is connected yet. This acknowledges the message locally only.
     setSubmitted(true);
   }
 

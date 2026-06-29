@@ -123,8 +123,7 @@ export default function WhatIsSportPulsePage() {
               might matter next.
             </p>
             <p>
-              For now, SportPulse is an MVP that uses original static mock
-              content to demonstrate the product experience. It does not claim
+              SportPulse currently uses original editorial content to demonstrate the product experience. It does not claim
               to provide live scores, official statistics, or real-time league
               data. Future versions may add live data sources, trend signals,
               and more coverage, but the editorial promise stays the same:

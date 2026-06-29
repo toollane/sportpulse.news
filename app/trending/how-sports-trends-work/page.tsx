@@ -175,7 +175,7 @@ export default function HowSportsTrendsWorkPage() {
             </p>
             <p>
               SportPulse does not claim to provide live trend data in the
-              current MVP. The site uses original static mock content to show
+              current version. The site uses original editorial content to show
               the format. The product direction is clear, though: explain why
               attention is forming, not just that it exists.
             </p>
@@ -190,8 +190,8 @@ export default function HowSportsTrendsWorkPage() {
             SportPulse is an independent sports media and analysis project. It
             is not affiliated with, endorsed by, or partnered with any league,
             team, sportsbook, or media company. SportPulse does not provide
-            betting picks or gambling recommendations, and the current MVP uses
-            static mock content rather than live data.
+            betting picks or gambling recommendations, and the current version uses
+            original editorial content rather than live data.
           </p>
         </section>
 

@@ -154,7 +154,7 @@ export default function HowInjuriesChangeTheStoryOfAGamePage() {
               opportunity change quickly. A backup may get more minutes. A
               teammate may take more shots. A defense may lose an important
               matchup piece. SportPulse does not publish fantasy advice in this
-              MVP, but it can explain why fantasy-related attention forms.
+              current version, but it can explain why fantasy-related attention forms.
             </p>
             <p>
               The most useful follow-up question is what changes next. Does the

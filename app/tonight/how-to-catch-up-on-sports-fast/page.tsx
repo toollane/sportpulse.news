@@ -182,8 +182,7 @@ export default function HowToCatchUpOnSportsFastPage() {
               conversation.
             </p>
             <p>
-              SportPulse does not pretend the current MVP has live data. The
-              site uses original static mock content to demonstrate how a fast
+              SportPulse does not claim live data until it is connected to a reliable source. The site uses original editorial content to demonstrate how a fast
               sports briefing should work. The product idea is simple: help
               fans understand the sports day in a clear, useful order.
             </p>
@@ -198,8 +197,8 @@ export default function HowToCatchUpOnSportsFastPage() {
             SportPulse is an independent sports media and analysis project. It
             is not affiliated with, endorsed by, or partnered with any league,
             team, sportsbook, or media company. SportPulse does not provide
-            betting picks or gambling recommendations, and the current MVP uses
-            static mock content rather than live data.
+            betting picks or gambling recommendations, and the current version uses
+            original editorial content rather than live data.
           </p>
         </section>
 

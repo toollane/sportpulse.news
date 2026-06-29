@@ -9,7 +9,7 @@ export default function NewsletterCard() {
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (!email) return;
-    // No backend in the MVP. This confirms intent locally only.
+    // No backend is connected yet. This confirms intent locally only.
     setSubmitted(true);
   }
 

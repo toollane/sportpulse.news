@@ -43,7 +43,7 @@ export default function WhatHappenedInSportsTodayPage() {
             scan key results, identify the turning points, check which athletes
             or teams are trending, note important injuries or role changes, and
             ask what the results change for the next matchup. SportPulse does
-            not claim live daily updates in the current MVP; this page explains
+            not claim live daily updates in the current version; this page explains
             the catch-up process.
           </p>
         </section>

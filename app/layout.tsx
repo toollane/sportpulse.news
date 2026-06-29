@@ -6,6 +6,7 @@ import SiteFooter from "@/components/SiteFooter";
 import MobileBottomNav from "@/components/MobileBottomNav";
 import ReadingProgressBar from "@/components/ReadingProgressBar";
 import ArticleNextLinks from "@/components/ArticleNextLinks";
+import BackToTopButton from "@/components/BackToTopButton";
 
 
 const geistSans = Geist({
@@ -106,6 +107,7 @@ export default function RootLayout({
 <ReadingProgressBar />
 <main className="flex-1 pb-20 md:pb-0">{children}</main>
 <ArticleNextLinks />
+<BackToTopButton />
 <MobileBottomNav />
 <SiteFooter />
       </body>

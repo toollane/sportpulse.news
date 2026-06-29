@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const navLinks = [
   { href: "/tonight", label: "Tonight" },
@@ -19,7 +19,11 @@ const navLinks = [
 
 function Logo() {
   return (
-    <Link href="/" className="flex items-center gap-2.5" aria-label="SportPulse home">
+    <Link
+      href="/"
+      className="flex items-center gap-2.5"
+      aria-label="SportPulse home"
+    >
       <span className="grid h-9 w-9 place-items-center rounded-xl bg-foreground text-background">
         <svg
           viewBox="0 0 24 24"
@@ -44,16 +48,69 @@ function Logo() {
 export default function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const lastScrollY = useRef(0);
+  const ticking = useRef(false);
+
+  useEffect(() => {
+    setHidden(false);
+    setOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    if (open) {
+      setHidden(false);
+      return;
+    }
+
+    const updateHeader = () => {
+      const currentScrollY = window.scrollY;
+      const scrollDelta = currentScrollY - lastScrollY.current;
+
+      if (currentScrollY < 32) {
+        setHidden(false);
+      } else if (scrollDelta > 8 && currentScrollY > 120) {
+        setHidden(true);
+      } else if (scrollDelta < -8) {
+        setHidden(false);
+      }
+
+      lastScrollY.current = currentScrollY;
+      ticking.current = false;
+    };
+
+    const onScroll = () => {
+      if (!ticking.current) {
+        window.requestAnimationFrame(updateHeader);
+        ticking.current = true;
+      }
+    };
+
+    lastScrollY.current = window.scrollY;
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, [open]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/80 bg-background/80 backdrop-blur-md">
+    <header
+      className={`sticky top-0 z-50 border-b border-border/80 bg-background/85 backdrop-blur-md transition-transform duration-300 ease-out will-change-transform ${
+        hidden ? "-translate-y-full" : "translate-y-0"
+      }`}
+    >
       <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-5 sm:px-8">
         <Logo />
 
-        <nav className="hidden items-center gap-0.5 md:flex" aria-label="Primary">
+        <nav
+          className="hidden items-center gap-0.5 md:flex"
+          aria-label="Primary"
+        >
           {navLinks.map((link) => {
             const active =
               pathname === link.href || pathname.startsWith(`${link.href}/`);
+
             return (
               <Link
                 key={link.href}
@@ -81,12 +138,19 @@ export default function SiteHeader() {
 
         <button
           type="button"
-          onClick={() => setOpen((v) => !v)}
+          onClick={() => setOpen((value) => !value)}
           className="grid h-10 w-10 place-items-center rounded-lg border border-border text-foreground md:hidden"
           aria-label="Toggle navigation menu"
           aria-expanded={open}
         >
-          <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden>
+          <svg
+            viewBox="0 0 24 24"
+            className="h-5 w-5"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={2}
+            aria-hidden
+          >
             {open ? (
               <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" />
             ) : (
@@ -98,10 +162,14 @@ export default function SiteHeader() {
 
       {open ? (
         <div className="border-t border-border bg-surface md:hidden">
-          <nav className="mx-auto flex w-full max-w-6xl flex-col gap-1 px-5 py-4" aria-label="Mobile">
+          <nav
+            className="mx-auto flex w-full max-w-6xl flex-col gap-1 px-5 py-4"
+            aria-label="Mobile"
+          >
             {navLinks.map((link) => {
               const active =
                 pathname === link.href || pathname.startsWith(`${link.href}/`);
+
               return (
                 <Link
                   key={link.href}

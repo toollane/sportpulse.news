@@ -1,8 +1,8 @@
 import type { MetadataRoute } from "next";
 
-export default function robots(): MetadataRoute.Robots {
-  const baseUrl = "https://sportpulse.news";
+const baseUrl = "https://www.sportpulse.news";
 
+export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: "*",

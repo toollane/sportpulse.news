@@ -10,16 +10,20 @@ const momentumStyles: Record<Trend["momentum"], string> = {
 
 export default function TrendCard({ trend }: { trend: Trend }) {
   return (
-    <Link
-      href="/trending"
-      className="group flex items-start gap-4 rounded-card border border-border bg-surface p-5 transition-all hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-[0_12px_40px_-20px_rgba(79,70,229,0.45)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/30"
-      aria-label={`Open trend for ${trend.name}`}
-    >
+    <article className="group relative flex items-start gap-4 rounded-card border border-border bg-surface p-5 transition-all hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-[0_12px_40px_-20px_rgba(79,70,229,0.45)]">
+      <Link
+        href="/trending"
+        className="absolute inset-0 z-10 rounded-card focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/30"
+        aria-label={`Open trend: ${trend.name}`}
+      >
+        <span className="sr-only">Open trend: {trend.name}</span>
+      </Link>
+
       <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-foreground text-sm font-semibold text-background tabular-nums">
         {trend.rank}
       </span>
 
-      <div className="min-w-0">
+      <div className="relative min-w-0">
         <div className="flex flex-wrap items-center gap-2 text-xs">
           <span className="font-semibold text-accent">{trend.type}</span>
           <span aria-hidden className="h-1 w-1 rounded-full bg-border" />
@@ -39,13 +43,13 @@ export default function TrendCard({ trend }: { trend: Trend }) {
           {trend.blurb}
         </p>
 
-        <p className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-accent">
+        <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-accent">
           Open trend
           <span aria-hidden className="transition group-hover:translate-x-0.5">
-            {"\u2192"}
+            →
           </span>
-        </p>
+        </span>
       </div>
-    </Link>
+    </article>
   );
 }

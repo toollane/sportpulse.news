@@ -8,7 +8,6 @@ import ReadingProgressBar from "@/components/ReadingProgressBar";
 import ArticleNextLinks from "@/components/ArticleNextLinks";
 import BackToTopButton from "@/components/BackToTopButton";
 
-
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -21,7 +20,7 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
-const siteUrl = "https://sportpulse.news";
+const siteUrl = "https://www.sportpulse.news";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -104,12 +103,12 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
         <SiteHeader />
-<ReadingProgressBar />
-<main className="flex-1 pb-20 md:pb-0">{children}</main>
-<ArticleNextLinks />
-<BackToTopButton />
-<MobileBottomNav />
-<SiteFooter />
+        <ReadingProgressBar />
+        <main className="flex-1 pb-20 md:pb-0">{children}</main>
+        <ArticleNextLinks />
+        <BackToTopButton />
+        <MobileBottomNav />
+        <SiteFooter />
       </body>
     </html>
   );

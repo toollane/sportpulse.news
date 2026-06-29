@@ -40,40 +40,58 @@ export default function RecapCard({ recap }: { recap: Recap }) {
   const winner = awayWins ? recap.away : recap.home;
 
   return (
-    <Link
-      href={`/recaps/${recap.slug}`}
-      className="group flex flex-col rounded-card border border-border bg-surface p-5 transition-all hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-[0_12px_40px_-20px_rgba(79,70,229,0.45)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/30"
-      aria-label={`Read recap for ${recap.away} vs ${recap.home}`}
-    >
-      <div className="flex items-center justify-between text-xs">
-        <span className="font-semibold text-accent">{recap.league}</span>
-        <span className="rounded-full bg-zinc-100 px-2 py-0.5 font-semibold text-zinc-600">
-          {recap.status}
+    <article className="group relative flex h-full flex-col rounded-card border border-border bg-surface p-5 transition-all hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-[0_12px_40px_-20px_rgba(79,70,229,0.45)]">
+      <Link
+        href={`/recaps/${recap.slug}`}
+        className="absolute inset-0 z-10 rounded-card focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/30"
+        aria-label={`Read recap: ${recap.away} vs ${recap.home}`}
+      >
+        <span className="sr-only">
+          Read recap: {recap.away} vs {recap.home}
+        </span>
+      </Link>
+
+      <div className="relative flex h-full flex-col">
+        <div className="flex items-center justify-between text-xs">
+          <span className="font-semibold text-accent">{recap.league}</span>
+          <span className="rounded-full bg-zinc-100 px-2 py-0.5 font-semibold text-zinc-600">
+            {recap.status}
+          </span>
+        </div>
+
+        <div className="mt-4 space-y-2 rounded-2xl border border-border bg-background/60 p-2">
+          <TeamRow
+            name={recap.away}
+            score={recap.awayScore}
+            winner={awayWins}
+          />
+          <TeamRow
+            name={recap.home}
+            score={recap.homeScore}
+            winner={homeWins}
+          />
+        </div>
+
+        <div className="mt-4 flex items-center justify-between border-t border-border pt-4">
+          <span className="text-xs font-semibold uppercase tracking-[0.12em] text-muted">
+            Winner
+          </span>
+          <span className="text-sm font-semibold text-foreground">
+            {winner}
+          </span>
+        </div>
+
+        <p className="mt-4 flex-1 text-sm leading-relaxed text-muted">
+          {recap.summary}
+        </p>
+
+        <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-accent">
+          Open recap
+          <span aria-hidden className="transition group-hover:translate-x-0.5">
+            →
+          </span>
         </span>
       </div>
-
-      <div className="mt-4 space-y-2 rounded-2xl border border-border bg-background/60 p-2">
-        <TeamRow name={recap.away} score={recap.awayScore} winner={awayWins} />
-        <TeamRow name={recap.home} score={recap.homeScore} winner={homeWins} />
-      </div>
-
-      <div className="mt-4 flex items-center justify-between border-t border-border pt-4">
-        <span className="text-xs font-semibold uppercase tracking-[0.12em] text-muted">
-          Winner
-        </span>
-        <span className="text-sm font-semibold text-foreground">{winner}</span>
-      </div>
-
-      <p className="mt-4 flex-1 text-sm leading-relaxed text-muted">
-        {recap.summary}
-      </p>
-
-      <p className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-accent">
-        Open recap
-        <span aria-hidden className="transition group-hover:translate-x-0.5">
-          {"\u2192"}
-        </span>
-      </p>
-    </Link>
+    </article>
   );
 }

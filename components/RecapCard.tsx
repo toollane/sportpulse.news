@@ -1,4 +1,5 @@
-﻿import type { Recap } from "@/lib/mockData";
+﻿import Link from "next/link";
+import type { Recap } from "@/lib/mockData";
 
 function TeamRow({
   name,
@@ -16,12 +17,16 @@ function TeamRow({
       }`}
     >
       <span
-        className={`text-sm ${winner ? "font-semibold text-foreground" : "font-medium text-muted"}`}
+        className={`text-sm ${
+          winner ? "font-semibold text-foreground" : "font-medium text-muted"
+        }`}
       >
         {name}
       </span>
       <span
-        className={`text-lg tabular-nums ${winner ? "font-bold text-foreground" : "font-semibold text-muted"}`}
+        className={`text-lg tabular-nums ${
+          winner ? "font-bold text-foreground" : "font-semibold text-muted"
+        }`}
       >
         {score}
       </span>
@@ -35,7 +40,11 @@ export default function RecapCard({ recap }: { recap: Recap }) {
   const winner = awayWins ? recap.away : recap.home;
 
   return (
-    <article className="flex flex-col rounded-card border border-border bg-surface p-5 transition-all hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-[0_12px_40px_-20px_rgba(79,70,229,0.45)]">
+    <Link
+      href={`/recaps/${recap.slug}`}
+      className="group flex flex-col rounded-card border border-border bg-surface p-5 transition-all hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-[0_12px_40px_-20px_rgba(79,70,229,0.45)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/30"
+      aria-label={`Read recap for ${recap.away} vs ${recap.home}`}
+    >
       <div className="flex items-center justify-between text-xs">
         <span className="font-semibold text-accent">{recap.league}</span>
         <span className="rounded-full bg-zinc-100 px-2 py-0.5 font-semibold text-zinc-600">
@@ -58,6 +67,13 @@ export default function RecapCard({ recap }: { recap: Recap }) {
       <p className="mt-4 flex-1 text-sm leading-relaxed text-muted">
         {recap.summary}
       </p>
-    </article>
+
+      <p className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-accent">
+        Open recap
+        <span aria-hidden className="transition group-hover:translate-x-0.5">
+          {"\u2192"}
+        </span>
+      </p>
+    </Link>
   );
 }

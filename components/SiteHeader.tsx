@@ -17,6 +17,12 @@ const navLinks = [
   { href: "/explained", label: "Explained" },
 ];
 
+const briefingHref = "/#newsletter";
+
+function isActivePath(pathname: string, href: string) {
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
+
 function Logo() {
   return (
     <Link
@@ -38,6 +44,7 @@ function Logo() {
           <path d="M2 12h4l2.5-7 5 14L16 12h6" />
         </svg>
       </span>
+
       <span className="text-lg font-semibold tracking-tight text-foreground">
         Sport<span className="text-gradient">Pulse</span>
       </span>
@@ -47,23 +54,24 @@ function Logo() {
 
 export default function SiteHeader() {
   const pathname = usePathname();
-  const [open, setOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
+
   const lastScrollY = useRef(0);
   const ticking = useRef(false);
 
   useEffect(() => {
     setHidden(false);
-    setOpen(false);
+    setMobileMenuOpen(false);
   }, [pathname]);
 
   useEffect(() => {
-    if (open) {
+    if (mobileMenuOpen) {
       setHidden(false);
       return;
     }
 
-    const updateHeader = () => {
+    function updateHeader() {
       const currentScrollY = window.scrollY;
       const scrollDelta = currentScrollY - lastScrollY.current;
 
@@ -77,14 +85,14 @@ export default function SiteHeader() {
 
       lastScrollY.current = currentScrollY;
       ticking.current = false;
-    };
+    }
 
-    const onScroll = () => {
+    function onScroll() {
       if (!ticking.current) {
         window.requestAnimationFrame(updateHeader);
         ticking.current = true;
       }
-    };
+    }
 
     lastScrollY.current = window.scrollY;
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -92,7 +100,7 @@ export default function SiteHeader() {
     return () => {
       window.removeEventListener("scroll", onScroll);
     };
-  }, [open]);
+  }, [mobileMenuOpen]);
 
   return (
     <header
@@ -105,11 +113,10 @@ export default function SiteHeader() {
 
         <nav
           className="hidden items-center gap-0.5 md:flex"
-          aria-label="Primary"
+          aria-label="Primary navigation"
         >
           {navLinks.map((link) => {
-            const active =
-              pathname === link.href || pathname.startsWith(`${link.href}/`);
+            const active = isActivePath(pathname, link.href);
 
             return (
               <Link
@@ -127,9 +134,9 @@ export default function SiteHeader() {
           })}
         </nav>
 
-        <div className="hidden xl:block">
+        <div className="hidden lg:block">
           <Link
-            href="/#newsletter"
+            href={briefingHref}
             className="inline-flex items-center rounded-full bg-foreground px-4 py-2 text-sm font-semibold text-background transition-opacity hover:opacity-90"
           >
             Get the briefing
@@ -138,10 +145,10 @@ export default function SiteHeader() {
 
         <button
           type="button"
-          onClick={() => setOpen((value) => !value)}
+          onClick={() => setMobileMenuOpen((value) => !value)}
           className="grid h-10 w-10 place-items-center rounded-lg border border-border text-foreground md:hidden"
           aria-label="Toggle navigation menu"
-          aria-expanded={open}
+          aria-expanded={mobileMenuOpen}
         >
           <svg
             viewBox="0 0 24 24"
@@ -151,7 +158,7 @@ export default function SiteHeader() {
             strokeWidth={2}
             aria-hidden
           >
-            {open ? (
+            {mobileMenuOpen ? (
               <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" />
             ) : (
               <path d="M4 7h16M4 12h16M4 17h16" strokeLinecap="round" />
@@ -160,21 +167,20 @@ export default function SiteHeader() {
         </button>
       </div>
 
-      {open ? (
+      {mobileMenuOpen ? (
         <div className="border-t border-border bg-surface md:hidden">
           <nav
             className="mx-auto flex w-full max-w-6xl flex-col gap-1 px-5 py-4"
-            aria-label="Mobile"
+            aria-label="Mobile navigation"
           >
             {navLinks.map((link) => {
-              const active =
-                pathname === link.href || pathname.startsWith(`${link.href}/`);
+              const active = isActivePath(pathname, link.href);
 
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  onClick={() => setOpen(false)}
+                  onClick={() => setMobileMenuOpen(false)}
                   className={`rounded-lg px-3 py-2.5 text-base font-medium transition-colors ${
                     active
                       ? "bg-accent-soft text-accent-strong"
@@ -185,9 +191,10 @@ export default function SiteHeader() {
                 </Link>
               );
             })}
+
             <Link
-              href="/#newsletter"
-              onClick={() => setOpen(false)}
+              href={briefingHref}
+              onClick={() => setMobileMenuOpen(false)}
               className="mt-2 inline-flex items-center justify-center rounded-lg bg-foreground px-4 py-2.5 text-base font-semibold text-background"
             >
               Get the briefing

@@ -186,26 +186,35 @@ export default function Home() {
           linkLabel="More explainers"
         />
 
-        <div className="mt-8 grid gap-4 md:grid-cols-2">
-          {explainers.slice(0, 4).map((item) => (
-            <article
-              key={item.slug}
-              className="flex flex-col rounded-card border border-border bg-surface p-6"
-            >
-              <span className="text-xs font-semibold text-accent">
-                {item.sport} · {item.topic}
-              </span>
+<div className="mt-8 grid gap-4 md:grid-cols-2">
+  {explainers.slice(0, 4).map((item) => (
+    <Link
+      key={item.slug}
+      href={`/explained/${item.slug}`}
+      className="group flex flex-col rounded-card border border-border bg-surface p-6 transition-all hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-[0_12px_40px_-20px_rgba(79,70,229,0.45)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/30"
+      aria-label={`Read explainer: ${item.question}`}
+    >
+      <span className="text-xs font-semibold text-accent">
+        {item.sport} · {item.topic}
+      </span>
 
-              <h3 className="mt-3 text-lg font-semibold leading-snug tracking-tight text-foreground">
-                {item.question}
-              </h3>
+      <h3 className="mt-3 text-lg font-semibold leading-snug tracking-tight text-foreground group-hover:text-accent">
+        {item.question}
+      </h3>
 
-              <p className="mt-2 text-sm leading-relaxed text-muted">
-                {item.answer}
-              </p>
-            </article>
-          ))}
-        </div>
+      <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">
+        {item.answer}
+      </p>
+
+      <p className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-accent">
+        Open explainer
+        <span aria-hidden className="transition group-hover:translate-x-0.5">
+          {"\u2192"}
+        </span>
+      </p>
+    </Link>
+  ))}
+</div>
       </section>
 
       <section className="mx-auto mt-20 w-full max-w-6xl px-5 sm:px-8">

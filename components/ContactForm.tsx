@@ -39,23 +39,19 @@ export default function ContactForm() {
 
   return (
     <div className="rounded-card border border-border bg-surface p-6 sm:p-8">
-      <div className="mb-6 rounded-2xl border border-accent/20 bg-accent-soft/40 p-4">
-        <p className="text-sm font-semibold text-foreground">
-          Contact SportPulse directly
+            <div className="mb-6">
+        <p className="text-xs font-semibold uppercase tracking-[0.24em] text-accent">
+          Message helper
         </p>
-        <p className="mt-2 text-sm leading-6 text-muted">
-          Your message opens as a prepared email draft to{" "}
-          <a
-            href={`mailto:${contactEmail}`}
-            className="font-semibold text-accent hover:text-accent-strong"
-          >
-            {contactEmail}
-          </a>
-          . This keeps contact simple and transparent while direct form delivery
-          is being prepared.
+        <h2 className="mt-3 text-2xl font-semibold tracking-tight text-foreground">
+          Send a prepared message.
+        </h2>
+        <p className="mt-3 text-sm leading-6 text-muted">
+          Fill out the fields below and SportPulse will open your email app with
+          a prepared message to hello@sportpulse.news. Nothing is sent without
+          your confirmation.
         </p>
       </div>
-
       <form onSubmit={handleSubmit}>
         <div className="grid gap-4 sm:grid-cols-2">
           <div>
@@ -127,20 +123,13 @@ export default function ContactForm() {
           />
         </div>
 
-        <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
+        <div className="mt-6">
           <button
             type="submit"
             className="inline-flex w-full items-center justify-center rounded-full bg-foreground px-5 py-3 text-sm font-semibold text-background transition-opacity hover:opacity-90 sm:w-auto"
           >
             Open email draft
           </button>
-
-          <a
-            href={`mailto:${contactEmail}`}
-            className="inline-flex w-full items-center justify-center rounded-full border border-border bg-background px-5 py-3 text-sm font-semibold text-foreground transition hover:border-accent/40 hover:text-accent sm:w-auto"
-          >
-            Email directly
-          </a>
         </div>
       </form>
     </div>
